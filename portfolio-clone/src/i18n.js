@@ -41,7 +41,8 @@ const messages = {
         description: 'Una plataforma de monitoreo de CO2 en tiempo real integrada con dispositivos IoT a través de MQTT, con autenticación segura, persistencia de datos y paneles de visualización para monitoreo ambiental remoto.',
         link: '',
         github_link: 'https://github.com/realprodigium/risk_follower',
-        technologies: 'Python (FastAPI), MQTT, Postgresql (Supabase), Docker, Render, JWT, Argon2'
+        technologies: 'Python (FastAPI), MQTT, Postgresql (Supabase), Docker, Render, JWT, Argon2',
+        preview: '/public/co2bien.png'
       }
     ]
   }
