@@ -1,44 +1,8 @@
-<script setup>
-defineProps({
-  title: String,
-  subtitle: String,
-  description: String,
-  link: String,
-  github: String,
-  tags: Array
-});
-</script>
-
-<template>
-  <div class="card">
-    <div class="card-inner">
-      <a v-if="title" :href="link" target="_blank" rel="noopener noreferrer" class="card-title">
-        {{ title }}
-      </a>
-      <div v-if="subtitle" class="card-subtitle">{{ subtitle }}</div>
-
-      <p class="card-desc">{{ description }}</p>
-
-      <div v-if="tags?.length" class="tags">
-        <span v-for="(tag, i) in tags" :key="i" class="tag">{{ tag.trim() }}</span>
-      </div>
-
-      <div class="card-divider" />
-
-      <div class="card-footer">
-        <a v-if="github" :href="github" target="_blank" rel="noopener noreferrer" class="link">
-          {{ $t('github') }}
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 3h6v6M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M10 14 21 3"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</template>
-
-<style scoped>
+:root {
+  --text-color: #1a1a1a;
+  --text-light: #4a4a4a;
+  --accent-color: #3b82f6;
+}
 /* ── Reposo: parte del fondo, casi imperceptible ── */
 .card {
   position: relative;
@@ -229,4 +193,21 @@ defineProps({
   .card, .card::before, .card::after,
   .tag, .link, .link svg, .card-divider { transition: none; }
 }
-</style>
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--text-color);
+}

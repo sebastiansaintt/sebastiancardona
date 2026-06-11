@@ -42,7 +42,7 @@ const messages = {
         link: '',
         github_link: 'https://github.com/realprodigium/risk_follower',
         technologies: 'Python (FastAPI), MQTT, Postgresql (Supabase), Docker, Render, JWT, Argon2',
-        preview: '/public/co2bien.png'
+        preview: '/co2bien.png'
       }
     ]
   }
