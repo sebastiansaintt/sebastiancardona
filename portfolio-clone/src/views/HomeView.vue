@@ -8,9 +8,11 @@ const { t, tm } = useI18n()
 
 <template>
   <div class="page">
+    <div class="top-right-bar">
+      <LanguageSwitcher />
+    </div>
     <div class="layout">
 
-      <!-- LEFT: sticky sidebar -->
       <aside class="sidebar">
         <div class="sidebar-inner">
           <div class="identity">
@@ -29,23 +31,18 @@ const { t, tm } = useI18n()
               GitHub ↗
             </a>
           </div>
-
-          <LanguageSwitcher />
         </div>
       </aside>
 
-      <!-- RIGHT: scrollable content -->
       <main class="content">
 
         <section id="about" class="section">
-          <h2 class="section-title">{{ t('aboutTitle') }}</h2>
           <p class="body-text">{{ t('aboutP1') }}</p>
           <p class="body-text">{{ t('aboutP2') }}</p>
           <p class="body-text">{{ t('aboutP3') }}</p>
         </section>
 
         <section id="projects" class="section">
-          <h2 class="section-title">{{ t('projectsTitle') }}</h2>
           <div class="cards">
             <GlassCard
               v-for="project in tm('projects')"
@@ -71,51 +68,61 @@ const { t, tm } = useI18n()
 .page {
   min-height: 100vh;
   padding: 2rem;
+  position: relative;
+}
+
+.top-right-bar {
+  position: fixed;
+  top: 10px;
+  right: 1rem;
+  z-index: 1000;
 }
 
 .layout {
-  max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
-  gap: 4rem;
+  gap: 6%;
   align-items: flex-start;
 }
 
-/* ── Sidebar ── */
 .sidebar {
-  width: 280px;
+  width: 44%;
   flex-shrink: 0;
   position: sticky;
-  top: 2rem;
+  top: 5rem;
 }
 
 .sidebar-inner {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .name {
-  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 57px;
   font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.04em;
+  color: var(--text-color);
+  letter-spacing: -3px;
   line-height: 1.1;
   margin-bottom: 0.3rem;
 }
 
 .role {
-  font-size: 0.9rem;
+  font-size: 25px;
   font-weight: 500;
-  color: rgba(255,255,255,0.75);
+  color: var(--text-light);
   margin-bottom: 1rem;
-  letter-spacing: 0.02em;
+  letter-spacing: -1px;
 }
 
 .bio {
-  font-size: 0.82rem;
+  font-size: 20px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.60);
+  color: var(--text-light);
+  max-width: 95%;
+    letter-spacing: -1px;
+
 }
 
 .nav {
@@ -125,55 +132,65 @@ const { t, tm } = useI18n()
 }
 
 .nav-link {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.50);
+  color: var(--text-light);
   text-decoration: none;
   transition: color 200ms ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.nav-link:hover { color: #fff; }
+
+.nav-link::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: var(--text-light);
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.nav-link:hover { color: var(--text-color); }
+.nav-link:hover::before {
+  width: 50px;
+  background-color: var(--text-color);
+}
 
 .social { display: flex; flex-direction: column; gap: 0.5rem; }
 
 .social-link {
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.55);
+  color: var(--text-light);
   text-decoration: none;
   transition: color 200ms ease;
 }
-.social-link:hover { color: #fff; }
+.social-link:hover { color: var(--text-color); }
 
-/* ── Main content ── */
 .content {
-  flex: 1;
-  min-width: 0;
+  width: 50%;
+  flex: 0 0 50%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  padding-top: 0.5rem;
+  gap: 6rem;
+  padding-top: 3rem;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 3rem;
 }
 
-.section-title {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-}
 
 .body-text {
-  font-size: 0.88rem;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.70);
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-light);
+  letter-spacing: -0.5px;
 }
 
 .cards {
@@ -182,14 +199,12 @@ const { t, tm } = useI18n()
   gap: 1.25rem;
 }
 
-/* ── Footer ── */
 .footer {
   padding-bottom: 2rem;
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.30);
+  color: var(--text-light);
 }
 
-/* ── Mobile ── */
 @media (max-width: 768px) {
   .page { padding: 1.5rem 1rem; }
   .layout {

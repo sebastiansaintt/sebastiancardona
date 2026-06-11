@@ -1,200 +1,13 @@
 :root {
+  --bg-color: #f5f5f7;
   --text-color: #1a1a1a;
-  --text-light: #4a4a4a;
-  --accent-color: #3b82f6;
-}
-/* ── Reposo: parte del fondo, casi imperceptible ── */
-.card {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-
-  background: rgba(255, 255, 255, 0.30);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    0 1px 2px rgba(31, 38, 135, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.70);
-
-  /* Sin blur en reposo — fluye con la profundidad del bg */
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-
-  transition:
-    background       280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    border-color     280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow       280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    backdrop-filter  280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    transform        280ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --text-light: #555555;
+  --accent-color: #4169E1;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
-/* Specular: borde frontal del vidrio bajo luz natural */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  z-index: 3;
-  border-radius: 18px 18px 0 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255,255,255,0.0)  10%,
-    rgba(255,255,255,0.90) 35%,
-    rgba(255,255,255,1.0)  50%,
-    rgba(255,255,255,0.90) 65%,
-    rgba(255,255,255,0.0)  90%,
-    transparent 100%
-  );
-  opacity: 0;
-  transition: opacity 280ms ease;
-}
-
-/* Reflejo difuso interior — da volumen al panel */
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 280ms ease;
-  background: linear-gradient(
-    150deg,
-    rgba(255,255,255,0.55) 0%,
-    rgba(255,255,255,0.15) 25%,
-    transparent 55%
-  );
-}
-
-/* ── Hover: vidrio en luz natural ── */
-.card:hover {
-  background: rgba(255, 255, 255, 0.62);
-  border-color: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(24px) saturate(1.4) brightness(1.02);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4) brightness(1.02);
-  transform: translateY(-3px) scale(1.002);
-  box-shadow:
-    0 1px 2px   rgba(31, 38, 135, 0.04),
-    0 4px 8px   rgba(31, 38, 135, 0.06),
-    0 16px 32px rgba(31, 38, 135, 0.08),
-    0 28px 48px rgba(31, 38, 135, 0.05),
-    inset 0  1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(31, 38, 135, 0.04);
-}
-
-.card:hover::before { opacity: 1; }
-.card:hover::after  { opacity: 1; }
-
-/* ── Layout ── */
-.card-inner {
-  position: relative;
-  z-index: 2;
-  padding: 1.75rem 2rem;
-}
-
-/* ── Typography ── */
-.card-title {
-  display: inline-block;
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  color: var(--text-color);
-  text-decoration: none;
-  margin-bottom: 0.2rem;
-  transition: color 200ms ease;
-}
-.card-title:hover { color: var(--accent-color); }
-
-.card-subtitle {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.38);
-  margin-bottom: 1rem;
-}
-
-.card-desc {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: var(--text-light);
-  margin-bottom: 1.4rem;
-}
-
-/* ── Tags ── */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.4rem;
-}
-
-.tag {
-  font-size: 0.72rem;
-  font-weight: 450;
-  letter-spacing: 0.01em;
-  color: rgba(26, 26, 26, 0.45);
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid rgba(26, 26, 26, 0.10);
-  background: rgba(255, 255, 255, 0.40);
-  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
-}
-
-.card:hover .tag {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(26, 26, 26, 0.14);
-  color: rgba(26, 26, 26, 0.60);
-}
-
-/* ── Divider ── */
-.card-divider {
-  height: 1px;
-  background: rgba(26, 26, 26, 0.06);
-  margin: 0 0 1.25rem;
-  transition: background 280ms ease;
-}
-.card:hover .card-divider { background: rgba(26, 26, 26, 0.09); }
-
-/* ── Footer ── */
-.card-footer { display: flex; gap: 1rem; align-items: center; }
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: rgba(26, 26, 26, 0.38);
-  text-decoration: none;
-  transition: color 180ms ease;
-}
-.link:hover { color: var(--accent-color); }
-
-.link svg {
-  width: 13px; height: 13px;
-  opacity: 0.6;
-  transition: transform 180ms ease, opacity 180ms ease;
-}
-.link:hover svg { transform: translate(1px, -1px); opacity: 1; }
-
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  .card-inner { padding: 1.4rem 1.5rem; }
-  .card:hover { transform: none; }
-  .card-title { font-size: 0.98rem; }
-  .card-desc  { font-size: 0.85rem; }
-}
-
-/* ── Reduced motion ── */
-@media (prefers-reduced-motion: reduce) {
-  .card, .card::before, .card::after,
-  .tag, .link, .link svg, .card-divider { transition: none; }
-}
-
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -207,7 +20,27 @@ html, body, #app {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-feature-settings: "cv11" 1, "ss01" 1, "ss02" 1;
+  background-color: var(--bg-color);
   color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
 }

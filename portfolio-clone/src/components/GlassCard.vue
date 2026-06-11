@@ -39,94 +39,24 @@ defineProps({
 </template>
 
 <style scoped>
-/* ── Reposo: parte del fondo, casi imperceptible ── */
 .card {
   position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-
-  background: rgba(255, 255, 255, 0.30);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    0 1px 2px rgba(31, 38, 135, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.70);
-
-  /* Sin blur en reposo — fluye con la profundidad del bg */
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-
-  transition:
-    background       280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    border-color     280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    box-shadow       280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    backdrop-filter  280ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    transform        280ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 8px;
+  background: transparent;
+  padding: 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* Specular: borde frontal del vidrio bajo luz natural */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  z-index: 3;
-  border-radius: 18px 18px 0 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255,255,255,0.0)  10%,
-    rgba(255,255,255,0.90) 35%,
-    rgba(255,255,255,1.0)  50%,
-    rgba(255,255,255,0.90) 65%,
-    rgba(255,255,255,0.0)  90%,
-    transparent 100%
-  );
-  opacity: 0;
-  transition: opacity 280ms ease;
-}
-
-/* Reflejo difuso interior — da volumen al panel */
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 280ms ease;
-  background: linear-gradient(
-    150deg,
-    rgba(255,255,255,0.55) 0%,
-    rgba(255,255,255,0.15) 25%,
-    transparent 55%
-  );
-}
-
-/* ── Hover: vidrio en luz natural ── */
 .card:hover {
-  background: rgba(255, 255, 255, 0.62);
-  border-color: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(24px) saturate(1.4) brightness(1.02);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4) brightness(1.02);
-  transform: translateY(-3px) scale(1.002);
-  box-shadow:
-    0 1px 2px   rgba(31, 38, 135, 0.04),
-    0 4px 8px   rgba(31, 38, 135, 0.06),
-    0 16px 32px rgba(31, 38, 135, 0.08),
-    0 28px 48px rgba(31, 38, 135, 0.05),
-    inset 0  1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(31, 38, 135, 0.04);
+  background: rgba(0, 0, 0, 0.03);
 }
-
-.card:hover::before { opacity: 1; }
-.card:hover::after  { opacity: 1; }
 
 /* ── Layout ── */
 .card-inner {
   position: relative;
   z-index: 2;
-  padding: 1.75rem 2rem;
 }
 
 /* ── Typography ── */
@@ -134,7 +64,7 @@ defineProps({
   display: inline-block;
   font-size: 1.05rem;
   font-weight: 600;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   color: var(--text-color);
   text-decoration: none;
   margin-bottom: 0.2rem;
@@ -147,53 +77,34 @@ defineProps({
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.38);
+  color: var(--text-light);
   margin-bottom: 1rem;
 }
 
 .card-desc {
   font-size: 0.9rem;
-  line-height: 1.75;
+  line-height: 1.6;
   color: var(--text-light);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 
-/* ── Tags ── */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.4rem;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .tag {
-  font-size: 0.72rem;
-  font-weight: 450;
-  letter-spacing: 0.01em;
-  color: rgba(26, 26, 26, 0.45);
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid rgba(26, 26, 26, 0.10);
-  background: rgba(255, 255, 255, 0.40);
-  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+  background: rgba(65, 105, 225, 0.08);
+  color: var(--accent-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
 }
 
-.card:hover .tag {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(26, 26, 26, 0.14);
-  color: rgba(26, 26, 26, 0.60);
-}
-
-/* ── Divider ── */
-.card-divider {
-  height: 1px;
-  background: rgba(26, 26, 26, 0.06);
-  margin: 0 0 1.25rem;
-  transition: background 280ms ease;
-}
-.card:hover .card-divider { background: rgba(26, 26, 26, 0.09); }
-
-/* ── Footer ── */
 .card-footer { display: flex; gap: 1rem; align-items: center; }
 
 .link {
@@ -203,30 +114,26 @@ defineProps({
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: rgba(26, 26, 26, 0.38);
+  color: var(--text-color);
   text-decoration: none;
   transition: color 180ms ease;
 }
 .link:hover { color: var(--accent-color); }
 
 .link svg {
-  width: 13px; height: 13px;
-  opacity: 0.6;
-  transition: transform 180ms ease, opacity 180ms ease;
+  width: 14px; height: 14px;
+  transition: transform 180ms ease;
 }
-.link:hover svg { transform: translate(1px, -1px); opacity: 1; }
+.link:hover svg { transform: translate(2px, -2px); }
 
-/* ── Mobile ── */
 @media (max-width: 768px) {
-  .card-inner { padding: 1.4rem 1.5rem; }
-  .card:hover { transform: none; }
-  .card-title { font-size: 0.98rem; }
+  .card { padding: 1rem; margin-left: 0; margin-right: 0; }
+  .card:hover { transform: none; background: transparent; }
+  .card-title { font-size: 1rem; }
   .card-desc  { font-size: 0.85rem; }
 }
 
-/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .card, .card::before, .card::after,
-  .tag, .link, .link svg, .card-divider { transition: none; }
+  .card, .link, .link svg { transition: none; }
 }
 </style>
