@@ -41,16 +41,26 @@ defineProps({
 <style scoped>
 .card {
   position: relative;
-  border-radius: 8px;
-  background: transparent;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: var(--glass-shadow);
   padding: 1.5rem;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
+  margin: 0;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+
+.card-divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 1rem 0;
+  border-radius: 999px;
 }
 
 /* ── Layout ── */

@@ -80,13 +80,15 @@ const { t, tm } = useI18n()
 
 .layout {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   gap: 6%;
   align-items: flex-start;
 }
 
 .sidebar {
-  width: 44%;
+  width: 36%;
   flex-shrink: 0;
   position: sticky;
   top: 5rem;
@@ -121,8 +123,7 @@ const { t, tm } = useI18n()
   line-height: 1.7;
   color: var(--text-light);
   max-width: 95%;
-    letter-spacing: -1px;
-
+  letter-spacing: -1px;
 }
 
 .nav {
@@ -159,7 +160,11 @@ const { t, tm } = useI18n()
   background-color: var(--text-color);
 }
 
-.social { display: flex; flex-direction: column; gap: 0.5rem; }
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
 .social-link {
   font-size: 0.8rem;
@@ -171,11 +176,11 @@ const { t, tm } = useI18n()
 .social-link:hover { color: var(--text-color); }
 
 .content {
-  width: 50%;
-  flex: 0 0 50%;
+  width: 58%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 5rem;
   padding-top: 3rem;
 }
 
@@ -185,18 +190,18 @@ const { t, tm } = useI18n()
   gap: 3rem;
 }
 
-
 .body-text {
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-light);
   letter-spacing: -0.5px;
 }
 
 .cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
+  width: 100%;
 }
 
 .footer {
@@ -205,16 +210,70 @@ const { t, tm } = useI18n()
   color: var(--text-light);
 }
 
-@media (max-width: 768px) {
-  .page { padding: 1.5rem 1rem; }
+@media (max-width: 1024px) {
   .layout {
-    flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
   }
   .sidebar {
     width: 100%;
     position: static;
+    top: auto;
   }
-  .nav { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+  .content {
+    width: 100%;
+    padding-top: 2rem;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1.5rem 1rem;
+  }
+  .layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .top-right-bar {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  .name {
+    font-size: 3rem;
+  }
+  .role {
+    font-size: 1.5rem;
+  }
+  .bio,
+  .body-text {
+    font-size: 1rem;
+  }
+  .content {
+    padding-top: 0;
+    gap: 3rem;
+  }
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 1rem;
+  }
+  .name {
+    font-size: 2.4rem;
+  }
+  .role {
+    font-size: 1.25rem;
+  }
+  .sidebar-inner {
+    gap: 1.25rem;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
