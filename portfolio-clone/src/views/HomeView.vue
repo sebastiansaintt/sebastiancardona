@@ -67,75 +67,78 @@ const { t, tm } = useI18n()
 <style scoped>
 .page {
   min-height: 100vh;
-  padding: 2rem;
+  padding: 6rem 4rem;
   position: relative;
 }
 
 .top-right-bar {
   position: fixed;
-  top: 10px;
-  right: 1rem;
+  top: 1.5rem;
+  right: 2rem;
   z-index: 1000;
 }
 
 .layout {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  gap: 6%;
+  justify-content: space-between;
+  gap: 8%;
   align-items: flex-start;
 }
 
 .sidebar {
-  width: 36%;
+  width: 42%;
   flex-shrink: 0;
   position: sticky;
-  top: 5rem;
+  top: 6rem;
 }
 
 .sidebar-inner {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .name {
   font-family: 'Poppins', sans-serif;
-  font-size: 57px;
+  font-size: clamp(40px, 4.5vw, 60px);
   font-weight: 700;
   color: var(--text-color);
-  letter-spacing: -3px;
+  letter-spacing: -2px;
   line-height: 1.1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
 
 .role {
-  font-size: 25px;
+  font-size: 1.25rem;
   font-weight: 500;
-  color: var(--text-light);
-  margin-bottom: 1rem;
-  letter-spacing: -1px;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+  opacity: 0.9;
 }
 
 .bio {
-  font-size: 20px;
+  font-size: 1.1rem;
   line-height: 1.7;
   color: var(--text-light);
   max-width: 95%;
-  letter-spacing: -1px;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .nav-link {
   font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
@@ -143,12 +146,13 @@ const { t, tm } = useI18n()
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: max-content;
 }
 
 .nav-link::before {
   content: '';
   display: block;
-  width: 30px;
+  width: 35px;
   height: 1px;
   background-color: var(--text-light);
   transition: width 0.3s, background-color 0.3s;
@@ -156,63 +160,69 @@ const { t, tm } = useI18n()
 
 .nav-link:hover { color: var(--text-color); }
 .nav-link:hover::before {
-  width: 50px;
+  width: 60px;
   background-color: var(--text-color);
 }
 
 .social {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .social-link {
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
   transition: color 200ms ease;
+  display: flex;
+  align-items: center;
 }
 .social-link:hover { color: var(--text-color); }
 
 .content {
-  width: 58%;
-  flex: 1;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  padding-top: 3rem;
+  gap: 8rem;
+  padding-top: 1rem;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 .body-text {
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: var(--text-light);
-  letter-spacing: -0.5px;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  gap: 2rem;
   width: 100%;
 }
 
 .footer {
   padding-bottom: 2rem;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-light);
 }
 
 @media (max-width: 1024px) {
+  .page {
+    padding: 5rem 3rem;
+  }
   .layout {
-    gap: 3rem;
+    flex-direction: column;
+    gap: 4rem;
   }
   .sidebar {
     width: 100%;
@@ -221,56 +231,62 @@ const { t, tm } = useI18n()
   }
   .content {
     width: 100%;
-    padding-top: 2rem;
-    gap: 4rem;
+    padding-top: 0;
+    gap: 6rem;
+  }
+  .name {
+    white-space: normal;
   }
 }
 
 @media (max-width: 768px) {
   .page {
-    padding: 1.5rem 1rem;
-  }
-  .layout {
-    flex-direction: column;
-    gap: 2rem;
+    padding: 4rem 2rem;
   }
   .top-right-bar {
     position: static;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
   }
   .name {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
   }
   .role {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
   }
   .bio,
   .body-text {
     font-size: 1rem;
   }
   .content {
-    padding-top: 0;
-    gap: 3rem;
+    gap: 5rem;
   }
   .nav {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 1.5rem;
+  }
+  .nav-link::before {
+    display: none;
+  }
+  .nav-link {
+    letter-spacing: 0.05em;
   }
 }
 
 @media (max-width: 480px) {
   .page {
-    padding: 1rem;
+    padding: 3rem 1.5rem;
   }
   .name {
-    font-size: 2.4rem;
+    font-size: 2.25rem;
   }
   .role {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   .sidebar-inner {
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
   .cards {
     grid-template-columns: 1fr;
