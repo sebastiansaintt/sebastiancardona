@@ -13,6 +13,38 @@
   --spring-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* ─── AI Linear Pattern ──────────────────────────────────────────────────── */
+/* Subtle neural-net dot grid layered behind all content */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Dot grid: small dots at every 32px intersection */
+  background-image:
+    radial-gradient(circle, rgba(17,17,17,0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  /* Fade the pattern so it's visible at edges, invisible in center */
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, black 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, black 100%);
+}
+
+/* Node connectors: faint horizontal + vertical hairlines forming the "grid" */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(17,17,17,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,17,17,0.035) 1px, transparent 1px);
+  background-size: 96px 96px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 30%, black 100%);
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 30%, black 100%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

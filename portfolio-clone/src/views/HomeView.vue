@@ -6,13 +6,9 @@ import { ArrowDown, ExternalLink, Download } from 'lucide-vue-next'
 
 const { t, tm, locale } = useI18n()
 
-// Track scroll for parallax
 const scrollY = ref(0)
-const onScroll = () => {
-  scrollY.value = window.scrollY
-}
+const onScroll = () => {scrollY.value = window.scrollY}
 
-// Track mouse position for hover image reveal in projects
 const mouseX = ref(0)
 const mouseY = ref(0)
 const activeHoverImg = ref('')
@@ -27,16 +23,13 @@ const onMouseMove = (e) => {
   mouseY.value = e.clientY
 }
 
-// Spring physics loop for the floating project image preview
 const updateHoverImgPos = () => {
-  // Offset the image from the cursor slightly
   const targetX = mouseX.value + 25
   const targetY = mouseY.value + 25
   
   const dx = targetX - hoverImgX.value
   const dy = targetY - hoverImgY.value
   
-  // Spring math: acceleration + friction damping
   hoverImgVelocityX = (hoverImgVelocityX + dx * 0.12) * 0.72
   hoverImgVelocityY = (hoverImgVelocityY + dy * 0.12) * 0.72
   
@@ -46,7 +39,6 @@ const updateHoverImgPos = () => {
   imgFrameId = requestAnimationFrame(updateHoverImgPos)
 }
 
-// Scroll to section smoothly
 const scrollTo = (id) => {
   const el = document.getElementById(id)
   if (el) {
@@ -54,7 +46,6 @@ const scrollTo = (id) => {
   }
 }
 
-// Directives & handlers for hover image trigger
 const showHoverImage = (img) => {
   activeHoverImg.value = img
 }
@@ -62,7 +53,6 @@ const hideHoverImage = () => {
   activeHoverImg.value = ''
 }
 
-// Unified scroll reveal initialization
 let observer = null
 const initScrollReveal = () => {
   if (observer) {
@@ -85,21 +75,18 @@ const initScrollReveal = () => {
   })
 }
 
-// Vue directive to handle custom magnetic button effect
 const vMagnetic = {
   mounted(el) {
     el.addEventListener('mousemove', (e) => {
       const rect = el.getBoundingClientRect()
       const x = e.clientX - rect.left - rect.width / 2
       const y = e.clientY - rect.top - rect.height / 2
-      // Pull element 35% toward cursor
       const pull = 0.35
       el.style.transform = `translate3d(${x * pull}px, ${y * pull}px, 0)`
       el.style.transition = 'transform 0.08s ease-out'
     })
     
     el.addEventListener('mouseleave', () => {
-      // Spring back to center
       el.style.transform = 'translate3d(0, 0, 0)'
       el.style.transition = 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
     })
@@ -124,7 +111,6 @@ onUnmounted(() => {
   }
 })
 
-// Re-observe scroll reveals when layout updates due to language toggle
 watch(locale, () => {
   nextTick(() => {
     initScrollReveal()
@@ -134,7 +120,6 @@ watch(locale, () => {
 
 <template>
   <div class="page-wrapper">
-    <!-- Grid Overlay (Editorial Guide Lines) -->
     <div class="grid-overlay">
       <div class="grid-line"></div>
       <div class="grid-line"></div>
@@ -142,11 +127,9 @@ watch(locale, () => {
       <div class="grid-line"></div>
     </div>
 
-    <!-- Fluid Morphing Decorative Blobs -->
     <div class="morphing-blob blob-one"></div>
     <div class="morphing-blob blob-two"></div>
 
-    <!-- Floating Project Image Follower (Desktop only) -->
     <div 
       class="hover-image-follower" 
       :class="{ active: activeHoverImg }"
@@ -155,13 +138,8 @@ watch(locale, () => {
       <img v-if="activeHoverImg" :src="activeHoverImg" alt="Project Preview" />
     </div>
 
-    <!-- Header Navigation -->
     <nav class="navbar">
-      <div class="nav-left">
-        <a href="#" class="nav-logo interactive" @click.prevent="scrollTo('hero')">
-          SEBASTIÁN CARDONA
-        </a>
-      </div>
+
       <div class="nav-center">
         <div class="nav-menu">
           <a @click.prevent="scrollTo('about')" href="#about" class="menu-item interactive">{{ t('aboutTitle') }}</a>
@@ -173,12 +151,31 @@ watch(locale, () => {
         <LanguageSwitcher />
       </div>
     </nav>
-
-    <!-- Hero Section -->
     <section id="hero" class="hero-section">
+      <svg class="ai-pattern" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="60" y1="60" x2="160" y2="120" stroke="currentColor" stroke-width="0.7" opacity="0.25"/>
+        <line x1="160" y1="120" x2="260" y2="60" stroke="currentColor" stroke-width="0.7" opacity="0.25"/>
+        <line x1="260" y1="60" x2="340" y2="130" stroke="currentColor" stroke-width="0.7" opacity="0.25"/>
+        <line x1="60" y1="60" x2="100" y2="180" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
+        <line x1="160" y1="120" x2="200" y2="220" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
+        <line x1="260" y1="60" x2="200" y2="220" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
+        <line x1="340" y1="130" x2="300" y2="240" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
+        <line x1="100" y1="180" x2="200" y2="220" stroke="currentColor" stroke-width="0.7" opacity="0.22"/>
+        <line x1="200" y1="220" x2="300" y2="240" stroke="currentColor" stroke-width="0.7" opacity="0.22"/>
+        <line x1="100" y1="180" x2="40" y2="260" stroke="currentColor" stroke-width="0.7" opacity="0.15"/>
+        <line x1="300" y1="240" x2="370" y2="270" stroke="currentColor" stroke-width="0.7" opacity="0.15"/>
+        <circle class="ai-node" cx="60" cy="60" r="3.5"/>
+        <circle class="ai-node ai-node--delay1" cx="260" cy="60" r="3.5"/>
+        <circle class="ai-node ai-node--delay2" cx="160" cy="120" r="4"/>
+        <circle class="ai-node" cx="340" cy="130" r="3"/>
+        <circle class="ai-node ai-node--delay1" cx="100" cy="180" r="3.5"/>
+        <circle class="ai-node ai-node--delay2" cx="200" cy="220" r="5"/>
+        <circle class="ai-node" cx="300" cy="240" r="3.5"/>
+        <circle class="ai-node ai-node--delay1" cx="40" cy="260" r="2.5"/>
+        <circle class="ai-node ai-node--delay2" cx="370" cy="270" r="2.5"/>
+      </svg>
       <div class="hero-container">
         
-        <!-- Left Side: Roles & Badges -->
         <div class="hero-text-side">
           <div class="status-badge blur-reveal">
             <span class="pulse-dot"></span>
@@ -203,11 +200,9 @@ watch(locale, () => {
             >
               <ArrowDown stroke-width="2.5" size="20" />
             </button>
-            <span class="scroll-btn-text font-inter">{{ t('scrollDown') }}</span>
           </div>
         </div>
 
-        <!-- Right Side: Parallax Developer Frame -->
         <div class="hero-image-side">
           <div 
             class="image-frame-wrapper scroll-reveal"
@@ -215,7 +210,6 @@ watch(locale, () => {
           >
             <img src="/IMG_0247.jpeg" alt="Sebastián Cardona portrait" class="hero-profile-pic" />
             <div class="frame-caption font-inter">
-              <span>[ PORTFOLIO / 2026 ]</span>
               <span>{{ t('locationText') }}</span>
             </div>
           </div>
@@ -229,14 +223,11 @@ watch(locale, () => {
             <div class="large-name">SEBASTIÁN CARDONA</div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- Main Sections Wrapper -->
     <div class="main-content">
       
-      <!-- About Section -->
       <section id="about" class="section about-section">
         <h2 class="section-num blur-reveal font-inter">01/</h2>
         <div class="section-header-block">
@@ -244,7 +235,6 @@ watch(locale, () => {
         </div>
         
         <div class="about-grid">
-          <!-- Text Biography -->
           <div class="about-summary-col scroll-reveal">
             <p class="summary-paragraph font-inter">{{ t('aboutP1') }}</p>
             <p class="summary-paragraph font-inter">{{ t('aboutP2') }}</p>
@@ -409,12 +399,34 @@ watch(locale, () => {
   background-color: var(--bg-color);
 }
 
-/* Base typography enforcement */
+.ai-pattern {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: min(400px, 38vw);
+  height: auto;
+  color: var(--text-color);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+.ai-node {
+  fill: var(--text-color);
+  animation: nodeGlow 3.2s ease-in-out infinite;
+}
+.ai-node--delay1 { animation-delay: 1.1s; }
+.ai-node--delay2 { animation-delay: 2.2s; }
+
+@keyframes nodeGlow {
+  0%, 100% { opacity: 0.35; r: 3.5; }
+  50%       { opacity: 1;    r: 5;   }
+}
+
 .font-inter {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
-/* Navbar styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -434,8 +446,8 @@ watch(locale, () => {
 .nav-logo {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  font-size: 0.95rem;
+  letter-spacing: -0.5px;
+  font-size: 0.90rem;
   color: var(--text-color);
 }
 
@@ -474,11 +486,13 @@ watch(locale, () => {
 
 /* Hero layout */
 .hero-section {
-  min-height: 100vh;
+  /* Fit snugly in one viewport — no giant empty space */
+  min-height: calc(100vh - 72px); /* navbar height subtracted */
+  max-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 4rem 4rem 4rem;
+  padding: 6rem 4rem 3rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -532,11 +546,11 @@ watch(locale, () => {
 
 .hero-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(3.2rem, 6.2vw, 6.2rem);
+  font-size: clamp(2.6rem, 5vw, 5rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.04em;
-  margin-bottom: 2.2rem;
+  margin-bottom: 1.6rem;
   color: var(--text-color);
 }
 
@@ -545,17 +559,18 @@ watch(locale, () => {
 }
 
 .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', Georgia, serif;
   font-weight: 400;
 }
 
 .hero-bio {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-light);
   max-width: 520px;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
   font-weight: 400;
   line-height: 1.7;
+  letter-spacing: -0.5px;
 }
 
 .hero-scroll-btn {
@@ -583,15 +598,7 @@ watch(locale, () => {
   color: var(--bg-color);
 }
 
-.scroll-btn-text {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.7;
-}
 
-/* Hero Profile image frame side */
 .hero-image-side {
   position: relative;
   display: flex;
@@ -601,12 +608,9 @@ watch(locale, () => {
 
 .image-frame-wrapper {
   width: 100%;
-  max-width: 380px;
-  border: 1px solid var(--border-color-dark);
-  padding: 1.25rem;
-  background-color: var(--bg-color);
-  border-radius: 6px;
-  box-shadow: var(--glass-shadow);
+  max-width: 250px;
+  padding: 5px;
+  border-radius: 100px;
   transition: transform 0.1s ease-out;
   will-change: transform;
 }
@@ -614,9 +618,9 @@ watch(locale, () => {
 .hero-profile-pic {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 4.5;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: 50%;
 }
 
 .frame-caption {
@@ -660,7 +664,7 @@ watch(locale, () => {
   padding: 0 4rem;
   display: flex;
   flex-direction: column;
-  gap: 12rem;
+  gap: 0; /* sections manage their own spacing via padding-top */
   position: relative;
   z-index: 2;
 }
@@ -673,7 +677,8 @@ watch(locale, () => {
   grid-template-columns: 80px 1fr;
   gap: 4rem;
   border-top: 1px solid var(--border-color);
-  padding-top: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .section-num {
@@ -687,7 +692,7 @@ watch(locale, () => {
 .section-header-block {
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   grid-column: 2;
 }
 
@@ -705,14 +710,14 @@ watch(locale, () => {
   grid-column: 2;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 .summary-paragraph {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--text-light);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .sub-block-title {
@@ -781,7 +786,7 @@ watch(locale, () => {
 
 .project-row-item {
   border-bottom: 1px solid var(--border-color);
-  padding: 3rem 0;
+  padding: 2rem 0;
   position: relative;
 }
 
@@ -1015,8 +1020,8 @@ watch(locale, () => {
 /* Footer layout */
 .footer {
   border-top: 1px solid var(--border-color);
-  padding: 4rem 0;
-  margin-top: 8rem;
+  padding: 3rem 0;
+  margin-top: 4rem;
   position: relative;
   z-index: 2;
 }
@@ -1080,12 +1085,12 @@ watch(locale, () => {
   }
   .main-content {
     padding: 0 1.5rem;
-    gap: 7rem;
   }
   .section {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   .section-num {
     display: none;
