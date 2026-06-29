@@ -6,9 +6,13 @@ import { ArrowDown, ExternalLink, Download } from 'lucide-vue-next'
 
 const { t, tm, locale } = useI18n()
 
+// Track scroll for parallax
 const scrollY = ref(0)
-const onScroll = () => {scrollY.value = window.scrollY}
+const onScroll = () => {
+  scrollY.value = window.scrollY
+}
 
+// Track mouse position for hover image reveal in projects
 const mouseX = ref(0)
 const mouseY = ref(0)
 const activeHoverImg = ref('')
@@ -23,6 +27,7 @@ const onMouseMove = (e) => {
   mouseY.value = e.clientY
 }
 
+// Spring physics loop for the floating project image preview
 const updateHoverImgPos = () => {
   const targetX = mouseX.value + 25
   const targetY = mouseY.value + 25
@@ -39,13 +44,7 @@ const updateHoverImgPos = () => {
   imgFrameId = requestAnimationFrame(updateHoverImgPos)
 }
 
-const scrollTo = (id) => {
-  const el = document.getElementById(id)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-
+// Directives & handlers for hover image trigger
 const showHoverImage = (img) => {
   activeHoverImg.value = img
 }
@@ -53,6 +52,7 @@ const hideHoverImage = () => {
   activeHoverImg.value = ''
 }
 
+// Unified scroll reveal initialization
 let observer = null
 const initScrollReveal = () => {
   if (observer) {
@@ -120,13 +120,6 @@ watch(locale, () => {
 
 <template>
   <div class="page-wrapper">
-    <div class="grid-overlay">
-      <div class="grid-line"></div>
-      <div class="grid-line"></div>
-      <div class="grid-line"></div>
-      <div class="grid-line"></div>
-    </div>
-
     <div class="morphing-blob blob-one"></div>
     <div class="morphing-blob blob-two"></div>
 
@@ -138,90 +131,25 @@ watch(locale, () => {
       <img v-if="activeHoverImg" :src="activeHoverImg" alt="Project Preview" />
     </div>
 
-    <nav class="navbar">
-
-      <div class="nav-center">
-        <div class="nav-menu">
-          <a @click.prevent="scrollTo('about')" href="#about" class="menu-item interactive">{{ t('aboutTitle') }}</a>
-          <a @click.prevent="scrollTo('projects')" href="#projects" class="menu-item interactive">{{ t('projectsTitle') }}</a>
-          <a @click.prevent="scrollTo('contact')" href="#contact" class="menu-item interactive">{{ t('contactTitle') }}</a>
-        </div>
-      </div>
-      <div class="nav-right">
+    <header class="top-header font-inter">
+      <div class="header-col" style="text-align: right;">
         <LanguageSwitcher />
       </div>
-    </nav>
+    </header>
+
     <section id="hero" class="hero-section">
-      <svg class="ai-pattern" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="60" y1="60" x2="160" y2="120" stroke="currentColor" stroke-width="0.7" opacity="0.25"/>
-        <line x1="160" y1="120" x2="260" y2="60" stroke="currentColor" stroke-width="0.7" opacity="0.25"/>
-        <line x1="260" y1="60" x2="340" y2="130" stroke="currentColor" stroke-width="0.7" opacity="0.25"/>
-        <line x1="60" y1="60" x2="100" y2="180" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
-        <line x1="160" y1="120" x2="200" y2="220" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
-        <line x1="260" y1="60" x2="200" y2="220" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
-        <line x1="340" y1="130" x2="300" y2="240" stroke="currentColor" stroke-width="0.7" opacity="0.18"/>
-        <line x1="100" y1="180" x2="200" y2="220" stroke="currentColor" stroke-width="0.7" opacity="0.22"/>
-        <line x1="200" y1="220" x2="300" y2="240" stroke="currentColor" stroke-width="0.7" opacity="0.22"/>
-        <line x1="100" y1="180" x2="40" y2="260" stroke="currentColor" stroke-width="0.7" opacity="0.15"/>
-        <line x1="300" y1="240" x2="370" y2="270" stroke="currentColor" stroke-width="0.7" opacity="0.15"/>
-        <circle class="ai-node" cx="60" cy="60" r="3.5"/>
-        <circle class="ai-node ai-node--delay1" cx="260" cy="60" r="3.5"/>
-        <circle class="ai-node ai-node--delay2" cx="160" cy="120" r="4"/>
-        <circle class="ai-node" cx="340" cy="130" r="3"/>
-        <circle class="ai-node ai-node--delay1" cx="100" cy="180" r="3.5"/>
-        <circle class="ai-node ai-node--delay2" cx="200" cy="220" r="5"/>
-        <circle class="ai-node" cx="300" cy="240" r="3.5"/>
-        <circle class="ai-node ai-node--delay1" cx="40" cy="260" r="2.5"/>
-        <circle class="ai-node ai-node--delay2" cx="370" cy="270" r="2.5"/>
-      </svg>
-      <div class="hero-container">
-        
-        <div class="hero-text-side">
-          <div class="status-badge blur-reveal">
-            <span class="pulse-dot"></span>
-            <span class="status-text font-inter">{{ t('role') }}</span>
-          </div>
+      <h1 class="hero-huge-text-top blur-reveal font-inter">
+        SOFTWARE<br>ENGINEER
+      </h1>
 
-          <h1 class="hero-heading blur-reveal" style="transition-delay: 0.1s;">
-            <span class="title-line">SOFTWARE</span>
-            <span class="title-line font-serif italic">ENGINEER</span>
-          </h1>
-
-          <p class="hero-bio blur-reveal font-inter" style="transition-delay: 0.2s;">
-            {{ t('bio') }}
-          </p>
-
-          <div class="hero-scroll-btn blur-reveal" style="transition-delay: 0.3s;">
-            <button 
-              @click="scrollTo('about')" 
-              class="scroll-arrow-btn magnetic interactive"
-              aria-label="Scroll to About"
-              v-magnetic
-            >
-              <ArrowDown stroke-width="2.5" size="20" />
-            </button>
-          </div>
+      <div class="hero-bottom-section">
+        <div class="hero-bio-container blur-reveal">
+          <ArrowDown stroke-width="2" size="48" class="hero-arrow" />
+          <p class="hero-bio-text font-inter">{{ t('bio') }}</p>
         </div>
-
-        <div class="hero-image-side">
-          <div 
-            class="image-frame-wrapper scroll-reveal"
-            :style="{ transform: `translate3d(0, ${scrollY * 0.08}px, 0)` }"
-          >
-            <img src="/IMG_0247.jpeg" alt="Sebastián Cardona portrait" class="hero-profile-pic" />
-            <div class="frame-caption font-inter">
-              <span>{{ t('locationText') }}</span>
-            </div>
-          </div>
-          
-          <div 
-            class="hero-bottom-name blur-reveal" 
-            style="transition-delay: 0.15s;"
-            :style="{ transform: `translate3d(0, ${scrollY * -0.03}px, 0)` }"
-          >
-            <div class="subtitle-role font-inter">{{ t('subtitleRole') }}</div>
-            <div class="large-name">SEBASTIÁN CARDONA</div>
-          </div>
+        
+        <div class="hero-huge-text-bottom blur-reveal font-inter" :style="{ transform: `translate3d(0, ${scrollY * -0.03}px, 0)` }">
+          SEBASTIÁN<br>CARDONA
         </div>
       </div>
     </section>
@@ -229,9 +157,8 @@ watch(locale, () => {
     <div class="main-content">
       
       <section id="about" class="section about-section">
-        <h2 class="section-num blur-reveal font-inter">01/</h2>
         <div class="section-header-block">
-          <h3 class="section-title blur-reveal">{{ t('aboutTitle') }}</h3>
+          <h3 class="section-title blur-reveal font-inter">{{ t('aboutTitle') }}</h3>
         </div>
         
         <div class="about-grid">
@@ -246,7 +173,6 @@ watch(locale, () => {
             </div>
           </div>
 
-          <!-- Professional Skills Matrix -->
           <div class="skills-col scroll-reveal" style="transition-delay: 0.1s;">
             <h4 class="sub-block-title font-inter">{{ t('skillsTitle') }}</h4>
             <div class="skills-grid">
@@ -263,11 +189,9 @@ watch(locale, () => {
         </div>
       </section>
 
-      <!-- Projects Section -->
       <section id="projects" class="section projects-section">
-        <h2 class="section-num blur-reveal font-inter">02/</h2>
         <div class="section-header-block">
-          <h3 class="section-title blur-reveal">{{ t('projectsTitle') }}</h3>
+          <h3 class="section-title blur-reveal font-inter">{{ t('projectsTitle') }}</h3>
         </div>
 
         <div class="projects-list">
@@ -278,22 +202,16 @@ watch(locale, () => {
             @mouseenter="project.preview ? showHoverImage(project.preview) : null"
             @mouseleave="hideHoverImage"
           >
-            <!-- Project Header -->
             <div class="project-row-header">
-              <span class="proj-num font-inter">{{ project.num }}</span>
-              <h4 class="proj-title">{{ project.title }}</h4>
+              <h4 class="proj-title font-inter">{{ project.title }}</h4>
             </div>
 
-            <!-- Project Body -->
             <div class="project-row-body">
               <div class="project-row-body-inner">
                 <p class="proj-description font-inter">{{ project.description }}</p>
                 
                 <ul class="proj-bullet-list font-inter">
-                  <li 
-                    v-for="(bullet, bIdx) in project.bullet_points" 
-                    :key="bIdx"
-                  >
+                  <li v-for="(bullet, bIdx) in project.bullet_points" :key="bIdx">
                     {{ bullet }}
                   </li>
                 </ul>
@@ -314,7 +232,6 @@ watch(locale, () => {
                   </a>
                 </div>
 
-                <!-- In-place visual fallback for mobile or when not hovering -->
                 <div v-if="project.preview" class="proj-embed-preview">
                   <img :src="project.preview" :alt="project.title" />
                 </div>
@@ -324,15 +241,12 @@ watch(locale, () => {
         </div>
       </section>
 
-      <!-- Contact Section -->
       <section id="contact" class="section contact-section">
-        <h2 class="section-num blur-reveal font-inter">03/</h2>
         <div class="section-header-block">
-          <h3 class="section-title blur-reveal">{{ t('contactTitle') }}</h3>
+          <h3 class="section-title blur-reveal font-inter">{{ t('contactTitle') }}</h3>
         </div>
 
         <div class="contact-content-grid">
-          <!-- Big Email Link and PDF Button -->
           <div class="contact-info-col scroll-reveal">
             <p class="contact-sub-text font-inter">{{ t('contactSub') }}</p>
             
@@ -359,7 +273,6 @@ watch(locale, () => {
             </div>
           </div>
 
-          <!-- Social Handles and Phone -->
           <div class="contact-socials-col scroll-reveal" style="transition-delay: 0.1s;">
             <div class="social-links-list font-inter">
               <div class="social-item">
@@ -384,7 +297,7 @@ watch(locale, () => {
     <!-- Page Footer -->
     <footer class="footer scroll-reveal">
       <div class="footer-inner font-inter">
-        <p>© 2026 Sebastián Cardona. {{ t('footer') }}</p>
+        <p>© 2026 {{ t('footer') }}</p>
         <p style="opacity: 0.5; font-size: 0.65rem;">Colombia</p>
       </div>
     </footer>
@@ -399,77 +312,29 @@ watch(locale, () => {
   background-color: var(--bg-color);
 }
 
-.ai-pattern {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  width: min(400px, 38vw);
-  height: auto;
-  color: var(--text-color);
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.55;
-}
-
-.ai-node {
-  fill: var(--text-color);
-  animation: nodeGlow 3.2s ease-in-out infinite;
-}
-.ai-node--delay1 { animation-delay: 1.1s; }
-.ai-node--delay2 { animation-delay: 2.2s; }
-
-@keyframes nodeGlow {
-  0%, 100% { opacity: 0.35; r: 3.5; }
-  50%       { opacity: 1;    r: 5;   }
-}
-
 .font-inter {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
-.navbar {
-  position: fixed;
+.top-header {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 4rem;
-  border-bottom: 1px solid var(--border-color);
-  background-color: rgba(236, 235, 233, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  padding: 1.4rem 1.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-color);
   z-index: 1000;
 }
 
-.nav-logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  font-size: 0.90rem;
-  color: var(--text-color);
+.header-col {
+  padding: 0 0.5rem;
 }
 
-.nav-menu {
-  display: flex;
-  gap: 2.5rem;
-}
-
-.menu-item {
-  font-size: 0.72rem;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-light);
-}
-
-.menu-item:hover {
-  color: var(--text-color);
-}
-
-/* Morphing decorative blobs settings */
 .blob-one {
   top: 15%;
   left: 5%;
@@ -484,309 +349,173 @@ watch(locale, () => {
   height: 600px;
 }
 
-/* Hero layout */
 .hero-section {
-  /* Fit snugly in one viewport — no giant empty space */
-  min-height: calc(100vh - 72px); /* navbar height subtracted */
-  max-height: 100vh;
+  padding: 5.7rem 1.9rem 1.9rem 1.9rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 4rem 3rem 4rem;
+  flex-direction: column;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
-}
-
-.hero-container {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 4rem;
-  width: 100%;
-  max-width: 1200px;
-  align-items: center;
   z-index: 2;
 }
 
-.hero-text-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: 1px solid var(--border-color-dark);
-  border-radius: 30px;
-  padding: 0.4rem 0.9rem;
-  margin-bottom: 2rem;
-}
-
-.pulse-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--text-color);
-  border-radius: 50%;
-  animation: pulseKey 2s infinite;
-}
-
-@keyframes pulseKey {
-  0% { transform: scale(0.85); opacity: 0.5; }
-  50% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(0.85); opacity: 0.5; }
-}
-
-.status-text {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.hero-heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(2.6rem, 5vw, 5rem);
-  font-weight: 900;
-  line-height: 0.95;
+.hero-huge-text-top {
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 500;
+  line-height: 0.9;
   letter-spacing: -0.04em;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2rem;
   color: var(--text-color);
 }
 
-.title-line {
-  display: block;
-}
-
-.font-serif {
-  font-family: 'Inter', Georgia, serif;
-  font-weight: 400;
-}
-
-.hero-bio {
-  font-size: 1rem;
-  color: var(--text-light);
-  max-width: 520px;
-  margin-bottom: 2.5rem;
-  font-weight: 400;
-  line-height: 1.7;
-  letter-spacing: -0.5px;
-}
-
-.hero-scroll-btn {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.scroll-arrow-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1px solid var(--border-color-dark);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color);
-  transition: background 0.4s var(--spring-easing), color 0.4s var(--spring-easing);
-  will-change: transform;
-}
-
-.scroll-arrow-btn:hover {
-  background-color: var(--text-color);
-  color: var(--bg-color);
-}
-
-
-.hero-image-side {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.image-frame-wrapper {
+.hero-mid-section {
   width: 100%;
-  max-width: 250px;
-  padding: 5px;
-  border-radius: 100px;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
+  max-width: 480px;
+  margin-bottom: 1rem;
+  padding-left: 2rem; 
+}
+
+.hero-image-container {
+  width: 100%;
 }
 
 .hero-profile-pic {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 4.5;
-  object-fit: cover;
-  border-radius: 50%;
+  display: block;
 }
 
-.frame-caption {
+.hero-bottom-section {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--text-light);
-}
-
-.hero-bottom-name {
-  margin-top: 2rem;
-  text-align: right;
+  align-items: flex-end;
+  margin-top: auto;
   width: 100%;
-  max-width: 380px;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
 }
 
-.subtitle-role {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  margin-bottom: 0.3rem;
+.hero-bio-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  max-width: 370px;
 }
 
-.large-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1;
+.hero-arrow {
+  flex-shrink: 0;
+}
+
+.hero-bio-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+.hero-huge-text-bottom {
+  text-align: right;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--text-color);
 }
 
 /* Main Content elements */
 .main-content {
-  padding: 0 4rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0; /* sections manage their own spacing via padding-top */
+  gap: 3.8rem; /* Reduced gap by 5% */
   position: relative;
   z-index: 2;
 }
 
 .section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 4rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.section-num {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--text-light);
-  opacity: 0.5;
+  grid-template-columns: 1fr;
+  gap: 1.4rem; /* Reduced gap by 5% */
+  padding-top: 2.85rem; /* Reduced padding by 5% */
 }
 
 .section-header-block {
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1.5rem;
-  margin-bottom: 2.5rem;
-  grid-column: 2;
+  margin-bottom: 1rem;
 }
 
 .section-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem); /* Reduced size per feedback */
-  font-weight: 800;
+  font-size: 45px;
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.1;
   text-transform: uppercase;
 }
 
-/* About Layout */
 .about-grid {
-  grid-column: 2;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 4rem;
+  gap: 2.85rem; /* Reduced gap by 5% */
 }
 
 .summary-paragraph {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--text-light);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem; /* Reduced margin */
 }
 
 .sub-block-title {
   font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.8rem;
-  margin-bottom: 1.5rem;
-  margin-top: 3rem;
+  margin-bottom: 0.8rem;
+  margin-top: 2rem;
   color: var(--text-color);
 }
 
 .education-text {
   font-size: 0.95rem;
   color: var(--text-light);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .skill-category-card {
-  padding: 1.25rem;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.25);
-  transition: border-color 0.4s var(--spring-easing), background-color 0.4s var(--spring-easing);
-}
-
-.skill-category-card:hover {
-  border-color: rgba(17, 17, 17, 0.4);
-  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1rem; /* Reduced padding */
+  background-color: transparent; /* Remove background card look */
 }
 
 .skill-cat-title {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .skill-cat-items {
   font-size: 0.85rem;
   color: var(--text-light);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Projects Layout */
-.projects-section {
-  /* section grid rules apply */
-}
-
 .projects-list {
-  grid-column: 2;
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 1.9rem;
 }
 
 .project-row-item {
-  border-bottom: 1px solid var(--border-color);
-  padding: 2rem 0;
+  padding: 1rem 0; /* Reduced padding */
   position: relative;
 }
 
@@ -794,64 +523,47 @@ watch(locale, () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.proj-num {
-  font-variant-numeric: tabular-nums;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-light);
-  min-width: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .proj-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
-  font-weight: 900;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 500;
   letter-spacing: -0.02em;
-  flex: 1;
   text-transform: uppercase;
 }
 
-.project-row-body-inner {
-  overflow: hidden;
-}
-
 .proj-description {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--text-light);
   max-width: 800px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .proj-bullet-list {
   list-style-type: square;
-  margin-left: 1.25rem;
-  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--text-light);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.4rem;
   max-width: 800px;
 }
 
 .proj-meta-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .proj-tech-stack {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-light);
 }
 
@@ -859,31 +571,22 @@ watch(locale, () => {
   display: inline-flex;
   align-items: center;
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-color);
-  border-bottom: 1.5px solid var(--text-color);
-  padding-bottom: 0.2rem;
-  will-change: transform;
 }
 
 .proj-embed-preview {
   width: 100%;
-  max-width: 800px;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  box-shadow: var(--glass-shadow);
+  max-width: 600px;
+  margin-top: 1rem;
 }
 
 .proj-embed-preview img {
   width: 100%;
   height: auto;
   display: block;
-  filter: contrast(102%) brightness(98%);
 }
 
 /* Hover project preview card */
@@ -895,14 +598,12 @@ watch(locale, () => {
   height: 200px;
   pointer-events: none;
   z-index: 999;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
   opacity: 0;
   transform: scale(0.85);
   transform-origin: center center;
-  transition: opacity 0.4s var(--spring-easing), transform 0.4s var(--spring-bounce);
+  transition: opacity 0.3s var(--spring-easing), transform 0.3s var(--spring-bounce);
   will-change: transform;
 }
 
@@ -918,42 +619,35 @@ watch(locale, () => {
 }
 
 /* Contact layout */
-.contact-section {
-  /* section grid rules apply */
-}
-
 .contact-content-grid {
-  grid-column: 2;
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.9rem;
 }
 
 .contact-sub-text {
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--text-light);
-  margin-bottom: 3rem;
-  line-height: 1.7;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .huge-email-wrapper {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .huge-email-link {
-  font-size: clamp(1.4rem, 3.5vw, 2.4rem); /* Reduced size per feedback */
-  font-weight: 800;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--text-color);
   display: inline-block;
-  border-bottom: 2px solid var(--text-color);
-  padding-bottom: 0.5rem;
   transition: transform 0.3s var(--spring-bounce);
   will-change: transform;
 }
 
 .huge-email-link:hover {
-  transform: skewX(-6deg) scale(1.02);
+  transform: skewX(-4deg) scale(1.02);
 }
 
 .cv-download-wrapper {
@@ -963,162 +657,106 @@ watch(locale, () => {
 .cv-btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.9rem 2.2rem;
-  border-radius: 50px;
-  border: 1.5px solid var(--text-color);
-  background: transparent;
-  color: var(--text-color);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition: background-color 0.4s var(--spring-easing), color 0.4s var(--spring-easing);
-  will-change: transform;
+  color: var(--text-color);
+  background: transparent;
+  padding: 0;
+  border: none;
+  transition: opacity 0.3s ease;
 }
 
 .cv-btn:hover {
-  background-color: var(--text-color);
-  color: var(--bg-color);
+  opacity: 0.6;
 }
 
 .social-links-list {
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
-  border-left: 1px solid var(--border-color);
-  padding-left: 3.5rem;
+  gap: 1.5rem;
 }
 
 .social-item {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.2rem;
 }
 
 .social-label {
   font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-light);
-  opacity: 0.6;
 }
 
 .social-link {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--text-color);
-  border-bottom: 1px solid transparent;
-  width: fit-content;
-  transition: border-color 0.3s;
-}
-
-.social-link:hover {
-  border-color: var(--text-color);
 }
 
 /* Footer layout */
 .footer {
-  border-top: 1px solid var(--border-color);
-  padding: 3rem 0;
-  margin-top: 4rem;
+  padding: 1.9rem 0;
+  margin-top: 3.8rem;
   position: relative;
   z-index: 2;
 }
 
 .footer-inner {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.72rem;
   color: var(--text-light);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Responsive queries */
 @media (max-width: 991px) {
-  .hero-container {
+  .top-header {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .header-col:nth-child(3), .header-col:nth-child(4) {
+    display: none;
+  }
+  .hero-huge-text-top, .hero-huge-text-bottom {
+    font-size: clamp(3rem, 12vw, 6rem);
+  }
+  .about-grid, .contact-content-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  .hero-text-side {
-    order: 2;
-  }
-  .hero-image-side {
-    order: 1;
-    align-items: center;
-  }
-  .hero-bottom-name {
-    text-align: center;
-  }
-  
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  .contact-content-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  .social-links-list {
-    border-left: none;
-    padding-left: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem 1.5rem;
+  .top-header {
+    grid-template-columns: 1fr;
   }
-  .nav-menu {
-    display: none; /* Hide middle menu on mobile */
+  .header-col:nth-child(2) {
+    display: none;
   }
   .hero-section {
-    padding: 6rem 1.5rem 3rem 1.5rem;
+    padding: 5rem 1.5rem 1.5rem 1.5rem;
+  }
+  .hero-bottom-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .hero-huge-text-bottom {
+    text-align: left;
   }
   .main-content {
     padding: 0 1.5rem;
   }
-  .section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  .section-num {
-    display: none;
-  }
-  .section-header-block {
-    grid-column: 1;
-    margin-bottom: 2.5rem;
-  }
-  .about-grid {
-    grid-column: 1;
-  }
-  .projects-list {
-    grid-column: 1;
-  }
   .hover-image-follower {
-    display: none; /* Disable mouse follower image on touch screens */
-  }
-  .contact-content-grid {
-    grid-column: 1;
-  }
-  .huge-email-link {
-    font-size: 1.4rem;
-  }
-  .footer-inner {
-    padding: 0 1.5rem;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    display: none;
   }
 }
 </style>
