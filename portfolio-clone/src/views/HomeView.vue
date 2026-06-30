@@ -759,4 +759,156 @@ watch(locale, () => {
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .top-header {
+    justify-content: center;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .hero-section {
+    align-items: center;
+    text-align: center;
+    padding: 4.8rem 1.1rem 1.25rem;
+  }
+
+  .hero-huge-text-top,
+  .hero-huge-text-bottom {
+    font-size: clamp(2.5rem, 11vw, 3.4rem);
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-bottom-section {
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .hero-bio-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .hero-arrow {
+    margin: 0 auto;
+  }
+
+  .main-content {
+    padding: 0 1rem;
+    gap: 2.2rem;
+  }
+
+  .section {
+    padding-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .section-header-block {
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 5vw, 2.1rem);
+    text-align: center;
+  }
+
+  .about-grid,
+  .contact-content-grid {
+    gap: 1.25rem;
+  }
+
+  .summary-paragraph,
+  .education-text,
+  .contact-sub-text,
+  .proj-description {
+    text-align: center;
+  }
+
+  .sub-block-title {
+    margin-top: 1.2rem;
+    text-align: center;
+  }
+
+  .skills-col,
+  .about-summary-col,
+  .contact-info-col,
+  .contact-socials-col {
+    text-align: center;
+  }
+
+  .skills-grid {
+    width: 100%;
+  }
+
+  .project-row-header {
+    justify-content: center;
+  }
+
+  .proj-bullet-list {
+    align-items: center;
+    margin-left: 0;
+    list-style-position: inside;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .proj-meta-info {
+    justify-content: center;
+  }
+
+  .social-links-list {
+    align-items: center;
+  }
+
+  .social-item {
+    align-items: center;
+    text-align: center;
+  }
+
+  .huge-email-link {
+    font-size: clamp(1.1rem, 4.5vw, 1.45rem);
+  }
+
+  .cv-btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 4.3rem 0.9rem 1rem;
+  }
+
+  .hero-huge-text-top,
+  .hero-huge-text-bottom {
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
+  }
+
+  .main-content {
+    padding: 0 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .proj-title {
+    font-size: 1.05rem;
+  }
+
+  .project-row-item {
+    padding: 0.8rem 0;
+  }
+}
 </style>
