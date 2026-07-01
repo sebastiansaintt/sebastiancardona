@@ -441,6 +441,11 @@ watch(locale, () => {
 
 .section-header-block {
   margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--bg-color);
+  padding: 1rem 0;
 }
 
 .section-title {
@@ -746,11 +751,11 @@ watch(locale, () => {
   }
   .hero-bottom-section {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 2rem;
   }
   .hero-huge-text-bottom {
-    text-align: left;
+    text-align: right;
   }
   .main-content {
     padding: 0 1.5rem;
@@ -762,38 +767,44 @@ watch(locale, () => {
 
 @media (max-width: 640px) {
   .top-header {
-    justify-content: center;
+    justify-content: flex-end;
     padding: 1.1rem 1.25rem;
   }
 
   .hero-section {
-    align-items: center;
-    text-align: center;
     padding: 4.8rem 1.1rem 1.25rem;
   }
 
-  .hero-huge-text-top,
+  .hero-huge-text-top {
+    font-size: clamp(2.5rem, 11vw, 3.4rem);
+    text-align: left;
+    width: 100%;
+  }
+
   .hero-huge-text-bottom {
     font-size: clamp(2.5rem, 11vw, 3.4rem);
-    text-align: center;
+    text-align: right;
     width: 100%;
   }
 
   .hero-bottom-section {
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 1.5rem;
   }
 
   .hero-bio-container {
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    gap: 0.75rem;
+    width: 90%;
+    max-width: 100%;
   }
 
   .hero-arrow {
-    margin: 0 auto;
+    display: none;
   }
 
   .main-content {
@@ -806,13 +817,8 @@ watch(locale, () => {
     gap: 1rem;
   }
 
-  .section-header-block {
-    text-align: center;
-  }
-
   .section-title {
     font-size: clamp(1.7rem, 5vw, 2.1rem);
-    text-align: center;
   }
 
   .about-grid,
@@ -820,52 +826,35 @@ watch(locale, () => {
     gap: 1.25rem;
   }
 
-  .summary-paragraph,
+  .summary-paragraph {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+
   .education-text,
-  .contact-sub-text,
-  .proj-description {
-    text-align: center;
+  .proj-description,
+  .contact-sub-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .sub-block-title {
     margin-top: 1.2rem;
-    text-align: center;
+    font-size: 0.7rem;
   }
 
-  .skills-col,
-  .about-summary-col,
-  .contact-info-col,
-  .contact-socials-col {
-    text-align: center;
+  .proj-title {
+    font-size: 1.2rem;
+  }
+
+  .proj-bullet-list {
+    font-size: 0.85rem;
+    gap: 0.3rem;
   }
 
   .skills-grid {
     width: 100%;
-  }
-
-  .project-row-header {
-    justify-content: center;
-  }
-
-  .proj-bullet-list {
-    align-items: center;
-    margin-left: 0;
-    list-style-position: inside;
-    text-align: center;
-    padding-left: 0;
-  }
-
-  .proj-meta-info {
-    justify-content: center;
-  }
-
-  .social-links-list {
-    align-items: center;
-  }
-
-  .social-item {
-    align-items: center;
-    text-align: center;
   }
 
   .huge-email-link {
@@ -873,14 +862,15 @@ watch(locale, () => {
   }
 
   .cv-btn {
-    justify-content: center;
     width: 100%;
+    justify-content: flex-start;
   }
 
   .footer-inner {
     flex-direction: column;
     gap: 0.4rem;
-    text-align: center;
+    text-align: left;
+    align-items: flex-start;
     padding: 0 1rem;
   }
 }

@@ -76,7 +76,7 @@ const messages = {
     aboutP3: 'Disfruto resolver problemas que involucran sistemas distribuidos, pipelines de datos, flujos de automatización y aplicaciones inteligentes que combinan la ingeniería de software con la inteligencia artificial.',
     skillsTitle: 'Habilidades Técnicas',
     educationTitle: 'Educación',
-    educationText: 'Ingeniería de Software | Universidad Cooperativa de Colombia (2022 - 2026)',
+    educationText: 'Ingeniería de Software - Universidad Cooperativa de Colombia (2022 - 2026)',
     skills: {
       languages: 'Python, JavaScript, SQL, C#',
       backend: 'FastAPI, Django, Express.js, ASP.NET',
