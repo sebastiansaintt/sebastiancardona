@@ -353,7 +353,7 @@ watch(locale, () => {
   padding: 5.7rem 1.9rem 1.9rem 1.9rem;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 98vh;
   position: relative;
   z-index: 2;
 }
