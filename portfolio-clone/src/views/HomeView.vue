@@ -6,13 +6,11 @@ import { ArrowDown, ExternalLink, Download } from 'lucide-vue-next'
 
 const { t, tm, locale } = useI18n()
 
-// Track scroll for parallax
 const scrollY = ref(0)
 const onScroll = () => {
   scrollY.value = window.scrollY
 }
 
-// Track mouse position for hover image reveal in projects
 const mouseX = ref(0)
 const mouseY = ref(0)
 const activeHoverImg = ref('')
@@ -27,7 +25,6 @@ const onMouseMove = (e) => {
   mouseY.value = e.clientY
 }
 
-// Spring physics loop for the floating project image preview
 const updateHoverImgPos = () => {
   const targetX = mouseX.value + 25
   const targetY = mouseY.value + 25
@@ -44,7 +41,6 @@ const updateHoverImgPos = () => {
   imgFrameId = requestAnimationFrame(updateHoverImgPos)
 }
 
-// Directives & handlers for hover image trigger
 const showHoverImage = (img) => {
   activeHoverImg.value = img
 }
@@ -52,7 +48,6 @@ const hideHoverImage = () => {
   activeHoverImg.value = ''
 }
 
-// Unified scroll reveal initialization
 let observer = null
 const initScrollReveal = () => {
   if (observer) {
@@ -394,7 +389,7 @@ watch(locale, () => {
 
 .hero-bio-container {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: flex-start;
   max-width: 370px;
 }
@@ -419,12 +414,11 @@ watch(locale, () => {
   color: var(--text-color);
 }
 
-/* Main Content elements */
 .main-content {
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3.8rem; /* Reduced gap by 5% */
+  gap: 3.5rem;
   position: relative;
   z-index: 2;
 }
@@ -435,8 +429,8 @@ watch(locale, () => {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.4rem; /* Reduced gap by 5% */
-  padding-top: 2.85rem; /* Reduced padding by 5% */
+  gap: 1.4rem; 
+  padding-top: 2.85rem;
 }
 
 .section-header-block {
@@ -459,14 +453,14 @@ watch(locale, () => {
 .about-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 2.85rem; /* Reduced gap by 5% */
+  gap: 2.85rem;
 }
 
 .summary-paragraph {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-light);
-  margin-bottom: 1rem; /* Reduced margin */
+  margin-bottom: 1rem;
 }
 
 .sub-block-title {
@@ -492,8 +486,8 @@ watch(locale, () => {
 }
 
 .skill-category-card {
-  padding: 1rem; /* Reduced padding */
-  background-color: transparent; /* Remove background card look */
+  padding: 1rem;
+  background-color: transparent;
 }
 
 .skill-cat-title {
@@ -520,7 +514,7 @@ watch(locale, () => {
 }
 
 .project-row-item {
-  padding: 1rem 0; /* Reduced padding */
+  padding: 1rem 0;
   position: relative;
 }
 
@@ -594,7 +588,6 @@ watch(locale, () => {
   display: block;
 }
 
-/* Hover project preview card */
 .hover-image-follower {
   position: fixed;
   top: 0;
@@ -623,7 +616,6 @@ watch(locale, () => {
   object-fit: cover;
 }
 
-/* Contact layout */
 .contact-content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -703,7 +695,6 @@ watch(locale, () => {
   color: var(--text-color);
 }
 
-/* Footer layout */
 .footer {
   padding: 1.9rem 0;
   margin-top: 3.8rem;
@@ -722,7 +713,6 @@ watch(locale, () => {
   font-weight: 500;
 }
 
-/* Responsive queries */
 @media (max-width: 991px) {
   .top-header {
     grid-template-columns: 1fr 1fr;
@@ -877,12 +867,12 @@ watch(locale, () => {
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 4.3rem 0.9rem 1rem;
+    padding: 3.5rem 0.5rem 2.5rem;
   }
 
   .hero-huge-text-top,
   .hero-huge-text-bottom {
-    font-size: clamp(2.2rem, 10vw, 2.8rem);
+    font-size: 60px;
   }
 
   .main-content {
