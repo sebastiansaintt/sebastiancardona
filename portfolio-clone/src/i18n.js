@@ -61,6 +61,21 @@ const messages = {
         github_link: 'https://github.com/realprodigium/risk_follower',
         technologies: 'Python (FastAPI), MQTT, PostgreSQL (Supabase), Docker, Render, JWT, Argon2',
         preview: '/co2bien.png'
+      },
+      {
+        id: 2,
+        num: '02/',
+        title: 'LawSim Pymes – Semantic Architecture & Regulatory Simulation Platform',
+        description: 'Architected an enterprise-grade technical blueprint combining Layered, Microservices, and MVC patterns to decouple standard CRUD operations from heavy computation pipelines. The core platform leverages an OWL 2 Ontology (Protégé) and the HermiT Reasoner paired with LEGAL-BETO (NLP) to autonomously ingest dynamic Colombian regulations and infer financial impacts on PyMEs through automated SWRL rules. The technical specification features formal SOAP/WSDL microservice interfaces, distributed caching layers, and strict cryptographic security mechanisms (Asymmetric JWT + RS256, AES-256 at-rest encryption).',
+        bullet_points: [
+          'Designed a layered architecture to separate transactional services from computational reasoning workflows.',
+          'Modeled regulatory knowledge using OWL 2 in Protégé and inference rules with SWRL for automated impact assessment.',
+          'Integrated LEGAL-BETO (NLP) for parsing and understanding Colombian regulatory text.',
+          'Specified SOAP/WSDL interfaces and distributed caching for scalable enterprise communication.',
+          'Defined secure authentication and encryption patterns with JWT RS256 and AES-256.'
+        ],
+        technologies: 'Vue.js, Node.js, Python, OWL 2 / Protégé, LEGAL-BETO (NLP), SOAP / WSDL, PostgreSQL, Redis, Software Architecture',
+        preview: '/lawsim.png'
       }
     ]
   },
@@ -124,6 +139,21 @@ const messages = {
         github_link: 'https://github.com/realprodigium/risk_follower',
         technologies: 'Python (FastAPI), MQTT, PostgreSQL (Supabase), Docker, Render, JWT, Argon2',
         preview: '/co2bien.png'
+      },
+      {
+        id: 2,
+        num: '02/',
+        title: 'Law-Sim Pymes',
+        description: 'Arquitecté un blueprint técnico de nivel empresarial que combina patrones Layered, Microservices y MVC para desacoplar las operaciones CRUD estándar de los pipelines de cómputo intensivo. La tecnología permite ingerir de forma autónoma regulaciones colombianas dinámicas e inferir impactos financieros en PyMEs mediante reglas SWRL automatizadas.',
+        bullet_points: [
+          'Diseñé una arquitectura en capas para separar los servicios transaccionales de los flujos de razonamiento computacional.',
+          'Modelé el conocimiento regulatorio con OWL 2 en Protégé y reglas de inferencia con SWRL para evaluación automatizada de impactos.',
+          'Integré LEGAL-BETO (NLP) para analizar y comprender textos regulatorios colombianos.',
+          'Especifiqué interfaces SOAP/WSDL y caché distribuida para una comunicación empresarial escalable.',
+          'Definí patrones de autenticación y cifrado seguros con JWT RS256 y AES-256.'
+        ],
+        technologies: 'Vue.js, Node.js, Python, OWL 2 / Protégé, LEGAL-BETO (NLP), SOAP / WSDL, PostgreSQL, Redis',
+        preview: '/lawsim.png'
       }
     ]
   }

@@ -1,10 +1,16 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
-import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { ArrowDown, ExternalLink, Download } from 'lucide-vue-next'
 
 const { t, tm, locale } = useI18n()
+
+const cvLink = computed(() => {
+  return locale.value === 'es'
+    ? { href: '/CV_Sebastian_Cardona_ES.pdf', download: 'CV_Sebastian_Cardona_ES.pdf' }
+    : { href: '/CV_Sebastian_Cardona_EN.pdf', download: 'CV_Sebastian_Cardona_EN.pdf' }
+})
 
 const scrollY = ref(0)
 const onScroll = () => {
@@ -257,8 +263,8 @@ watch(locale, () => {
 
             <div class="cv-download-wrapper">
               <a 
-                href="/CV_Sebastian_Cardona_Backend_Data_AI.pdf" 
-                download="CV_Sebastian_Cardona_Backend_Data_AI.pdf" 
+                :href="cvLink.href"
+                :download="cvLink.download"
                 class="cv-btn interactive magnetic font-inter"
                 v-magnetic
               >
