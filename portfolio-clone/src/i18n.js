@@ -74,8 +74,25 @@ const messages = {
           'Specified SOAP/WSDL interfaces and distributed caching for scalable enterprise communication.',
           'Defined secure authentication and encryption patterns with JWT RS256 and AES-256.'
         ],
+        github_link: 'https://github.com/sebastiansaintt/WebDesign',
         technologies: 'Vue.js, Node.js, Python, OWL 2 / Protégé, LEGAL-BETO (NLP), SOAP / WSDL, PostgreSQL, Redis, Software Architecture',
         preview: '/lawsim.png'
+      },
+      {
+        id: 3,
+        num: '03/',
+        title: 'Car Inspection – Vehicle Inspection Management System',
+        description: 'A digital platform that replaces paper-based vehicle inspections: finding logs, photo/audio evidence, digital signature authorization, and full audit trail per report.',
+        bullet_points: [
+          'Built a FastAPI backend with PostgreSQL, SQLAlchemy and Alembic migrations.',
+          'Modeled Vehicle, InspectionReport, MediaEvidence, Authorization and AuditLog entities.',
+          'Implemented JWT + refresh tokens with Argon2 password hashing.',
+          'Designed automatic audit logging (previous/new state) for every report change.',
+          'Built a Next.js 16 (TypeScript) PWA frontend for the inspection dashboard.'
+        ],
+        github_link: 'https://github.com/sebastiansaintt/car_inspection',
+        technologies: 'FastAPI, PostgreSQL, SQLAlchemy, Alembic, JWT, Argon2, Next.js, TypeScript, Docker',
+        preview: '/car%20inspection.png'
       }
     ]
   },
@@ -152,8 +169,25 @@ const messages = {
           'Especifiqué interfaces SOAP/WSDL y caché distribuida para una comunicación empresarial escalable.',
           'Definí patrones de autenticación y cifrado seguros con JWT RS256 y AES-256.'
         ],
+        github_link: 'https://github.com/sebastiansaintt/WebDesign',
         technologies: 'Vue.js, Node.js, Python, OWL 2 / Protégé, LEGAL-BETO (NLP), SOAP / WSDL, PostgreSQL, Redis',
         preview: '/lawsim.png'
+      },
+      {
+        id: 3,
+        num: '03/',
+        title: 'Car Inspection – Sistema de Gestión de Inspecciones Vehiculares',
+        description: 'Plataforma que digitaliza el proceso de inspección vehicular hoy hecho en papel: registro de hallazgos, evidencia fotográfica/audio, firma de autorización y trazabilidad completa de cambios por reporte.',
+        bullet_points: [
+          'Backend con FastAPI, PostgreSQL, SQLAlchemy y migraciones con Alembic.',
+          'Modelado de entidades Vehicle, InspectionReport, MediaEvidence, Authorization y AuditLog.',
+          'Autenticación JWT + refresh tokens con hashing Argon2.',
+          'Auditoría automática (estado anterior/nuevo) por cada cambio en un reporte.',
+          'Frontend PWA con Next.js 16 (TypeScript) para el dashboard de inspección.'
+        ],
+        github_link: 'https://github.com/sebastiansaintt/car_inspection',
+        technologies: 'FastAPI, PostgreSQL, SQLAlchemy, Alembic, JWT, Argon2, Next.js, TypeScript, Docker',
+        preview: '/car%20inspection.png'
       }
     ]
   }
