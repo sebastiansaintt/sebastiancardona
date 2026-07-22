@@ -282,11 +282,11 @@ watch(locale, () => {
               </div>
               <div class="social-item">
                 <span class="social-label">{{ t('linkedinLabel') }}</span>
-                <a href="https://linkedin.com/in/franchisium" target="_blank" rel="noopener noreferrer" class="social-link interactive">linkedin.com/in/franchisium <ExternalLink size="14" style="display:inline; margin-left: 0.1rem; margin-bottom: 0.1rem;" /></a>
+                <a href="https://linkedin.com/in/sebastiansaintt" target="_blank" rel="noopener noreferrer" class="social-link interactive">linkedin.com/in/franchisium <ExternalLink size="14" style="display:inline; margin-left: 0.1rem; margin-bottom: 0.1rem;" /></a>
               </div>
               <div class="social-item">
                 <span class="social-label">{{ t('githubLabel') }}</span>
-                <a href="https://github.com/realprodigium" target="_blank" rel="noopener noreferrer" class="social-link interactive">github.com/realprodigium <ExternalLink size="14" style="display:inline; margin-left: 0.1rem; margin-bottom: 0.1rem;" /></a>
+                <a href="https://github.com/sebastiansaintt" target="_blank" rel="noopener noreferrer" class="social-link interactive">github.com/realprodigium <ExternalLink size="14" style="display:inline; margin-left: 0.1rem; margin-bottom: 0.1rem;" /></a>
               </div>
             </div>
           </div>
