@@ -65,7 +65,7 @@ const messages = {
       {
         id: 2,
         num: '02/',
-        title: 'LawSim Pymes – Semantic Architecture & Regulatory Simulation Platform',
+        title: 'LawSim Pymes | Regulatory Simulation Platform',
         description: 'Architected an enterprise-grade technical blueprint combining Layered, Microservices, and MVC patterns to decouple standard CRUD operations from heavy computation pipelines. The core platform leverages an OWL 2 Ontology (Protégé) and the HermiT Reasoner paired with LEGAL-BETO (NLP) to autonomously ingest dynamic Colombian regulations and infer financial impacts on PyMEs through automated SWRL rules. The technical specification features formal SOAP/WSDL microservice interfaces, distributed caching layers, and strict cryptographic security mechanisms (Asymmetric JWT + RS256, AES-256 at-rest encryption).',
         bullet_points: [
           'Designed a layered architecture to separate transactional services from computational reasoning workflows.',
@@ -81,18 +81,18 @@ const messages = {
       {
         id: 3,
         num: '03/',
-        title: 'Car Inspection – Vehicle Inspection Management System',
+        title: 'Car Checking | Vehicle Inspection Management System',
         description: 'A digital platform that replaces paper-based vehicle inspections: finding logs, photo/audio evidence, digital signature authorization, and full audit trail per report.',
         bullet_points: [
           'Built a FastAPI backend with PostgreSQL, SQLAlchemy and Alembic migrations.',
           'Modeled Vehicle, InspectionReport, MediaEvidence, Authorization and AuditLog entities.',
           'Implemented JWT + refresh tokens with Argon2 password hashing.',
           'Designed automatic audit logging (previous/new state) for every report change.',
-          'Built a Next.js 16 (TypeScript) PWA frontend for the inspection dashboard.'
+          'Built a PWA frontend for the inspection dashboard.'
         ],
-        github_link: 'https://github.com/sebastiansaintt/car_inspection',
-        technologies: 'FastAPI, PostgreSQL, SQLAlchemy, Alembic, JWT, Argon2, Next.js, TypeScript, Docker',
-        preview: '/car%20inspection.png'
+        github_link: 'https://github.com/sebastiansaintt/car_checking',
+        technologies: 'React+Vite, FastAPI, SQLAlchemy, PostgreSQL, Docker, Github, Render',
+        preview: '/car_checking.png'
       }
     ]
   },
@@ -176,18 +176,18 @@ const messages = {
       {
         id: 3,
         num: '03/',
-        title: 'Car Inspection – Sistema de Gestión de Inspecciones Vehiculares',
+        title: 'Car Checking | Sistema de Gestión de Inspecciones Vehiculares',
         description: 'Plataforma que digitaliza el proceso de inspección vehicular hoy hecho en papel: registro de hallazgos, evidencia fotográfica/audio, firma de autorización y trazabilidad completa de cambios por reporte.',
         bullet_points: [
           'Backend con FastAPI, PostgreSQL, SQLAlchemy y migraciones con Alembic.',
           'Modelado de entidades Vehicle, InspectionReport, MediaEvidence, Authorization y AuditLog.',
           'Autenticación JWT + refresh tokens con hashing Argon2.',
           'Auditoría automática (estado anterior/nuevo) por cada cambio en un reporte.',
-          'Frontend PWA con Next.js 16 (TypeScript) para el dashboard de inspección.'
+          'Frontend PWA con TypeScript para el dashboard de inspección.'
         ],
-        github_link: 'https://github.com/sebastiansaintt/car_inspection',
-        technologies: 'FastAPI, PostgreSQL, SQLAlchemy, Alembic, JWT, Argon2, Next.js, TypeScript, Docker',
-        preview: '/car%20inspection.png'
+        github_link: 'https://github.com/sebastiansaintt/car_checking',
+        technologies: 'React+Vite, FastAPI, SQLAlchemy, PostgreSQL, Docker, Github, Render',
+        preview: '/car_checking.png'
       }
     ]
   }
