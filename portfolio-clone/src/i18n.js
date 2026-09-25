@@ -1,4 +1,5 @@
 import { createI18n } from 'vue-i18n'
+import previewCarInspection from './assets/preview.png'
 
 const messages = {
   en: {
@@ -62,6 +63,19 @@ const messages = {
     projectsSubtitle: 'Engineered systems built for reliability, security, and performance',
     viewGithub: 'GitHub Repo',
     livePreview: 'Live Preview',
+    watchDemo: 'Watch Demo',
+    viewDemoVideo: 'Watch Video Demo',
+    demoAvailable: 'Video Demo',
+    backToPortfolio: 'Back to Portfolio',
+    projectOverview: 'Project Overview',
+    systemCapabilities: 'System Architecture & Capabilities',
+    interactiveChapters: 'Interactive Chapters & Highlights',
+    jumpToChapter: 'Click to jump to this moment in video',
+    demoComingSoonTitle: 'Video Demo in Production',
+    demoComingSoonDesc: 'A dedicated technical video walkthrough for this system is currently being recorded. In the meantime, you can explore the Car Inspection PWA demo or review the complete architecture on GitHub.',
+    exploreOtherProjects: 'Other Engineered Systems',
+    shareDemo: 'Share Demo',
+    demoLinkCopied: 'Demo link copied to clipboard!',
     githubActivityHeading: 'GITHUB ACTIVITY',
     githubContributions: 'contributions in 2025–2026',
     githubLess: 'Less',
@@ -76,6 +90,8 @@ const messages = {
     projects: [
       {
         id: 1,
+        slug: 'risk-follower',
+        hasDemo: false,
         num: '01/',
         badge: 'IoT & Real-time Systems',
         title: 'Industrial Environmental Monitoring Platform',
@@ -92,6 +108,10 @@ const messages = {
       },
       {
         id: 2,
+        slug: 'car-inspection',
+        hasDemo: true,
+        demoBadge: 'Full PWA Walkthrough',
+        videoKey: 'car-inspection',
         num: '02/',
         badge: 'Full Stack & Mobile PWA',
         title: 'Car Inspection | Vehicle Inspection PWA',
@@ -104,10 +124,20 @@ const messages = {
         ],
         github_link: 'https://github.com/sebastiansaintt/car_checking',
         technologies: ['FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker Compose', 'PWA', 'OWASP'],
-        preview: '/car_checking.png'
+        preview: previewCarInspection,
+        demoDescription: 'In-depth product demonstration of the Car Inspection PWA: from cryptographic authentication, role handling, responsive checklist workflows, real-time photo evidence capture, to automated cryptographic report generation.',
+        chapters: [
+          { time: '00:00', seconds: 0, title: 'Auth & RBAC Access', desc: 'Secure login flow with JWT, Argon2id, and granular permissions.' },
+          { time: '00:45', seconds: 45, title: 'Vehicle Fleet & Inspection Init', desc: 'Selecting vehicle unit and starting real-time inspection log.' },
+          { time: '01:30', seconds: 90, title: 'Interactive Technical Checklist', desc: 'Step-by-step automotive inspection with instant form validation.' },
+          { time: '02:40', seconds: 160, title: 'Photo Evidence & Logging', desc: 'Attaching photo logs and anomaly details with compression.' },
+          { time: '03:45', seconds: 225, title: 'Audit Trail & PDF Report', desc: 'Digital closure, state freezing, and report compilation.' }
+        ]
       },
       {
         id: 3,
+        slug: 'lawsim-pymes',
+        hasDemo: false,
         num: '03/',
         badge: 'Enterprise Architecture & NLP',
         title: 'LawSim Pymes | Regulatory Simulation Platform',
@@ -185,6 +215,19 @@ const messages = {
     projectsSubtitle: 'Sistemas diseñados con rigor de ingeniería, seguridad y rendimiento',
     viewGithub: 'Repositorio GitHub',
     livePreview: 'Vista Previa',
+    watchDemo: 'Ver Demo',
+    viewDemoVideo: 'Ver Video Demo',
+    demoAvailable: 'Video Demo',
+    backToPortfolio: 'Volver al Portafolio',
+    projectOverview: 'Descripción General',
+    systemCapabilities: 'Arquitectura y Capacidades del Sistema',
+    interactiveChapters: 'Capítulos Interactivos & Puntos Clave',
+    jumpToChapter: 'Clic para saltar a este momento del video',
+    demoComingSoonTitle: 'Video Demo en Producción',
+    demoComingSoonDesc: 'El recorrido técnico en video de este sistema se encuentra actualmente en grabación. Mientras tanto, puedes explorar la demostración interactiva de Car Inspection o revisar la arquitectura completa en GitHub.',
+    exploreOtherProjects: 'Otros Sistemas Desarrollados',
+    shareDemo: 'Compartir Demo',
+    demoLinkCopied: '¡Enlace del demo copiado al portapapeles!',
     githubActivityHeading: 'ACTIVIDAD EN GITHUB',
     githubContributions: 'contribuciones en 2025–2026',
     githubLess: 'Menos',
@@ -199,6 +242,8 @@ const messages = {
     projects: [
       {
         id: 1,
+        slug: 'risk-follower',
+        hasDemo: false,
         num: '01/',
         badge: 'Sistemas en Tiempo Real & IoT',
         title: 'Plataforma de Monitoreo Ambiental Industrial',
@@ -215,6 +260,10 @@ const messages = {
       },
       {
         id: 2,
+        slug: 'car-inspection',
+        hasDemo: true,
+        demoBadge: 'Recorrido Completo PWA',
+        videoKey: 'car-inspection',
         num: '02/',
         badge: 'Full Stack & Mobile PWA',
         title: 'Car Inspection | Sistema PWA de Inspección Vehicular',
@@ -227,10 +276,20 @@ const messages = {
         ],
         github_link: 'https://github.com/sebastiansaintt/car_checking',
         technologies: ['FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker Compose', 'PWA', 'OWASP'],
-        preview: '/car_checking.png'
+        preview: previewCarInspection,
+        demoDescription: 'Demostración detallada de la PWA Car Inspection: desde el acceso seguro criptográfico, gestión de roles, flujo de checklist dinámico, captura de evidencias en tiempo real, hasta la generación automatizada de reportes con auditoría.',
+        chapters: [
+          { time: '00:00', seconds: 0, title: 'Autenticación & Roles RBAC', desc: 'Flujo de acceso seguro con JWT, hashing Argon2id y permisos por rol.' },
+          { time: '00:45', seconds: 45, title: 'Flota Vehicular & Inicio de Inspección', desc: 'Selección de la unidad vehicular y apertura del registro en tiempo real.' },
+          { time: '01:30', seconds: 90, title: 'Checklist Técnico Dinámico', desc: 'Inspección técnica paso a paso con validaciones en caliente.' },
+          { time: '02:40', seconds: 160, title: 'Evidencias Fotográficas & Novedades', desc: 'Carga de capturas y registro de fallas mecánicas con compresión.' },
+          { time: '03:45', seconds: 225, title: 'Auditoría & Generación de Reporte PDF', desc: 'Cierre del proceso, congelamiento de datos y exportación de reporte.' }
+        ]
       },
       {
         id: 3,
+        slug: 'lawsim-pymes',
+        hasDemo: false,
         num: '03/',
         badge: 'Arquitectura Empresarial & NLP',
         title: 'LawSim Pymes | Plataforma de Simulación Regulatoria',

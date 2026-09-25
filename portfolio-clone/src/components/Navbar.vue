@@ -54,16 +54,16 @@ onMounted(() => {
 
       <!-- Center Navigation with Greater Separation -->
       <nav class="flex items-center gap-7 sm:gap-9 text-xs sm:text-sm font-medium">
-        <a href="#hero" class="text-secondary transition-colors hover:text-foreground">
+        <a href="/#hero" class="text-secondary transition-colors hover:text-foreground">
           {{ t('navHome') }}
         </a>
-        <a href="#stack" class="text-secondary transition-colors hover:text-foreground">
+        <a href="/#stack" class="text-secondary transition-colors hover:text-foreground">
           {{ t('navStack') }}
         </a>
-        <a href="#projects" class="text-secondary transition-colors hover:text-foreground">
+        <a href="/#projects" class="text-secondary transition-colors hover:text-foreground">
           {{ t('navProjects') }}
         </a>
-        <a href="#activity" class="text-secondary transition-colors hover:text-foreground">
+        <a href="/#activity" class="text-secondary transition-colors hover:text-foreground">
           {{ t('navActivity') }}
         </a>
       </nav>
