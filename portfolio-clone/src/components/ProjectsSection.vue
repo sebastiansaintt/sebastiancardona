@@ -11,8 +11,8 @@ const goToProject = (project) => {
 </script>
 
 <template>
-  <section id="projects" class="animate-in-up-on-view container mx-auto max-w-3xl px-5 sm:px-6 py-6" aria-labelledby="projects-heading">
-    <div class="mb-4 flex items-end justify-between gap-4">
+  <section id="projects" class="animate-in-up-on-view container mx-auto max-w-4xl px-5 sm:px-6 py-6" aria-labelledby="projects-heading">
+    <div class="mb-5 flex items-end justify-between gap-4">
       <div>
         <h2 id="projects-heading" class="font-bold text-xs uppercase tracking-[0.2em] text-secondary">
           {{ t('projectsHeading') }}

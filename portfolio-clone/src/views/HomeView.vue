@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import Navbar from '../components/Navbar.vue'
 import CommandPalette from '../components/CommandPalette.vue'
 import HeroSection from '../components/HeroSection.vue'
+import StatusBadge from '../components/StatusBadge.vue'
 import TechStack from '../components/TechStack.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 import AboutSection from '../components/AboutSection.vue'
@@ -33,12 +34,15 @@ const showToast = (msg) => {
       @copied-email="showToast"
     />
 
-    <!-- Main Editorial Single-Column Content Flow (max-w-3xl) -->
-    <main class="flex-1 w-full space-y-4 pb-20 pt-4">
+    <!-- Main Editorial Single-Column Content Flow (max-w-4xl) -->
+    <main class="flex-1 w-full space-y-5 pb-20 pt-4">
       <!-- Hero Section (Avatar Swap, Role Blur Carousel, Copy Email) -->
       <HeroSection @copied-email="showToast" />
 
-      <!-- Tech Stack Dashed Squircle Grid (SimpleIcons) -->
+      <!-- Current Status Badge (Separated from TechStack to reduce vertical gap) -->
+      <StatusBadge />
+
+      <!-- Tech Stack 2-Column Responsive Grid -->
       <TechStack />
 
       <!-- Featured Projects (2-Column Aspect-Ratio Cards) -->

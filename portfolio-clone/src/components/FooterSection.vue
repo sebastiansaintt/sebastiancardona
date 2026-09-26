@@ -6,7 +6,7 @@ const { t } = useI18n()
 
 <template>
   <footer class="border-t border-border/60 mt-12 py-10" role="contentinfo">
-    <div class="container mx-auto max-w-3xl px-5 sm:px-6 flex flex-col gap-6">
+    <div class="container mx-auto max-w-4xl px-5 sm:px-6 flex flex-col gap-6">
       <!-- Quote block (separado) -->
       <div class="border-l-2 border-border/80 pl-4 py-1">
         <p class="font-sans text-xs sm:text-sm italic text-secondary leading-relaxed">

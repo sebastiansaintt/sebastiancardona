@@ -84,8 +84,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="activity" class="animate-in-up-on-view container mx-auto max-w-3xl px-5 sm:px-6 py-6" aria-labelledby="github-activity-heading">
-    <div class="mb-4">
+  <section id="activity" class="animate-in-up-on-view container mx-auto max-w-4xl px-5 sm:px-6 py-6" aria-labelledby="github-activity-heading">
+    <div class="mb-5">
       <h2 id="github-activity-heading" class="font-bold text-xs uppercase tracking-[0.2em] text-secondary">
         {{ t('githubActivityHeading') }}
       </h2>

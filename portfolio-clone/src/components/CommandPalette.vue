@@ -31,8 +31,8 @@ const selectedIndex = ref(0)
 const searchInput = ref(null)
 
 const cvLinks = {
-  en: { href: '/Software_Engineer_Sebastian_Cardona.pdf', download: 'Software_Engineer_Sebastian_Cardona.pdf' },
-  es: { href: '/Ingeniero_de_Software_Sebastián_Cardona.pdf', download: 'Ingeniero_de_Software_Sebastián_Cardona.pdf' }
+  en: { href: '/CV_Sebastian_Cardona_EN.pdf', download: 'CV_Sebastian_Cardona_EN.pdf' },
+  es: { href: '/CV_Sebastian_Cardona_Colombia.pdf', download: 'CV_Sebastian_Cardona_Colombia.pdf' }
 }
 
 const allCommands = computed(() => [

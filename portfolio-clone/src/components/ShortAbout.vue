@@ -5,8 +5,8 @@ const { t, locale } = useI18n()
 </script>
 
 <template>
-  <section id="about" class="animate-in-up-on-view max-w-3xl mx-auto px-5 sm:px-6 pt-4 pb-2" aria-labelledby="about-short-heading">
-    <div class="mb-4">
+  <section id="about" class="animate-in-up-on-view max-w-4xl mx-auto px-5 sm:px-6 pt-4 pb-2" aria-labelledby="about-short-heading">
+    <div class="mb-5">
       <h2 id="about-short-heading" class="font-bold text-xs uppercase tracking-[0.2em] text-secondary">
         {{ t('shortAboutHeading') }}
       </h2>

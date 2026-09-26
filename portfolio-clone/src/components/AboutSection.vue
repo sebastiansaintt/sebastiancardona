@@ -11,9 +11,9 @@ const isPrinciplesOpen = ref(false)
 </script>
 
 <template>
-  <section id="principles" class="animate-in-up-on-view container mx-auto max-w-3xl px-5 sm:px-6 py-6" aria-labelledby="experience-heading">
+  <section id="principles" class="animate-in-up-on-view container mx-auto max-w-4xl px-5 sm:px-6 py-6" aria-labelledby="experience-heading">
     <!-- Education & Credentials Accordion Group -->
-    <div class="mb-4">
+    <div class="mb-5">
       <h2 id="experience-heading" class="font-bold text-xs uppercase tracking-[0.2em] text-secondary">
         {{ t('educationHeading') }}
       </h2>
