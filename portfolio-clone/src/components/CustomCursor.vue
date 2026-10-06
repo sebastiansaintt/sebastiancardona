@@ -1,17 +1,14 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
 
-const mouseX = ref(-100);
-const mouseY = ref(-100);
-const ringX = ref(-100);
-const ringY = ref(-100);
+const mouseX = ref(-1000);
+const mouseY = ref(-1000);
+const glowX = ref(-1000);
+const glowY = ref(-1000);
 const isHovered = ref(false);
 const isHidden = ref(true);
 
-let velocityX = 0;
-let velocityY = 0;
-const stiffness = 0.08; // Spring strength
-const friction = 0.72;   // Spring damping/resistance
+const ease = 0.15; // Smooth follow factor
 let animationFrameId = null;
 
 const updateMousePosition = (e) => {
@@ -20,47 +17,21 @@ const updateMousePosition = (e) => {
   isHidden.value = false;
 };
 
-const handleMouseLeave = () => {
-  isHidden.value = true;
-};
+const handleMouseLeave = () => { isHidden.value = true; };
+const handleMouseEnter = () => { isHidden.value = false; };
 
-const handleMouseEnter = () => {
-  isHidden.value = false;
-};
-
-// Check if hovered element is interactive
+// Slightly intensify the glow over interactive elements
 const handleMouseOver = (e) => {
   const target = e.target;
-  if (
-    target.tagName === 'A' ||
-    target.tagName === 'BUTTON' ||
-    target.closest('a') ||
-    target.closest('button') ||
-    target.closest('.interactive') ||
-    target.closest('.magnetic') ||
-    target.classList.contains('interactive') ||
-    target.classList.contains('magnetic')
-  ) {
-    isHovered.value = true;
-  } else {
-    isHovered.value = false;
-  }
+  isHovered.value = !!(
+    target.closest &&
+    target.closest('a, button, .interactive, .magnetic')
+  );
 };
 
 const tick = () => {
-  // Spring physics calculation
-  const dx = mouseX.value - ringX.value;
-  const dy = mouseY.value - ringY.value;
-  
-  const ax = dx * stiffness;
-  const ay = dy * stiffness;
-  
-  velocityX = (velocityX + ax) * friction;
-  velocityY = (velocityY + ay) * friction;
-  
-  ringX.value += velocityX;
-  ringY.value += velocityY;
-  
+  glowX.value += (mouseX.value - glowX.value) * ease;
+  glowY.value += (mouseY.value - glowY.value) * ease;
   animationFrameId = requestAnimationFrame(tick);
 };
 
@@ -69,11 +40,6 @@ onMounted(() => {
   document.addEventListener('mouseleave', handleMouseLeave);
   document.addEventListener('mouseenter', handleMouseEnter);
   window.addEventListener('mouseover', handleMouseOver);
-  
-  // Set initial position
-  ringX.value = window.innerWidth / 2;
-  ringY.value = window.innerHeight / 2;
-  
   tick();
 });
 
@@ -82,85 +48,69 @@ onUnmounted(() => {
   document.removeEventListener('mouseleave', handleMouseLeave);
   document.removeEventListener('mouseenter', handleMouseEnter);
   window.removeEventListener('mouseover', handleMouseOver);
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId);
-  }
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
 });
 </script>
 
 <template>
-  <div class="custom-cursor-container" :class="{ 'is-hidden': isHidden }">
-    <!-- Center Dot -->
-    <div 
-      class="cursor-dot" 
-      :style="{ transform: `translate3d(${mouseX}px, ${mouseY}px, 0) scale(${isHovered ? 0 : 1})` }"
-    ></div>
-    <!-- Outer Lag Ring -->
-    <div 
-      class="cursor-ring" 
+  <div class="cursor-glow-container" :class="{ 'is-hidden': isHidden }" aria-hidden="true">
+    <div
+      class="cursor-glow"
       :class="{ 'is-hovered': isHovered }"
-      :style="{ transform: `translate3d(${ringX - 18}px, ${ringY - 18}px, 0)` }"
+      :style="{ transform: `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)` }"
     ></div>
   </div>
 </template>
 
 <style scoped>
-.custom-cursor-container {
+.cursor-glow-container {
   pointer-events: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  transition: opacity 0.6s ease;
 }
 
 .is-hidden {
   opacity: 0;
 }
 
-.cursor-dot {
+.cursor-glow {
   position: absolute;
-  top: -3px;
-  left: -3px;
-  width: 6px;
-  height: 6px;
-  background-color: #ffffff;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  pointer-events: none;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  background: radial-gradient(
+    circle at center,
+    rgba(29, 78, 216, 0.15) 0%,
+    rgba(94, 234, 212, 0.06) 35%,
+    transparent 70%
+  );
+  opacity: 0.9;
+  transition: opacity 0.4s ease, width 0.4s ease, height 0.4s ease;
   will-change: transform;
 }
 
-.cursor-ring {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  pointer-events: none;
-  transition: 
-    width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25),
-    height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25),
-    border-color 0.3s ease,
-    background-color 0.3s ease;
-  will-change: transform, width, height;
+.cursor-glow.is-hovered {
+  opacity: 1;
+  width: 680px;
+  height: 680px;
 }
 
-.cursor-ring.is-hovered {
-  width: 56px;
-  height: 56px;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 1);
-  /* Adjust transform offset because size changed from 36px to 56px */
-  margin-top: -10px;
-  margin-left: -10px;
+:global(html.light) .cursor-glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(13, 148, 136, 0.10) 0%,
+    rgba(59, 130, 246, 0.05) 35%,
+    transparent 70%
+  );
 }
 
-@media (max-width: 768px) {
-  .custom-cursor-container {
+@media (max-width: 768px), (hover: none) {
+  .cursor-glow-container {
     display: none;
   }
 }

@@ -108,7 +108,7 @@ onMounted(() => {
           <!-- Calendar Graph with Days-of-Week labels -->
           <div class="flex items-start gap-1.5">
             <!-- Day of week column (Mon, Wed, Fri) -->
-            <div class="flex flex-col gap-[3px] text-[9px] font-mono text-slate-500 pt-[13px] select-none w-5 leading-[10px]">
+            <div class="flex flex-col gap-[3px] text-[9px] font-mono text-slate-400 pt-[13px] select-none w-5 leading-[10px]">
               <span class="h-[10px]">Mon</span>
               <span class="h-[10px] mt-[10px]">Wed</span>
               <span class="h-[10px] mt-[10px]">Fri</span>

@@ -8,7 +8,7 @@ const messages = {
     role: 'Backend & Data Engineer',
     subtitle: 'Scalable APIs, Resilient Data Pipelines & E2E System Security',
     tagline: 'I build high-performance APIs, resilient data pipelines, and security-first architectures with an end-to-end perspective across IoT, Web, and Mobile ecosystems.',
-    statusBadge: 'Open to Backend & Data roles',
+    statusBadge: 'Currently a Research Assistant teaching React Native',
     statusBadgeDetail: 'Research Assistant & Teaching React Native',
     locationText: 'Santa Marta, Colombia · Remote & Relocation',
     email: 'scarrdona@gmail.com',
@@ -17,7 +17,7 @@ const messages = {
     
     // In-page navigation jump links (Brittany Chiang style)
     navAbout: 'About',
-    navExperience: 'Experience',
+    navExperience: 'Experience & Education',
     navProjects: 'Projects',
     navActivity: 'Activity',
 
@@ -34,12 +34,12 @@ const messages = {
     // Experience Items (Brittany Chiang Card Style)
     experience: [
       {
-        period: '2024 — Present',
-        title: 'Research Assistant & Mobile Systems Lead',
-        company: 'Universidad Cooperativa de Colombia',
-        companyUrl: 'https://www.ucc.edu.co/',
+        period: '2026 — Present',
+        title: 'Research Assistant: React Native',
+        company: 'Universidad Antonio Nariño',
+        companyUrl: 'https://www.uan.edu.co/',
         description: 'Lead technical sessions and instructional workshops for React Native and backend mobile integration. Coordinate research prototypes bridging microcontrollers, edge sensors, and cloud endpoints.',
-        technologies: ['React Native', 'TypeScript', 'FastAPI', 'IoT Telemetry', 'Research Methodologies']
+        technologies: ['React Native', 'JavaScript', 'Declarative Programming', 'Mobile Development']
       },
       {
         period: '2022 — 2026',
@@ -47,7 +47,7 @@ const messages = {
         company: 'Universidad Cooperativa de Colombia',
         companyUrl: 'https://www.ucc.edu.co/',
         description: 'Comprehensive software engineering education with primary specialization in distributed systems, software architecture (SOLID, Clean Architecture, MVC, Microservices), database modeling (ACID, relational & NoSQL), and cybersecurity foundations.',
-        technologies: ['Software Architecture', 'PostgreSQL', 'Python', 'Algorithms', 'Distributed Systems']
+        technologies: ['Software Development', 'Databases', 'Web Development', 'IoT Development', 'Distributed Systems']
       },
       {
         period: '2024',
@@ -155,8 +155,8 @@ const messages = {
     githubProfileLink: '@sebastiansaintt',
 
     // Footer
-    footerColophon: 'Loosely designed in Figma and coded in Cursor. Built with Vue 3, Vite, and Tailwind CSS. Deployed on Vercel.',
-    copyright: '© 2026 Sebastián Cardona. All rights reserved.'
+    footerColophon: 'Inspired by Brittany Chiang. Built with Vue 3, Vite, and Tailwind CSS.',
+    copyright: '© 2026 Sebastián Cardona'
   },
   es: {
     name: 'Sebastián Cardona',
@@ -164,7 +164,7 @@ const messages = {
     role: 'Backend & Data Engineer',
     subtitle: 'APIs Escalables, Pipelines de Datos Resilientes & Seguridad E2E',
     tagline: 'Construyo APIs de alto rendimiento, flujos de datos resilientes y arquitecturas seguras con una perspectiva integral de extremo a extremo en entornos IoT, Web y Mobile.',
-    statusBadge: 'Disponible para roles de Backend y Datos',
+    statusBadge: 'Actualmente auxiliar de investigación enseñando React Native',
     statusBadgeDetail: 'Auxiliar de investigación & Docencia en React Native',
     locationText: 'Santa Marta, Colombia · Remoto y Relocalización',
     email: 'scarrdona@gmail.com',
@@ -173,7 +173,7 @@ const messages = {
 
     // Enlaces de navegación con indicador
     navAbout: 'Sobre Mí',
-    navExperience: 'Experiencia',
+    navExperience: 'Experiencia y Educación',
     navProjects: 'Proyectos',
     navActivity: 'Actividad',
 
@@ -190,12 +190,12 @@ const messages = {
     // Experiencia
     experience: [
       {
-        period: '2024 — Presente',
-        title: 'Auxiliar de Investigación & Liderazgo en Sistemas Móviles',
-        company: 'Universidad Cooperativa de Colombia',
-        companyUrl: 'https://www.ucc.edu.co/',
+        period: '2026 — Presente',
+        title: 'Auxiliar de Investigación: React Native',
+        company: 'Universidad Antonio Nariño',
+        companyUrl: 'https://www.uan.edu.co/',
         description: 'Lidero talleres técnicos e instrucción práctica en desarrollo con React Native y conectividad backend. Coordino prototipos de investigación que enlazan microcontroladores, sensores en el borde y endpoints cloud.',
-        technologies: ['React Native', 'TypeScript', 'FastAPI', 'Telemetría IoT', 'Metodología Científica']
+        technologies: ['React Native', 'TypeScript', 'Expo', 'Mobile Development']
       },
       {
         period: '2022 — 2026',
@@ -203,7 +203,7 @@ const messages = {
         company: 'Universidad Cooperativa de Colombia',
         companyUrl: 'https://www.ucc.edu.co/',
         description: 'Formación rigurosa en ingeniería de software con énfasis en sistemas distribuidos, arquitectura de software (SOLID, Clean Architecture, MVC, Microservicios), modelado de bases de datos (ACID, relacionales y NoSQL) y seguridad informática.',
-        technologies: ['Arquitectura de Software', 'PostgreSQL', 'Python', 'Algoritmos', 'Sistemas Distribuidos']
+        technologies: ['Desarrollo de Software', 'SDLC', 'Bases de Datos', 'IoT', 'Seguridad en la Web']
       },
       {
         period: '2024',
@@ -311,8 +311,8 @@ const messages = {
     githubProfileLink: '{\'@\'}sebastiansaintt',
 
     // Pie
-    footerColophon: 'Diseñado con inspiración minimalista en Figma y codificado en Cursor. Construido con Vue 3, Vite y Tailwind CSS.',
-    copyright: '© 2026 Sebastián Cardona. Todos los derechos reservados.'
+    footerColophon: 'Inspirado por Brittany Chiang. Construido con Vue 3, Vite y Tailwind CSS.',
+    copyright: '© 2026 Sebastián Cardona'
   }
 }
 

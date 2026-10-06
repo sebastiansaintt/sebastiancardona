@@ -66,11 +66,11 @@ html.light ::selection {
 }
 
 /* GitHub Contributions Calendar (Light & Dark matching github.com) */
-.gh-day-0 { background-color: #1e293b; border: 1px solid rgba(255, 255, 255, 0.04); }
-.gh-day-1 { background-color: #0e4429; border: 1px solid rgba(255, 255, 255, 0.05); }
-.gh-day-2 { background-color: #006d32; border: 1px solid rgba(255, 255, 255, 0.05); }
-.gh-day-3 { background-color: #26a641; border: 1px solid rgba(255, 255, 255, 0.05); }
-.gh-day-4 { background-color: #39d353; border: 1px solid rgba(255, 255, 255, 0.05); }
+.gh-day-0 { background-color: rgba(148, 163, 184, 0.12); border: 1px solid rgba(148, 163, 184, 0.10); }
+.gh-day-1 { background-color: #14532d; border: 1px solid rgba(74, 222, 128, 0.25); }
+.gh-day-2 { background-color: #15803d; border: 1px solid rgba(74, 222, 128, 0.30); }
+.gh-day-3 { background-color: #22c55e; border: 1px solid rgba(134, 239, 172, 0.35); }
+.gh-day-4 { background-color: #86efac; border: 1px solid rgba(187, 247, 208, 0.50); box-shadow: 0 0 6px rgba(74, 222, 128, 0.45); }
 
 html.light .gh-day-0 { background-color: #ebedf0; border: 1px solid rgba(27, 31, 35, 0.06); }
 html.light .gh-day-1 { background-color: #9be9a8; border: 1px solid rgba(27, 31, 35, 0.06); }

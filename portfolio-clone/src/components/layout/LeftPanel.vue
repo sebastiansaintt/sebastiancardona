@@ -55,14 +55,9 @@ const scrollTo = (id) => {
       </h1>
 
       <!-- Main Role -->
-      <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+      <h2 class="mt-3 text-lg font-medium tracking-tight text-[#5eead4] sm:text-xl">
         {{ t('role') }}
       </h2>
-
-      <!-- Subtitle / Specialty -->
-      <p class="mt-1 font-mono text-xs sm:text-sm font-medium text-teal-400 dark:text-teal-300">
-        {{ t('subtitle') }}
-      </p>
 
       <!-- Tagline -->
       <p class="mt-4 max-w-sm text-sm sm:text-base leading-normal text-slate-400 dark:text-slate-400">
@@ -192,20 +187,6 @@ const scrollTo = (id) => {
         </button>
 
         <!-- Theme Toggle -->
-        <button 
-          type="button" 
-          class="rounded p-1 text-slate-400 transition-colors hover:text-slate-200"
-          @click="emit('toggle-theme')"
-          :title="isDark ? 'Switch to Light Theme' : 'Cambiar a Modo Oscuro'"
-          aria-label="Toggle theme"
-        >
-          <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
-            <path fill-rule="evenodd" d="M7.455 2.004a.75.75 0 01.26.77 7 7 0 009.958 7.967.75.75 0 011.067.853A8.5 8.5 0 116.647 1.921a.75.75 0 01.808.083z" clip-rule="evenodd"></path>
-          </svg>
-          <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
-            <path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 10-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.06l1.06-1.06zM6.464 14.596a.75.75 0 10-1.06-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.06-1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM14.596 15.657a.75.75 0 001.06-1.06l-1.06-1.061a.75.75 0 10-1.06 1.06l1.06 1.06zM5.404 6.464a.75.75 0 001.06-1.06l-1.06-1.06a.75.75 0 10-1.061 1.06l1.06 1.06z"></path>
-          </svg>
-        </button>
       </div>
     </div>
   </header>
