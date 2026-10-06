@@ -18,12 +18,10 @@ const processContributions = (days) => {
   return weeks
 }
 
-// Initialise with cached real GitHub data immediately
 if (cachedData?.contributions?.length) {
   contributionWeeks.value = processContributions(cachedData.contributions)
 }
 
-// Compute month labels aligned by week index
 const monthMarkers = computed(() => {
   const markers = []
   let lastMonth = -1
@@ -34,7 +32,6 @@ const monthMarkers = computed(() => {
     const date = new Date(week[0].date + 'T12:00:00Z')
     const month = date.getUTCMonth()
 
-    // Show label on month change, but avoid overlapping (at least 3 weeks apart)
     if (month !== lastMonth && (idx - lastIdx) >= 3) {
       markers.push({
         weekIndex: idx,
@@ -84,19 +81,20 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="activity" class="animate-in-up-on-view container mx-auto max-w-4xl px-5 sm:px-6 py-6" aria-labelledby="github-activity-heading">
-    <div class="mb-5">
-      <h2 id="github-activity-heading" class="font-bold text-xs uppercase tracking-[0.2em] text-secondary">
-        {{ t('githubActivityHeading') }}
+  <section id="activity" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="GitHub Activity">
+    <!-- Mobile Sticky Header -->
+    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">
+        {{ t('navActivity') }}
       </h2>
     </div>
 
     <!-- GitHub Contribution Graph Card -->
-    <div class="rounded-2xl border border-border/80 bg-card/60 p-4 sm:p-5 backdrop-blur-sm">
+    <div class="rounded-lg border border-slate-800 bg-slate-900/40 p-4 sm:p-5 backdrop-blur-sm transition-colors hover:border-slate-700">
       <div class="overflow-x-auto pb-2">
-        <div class="inline-block min-w-[700px]">
+        <div class="inline-block min-w-[680px]">
           <!-- Month labels row -->
-          <div class="flex items-center text-[10px] font-mono text-secondary mb-1.5 h-3.5 pl-6 relative">
+          <div class="flex items-center text-[10px] font-mono text-slate-400 mb-1.5 h-3.5 pl-6 relative">
             <span 
               v-for="marker in monthMarkers" 
               :key="marker.weekIndex"
@@ -110,7 +108,7 @@ onMounted(() => {
           <!-- Calendar Graph with Days-of-Week labels -->
           <div class="flex items-start gap-1.5">
             <!-- Day of week column (Mon, Wed, Fri) -->
-            <div class="flex flex-col gap-[3px] text-[9px] font-mono text-secondary/70 pt-[13px] select-none w-5 leading-[10px]">
+            <div class="flex flex-col gap-[3px] text-[9px] font-mono text-slate-500 pt-[13px] select-none w-5 leading-[10px]">
               <span class="h-[10px]">Mon</span>
               <span class="h-[10px] mt-[10px]">Wed</span>
               <span class="h-[10px] mt-[10px]">Fri</span>
@@ -137,21 +135,21 @@ onMounted(() => {
       </div>
 
       <!-- Graph Footer Summary & Legend -->
-      <div class="mt-3 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] font-medium tracking-wider text-secondary border-t border-border/50 pt-3">
+      <div class="mt-3 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] font-medium tracking-wider text-slate-400 border-t border-slate-800/60 pt-3">
         <p class="uppercase">
-          <span class="text-foreground font-semibold">{{ totalContributions }}</span>
+          <span class="text-slate-200 font-semibold">{{ totalContributions }}</span>
           {{ t('githubContributions') }}
         </p>
 
         <!-- Intensity Scale matching GitHub Green -->
         <div class="flex items-center gap-1.5 select-none">
-          <span class="uppercase text-[10px] text-secondary">{{ t('githubLess') }}</span>
+          <span class="uppercase text-[10px] text-slate-500">{{ t('githubLess') }}</span>
           <div class="size-[10px] rounded-[2px] gh-day-0" title="0 contributions" />
           <div class="size-[10px] rounded-[2px] gh-day-1" title="1-3 contributions" />
           <div class="size-[10px] rounded-[2px] gh-day-2" title="4-6 contributions" />
           <div class="size-[10px] rounded-[2px] gh-day-3" title="7-9 contributions" />
           <div class="size-[10px] rounded-[2px] gh-day-4" title="10+ contributions" />
-          <span class="uppercase text-[10px] text-secondary">{{ t('githubMore') }}</span>
+          <span class="uppercase text-[10px] text-slate-500">{{ t('githubMore') }}</span>
         </div>
       </div>
 
@@ -160,9 +158,9 @@ onMounted(() => {
         href="https://github.com/sebastiansaintt" 
         target="_blank" 
         rel="noopener noreferrer" 
-        class="mt-2.5 inline-block font-mono text-xs text-secondary transition-colors hover:text-foreground hover:underline"
+        class="mt-2.5 inline-block font-mono text-xs text-slate-400 transition-colors hover:text-teal-300 hover:underline"
       >
-        {{ t('githubProfileLink') }}
+        {{ t('githubProfileLink') }} ↗
       </a>
     </div>
   </section>

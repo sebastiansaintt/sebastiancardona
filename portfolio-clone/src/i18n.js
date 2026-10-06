@@ -5,62 +5,70 @@ const messages = {
   en: {
     name: 'Sebastián Cardona',
     fullName: 'Sebastián José Cardona Ramírez',
-    role: 'Backend Engineer',
-    rolePills: ['Backend Systems', 'Data Pipelines', 'Cloud & DevOps', 'AI Automation'],
+    role: 'Backend & Data Engineer',
+    subtitle: 'Scalable APIs, Resilient Data Pipelines & E2E System Security',
+    tagline: 'I build high-performance APIs, resilient data pipelines, and security-first architectures with an end-to-end perspective across IoT, Web, and Mobile ecosystems.',
+    statusBadge: 'Open to Backend & Data roles',
+    statusBadgeDetail: 'Research Assistant & Teaching React Native',
     locationText: 'Santa Marta, Colombia · Remote & Relocation',
-    bio: 'Backend Engineer building async APIs and real-time data pipelines — actively moving into Data Engineering & AI Automation.',
     email: 'scarrdona@gmail.com',
     copyEmail: 'Copy Email',
     emailCopied: 'Email copied to clipboard!',
-    navHome: 'Home',
+    
+    // In-page navigation jump links (Brittany Chiang style)
     navAbout: 'About',
-    navStack: 'Tech Stack',
+    navExperience: 'Experience',
     navProjects: 'Projects',
-    navActivity: 'GitHub',
-    navContact: 'Contact',
-    cmdTrigger: 'Search or jump to...',
-    cmdTitle: 'Command Menu',
-    cmdPlaceholder: 'Type a command or search...',
-    cmdNavigation: 'Navigation',
-    cmdActions: 'Quick Actions',
-    cmdDownloadCV_EN: 'Download CV (English PDF)',
-    cmdDownloadCV_ES: 'Descargar CV (Español PDF)',
-    cmdCopyEmail: 'Copy Email to Clipboard',
-    cmdOpenGitHub: 'Open GitHub Profile',
-    cmdOpenLinkedIn: 'Open LinkedIn Profile',
-    cmdOpenX: 'Open X / Twitter',
-    cmdSwitchLang: 'Switch to Spanish (ES)',
-    cmdNoResults: 'No results found.',
-    cmdSelect: 'to navigate',
-    cmdClose: 'to close',
-    aboutHeading: 'ARCHITECTURE PRINCIPLES & STANDARDS',
-    aboutP1: 'I design systems that ingest, process and serve data reliably at the API layer: FastAPI services handling live telemetry streams, PostgreSQL-backed pipelines, and event-driven architectures secured end-to-end (JWT, RBAC, Argon2id). My focus: turning real-world data — IoT sensors, business workflows — into structured, queryable, production-grade systems.',
-    aboutP2: 'I select architectures, patterns, and technologies based on functional and non-functional requirements, prioritizing strong engineering fundamentals over transient tools. I apply core principles including SOLID, ACID, and CAP, secure development best practices aligned with OWASP, ISO, and IEEE standards, and agile methodologies such as Scrum.',
-    aboutP3: 'Experienced in implementing JWT (RS256/HS256), rotating access & refresh tokens, HttpOnly Cookies, RBAC, Redis token revocation, rate limiting, Argon2id hashing, input sanitization, XSS mitigation, and containerization with Docker to deliver secure, maintainable, high-performance, scalable, and resilient software.',
-    educationHeading: 'EDUCATION & CREDENTIALS',
-    educationTitle: 'Software Engineering',
-    educationSchool: 'Universidad Cooperativa de Colombia (2026)',
-    certificationsTitle: 'Certifications',
-    certifications: [
-      'SoftSkills Strengthening Program HCL — HabComLearn (2024)',
-      'Emotional Intelligence — CUN (2022)'
+    navActivity: 'Activity',
+
+    // About Section (Recruiter Narrative)
+    aboutP1: 'Backend & Data Engineer focused on architecting resilient APIs, high-throughput data pipelines, and automated workflows. My engineering philosophy revolves around rigorous system fundamentals, security-first design patterns, and sustainable software quality.',
+    aboutP2: 'With hands-on experience spanning IoT, Web, and Mobile environments, I possess a deep understanding of the full End-to-End (E2E) lifecycle: from telemetry and edge/client data collection to scalable backend processing, distributed workflows, and reliable data storage.',
+    aboutP3: 'I am actively integrating advanced Data Engineering practices into my core backend skillset—building scalable ETL/ELT flows, structured ingestion layers, and maintainable services designed to handle critical data workloads seamlessly.',
+    
+    // Core Architecture Principles toggle/card
+    principlesTitle: 'Architecture Principles & Standards',
+    principlesP1: 'I select architectures, patterns, and technologies based on functional and non-functional requirements, prioritizing strong engineering fundamentals over transient tools. I apply core principles including SOLID, ACID, and CAP, secure development best practices aligned with OWASP, ISO, and IEEE standards, and agile methodologies such as Scrum.',
+    principlesP2: 'Experienced in implementing JWT (RS256/HS256), rotating access & refresh tokens, HttpOnly Cookies, RBAC, Redis token revocation, rate limiting, Argon2id hashing, input sanitization, XSS mitigation, and containerization with Docker to deliver secure, maintainable, high-performance, scalable, and resilient software.',
+
+    // Experience Items (Brittany Chiang Card Style)
+    experience: [
+      {
+        period: '2024 — Present',
+        title: 'Research Assistant & Mobile Systems Lead',
+        company: 'Universidad Cooperativa de Colombia',
+        companyUrl: 'https://www.ucc.edu.co/',
+        description: 'Lead technical sessions and instructional workshops for React Native and backend mobile integration. Coordinate research prototypes bridging microcontrollers, edge sensors, and cloud endpoints.',
+        technologies: ['React Native', 'TypeScript', 'FastAPI', 'IoT Telemetry', 'Research Methodologies']
+      },
+      {
+        period: '2022 — 2026',
+        title: 'Software Engineering Degree (B.S.)',
+        company: 'Universidad Cooperativa de Colombia',
+        companyUrl: 'https://www.ucc.edu.co/',
+        description: 'Comprehensive software engineering education with primary specialization in distributed systems, software architecture (SOLID, Clean Architecture, MVC, Microservices), database modeling (ACID, relational & NoSQL), and cybersecurity foundations.',
+        technologies: ['Software Architecture', 'PostgreSQL', 'Python', 'Algorithms', 'Distributed Systems']
+      },
+      {
+        period: '2024',
+        title: 'HCL SoftSkills Strengthening Certification',
+        company: 'HabComLearn',
+        companyUrl: '#',
+        description: 'Advanced communication, technical leadership, cross-functional engineering collaboration, and agile project delivery standards.',
+        technologies: ['Leadership', 'Communication', 'Scrum', 'Team Delivery']
+      }
     ],
-    workingOnLabel: 'Right now:',
-    workingOnText: 'Research Assistant, teaching React Native (August 2026 – Present)',
-    techStackHeading: 'TECH STACK',
-    techStackSubtitle: 'Languages, frameworks, databases, and infrastructure tools',
-    catBackend: 'Backend / API',
-    catData: 'Data & Messaging',
-    catAuth: 'Auth & Security',
-    catInfra: 'Infra & Deploy',
-    catAI: 'AI / Automation',
-    projectsHeading: 'FEATURED PROJECTS',
-    projectsSubtitle: 'Engineered systems built for reliability, security, and performance',
-    viewGithub: 'GitHub Repo',
+
+    viewResume: 'View Full Résumé',
+    downloadCV: 'Download CV',
+    
+    // Projects
+    projectsHeading: 'Projects',
+    viewGithub: 'GitHub',
     livePreview: 'Live Preview',
     watchDemo: 'Watch Demo',
     viewDemoVideo: 'Watch Video Demo',
-    demoAvailable: 'Video Demo',
+    demoAvailable: 'Video Walkthrough Available',
     backToPortfolio: 'Back to Portfolio',
     projectOverview: 'Project Overview',
     systemCapabilities: 'System Architecture & Capabilities',
@@ -71,27 +79,17 @@ const messages = {
     exploreOtherProjects: 'Other Engineered Systems',
     shareDemo: 'Share Demo',
     demoLinkCopied: 'Demo link copied to clipboard!',
-    githubActivityHeading: 'GITHUB ACTIVITY',
-    githubContributions: 'contributions in 2025–2026',
-    githubLess: 'Less',
-    githubMore: 'More',
-    githubProfileLink: '@sebastiansaintt',
-    quoteText: 'Simplicity is prerequisite for reliability. Software engineering is not just about writing code; it is about engineering resilient systems.',
-    quoteAuthor: 'Edsger W. Dijkstra',
-    visitorText: 'You are visitor #1,420',
-    footerBuiltWith: 'Designed with macOS minimalist precision. Built with Vue 3 & Vite.',
-    copyright: '© 2026 Sebastián Cardona. All rights reserved.',
-    downloadCV: 'Download CV',
+
     projects: [
       {
         id: 1,
         slug: 'risk-follower',
         hasDemo: false,
-        num: '01/',
+        num: '01',
         badge: 'Data Engineering & Real-Time Pipeline',
         title: 'Real-Time Fermentation Monitoring Pipeline',
         subtitle: 'Craft Breweries Telemetry (2025 - 2026)',
-        description: 'Ingests live sensor data (temperature, humidity, CO2) from ESP32 devices via MQTT (HiveMQ Cloud) into PostgreSQL for historical analysis. Authenticated REST API with role-based filtering, live WebSocket dashboard, JWT auth with 3 role tiers. Deployed as a monolith + background worker on Render, with managed Postgres on Supabase.',
+        description: 'Ingests live sensor data (temperature, humidity, CO2) from ESP32 microcontrollers via MQTT (HiveMQ Cloud) into PostgreSQL for historical analysis. Authenticated REST API with role-based filtering, live WebSocket dashboard, and JWT auth with 3 role tiers. Monolith + background worker architecture deployed on Render with Supabase PostgreSQL.',
         bullet_points: [
           'Ingestion and validation backend for telemetry (temperature, humidity, CO2) from ESP32 microcontrollers.',
           'High-throughput REST APIs and WebSocket feeds with FastAPI and PostgreSQL persistence.',
@@ -107,11 +105,11 @@ const messages = {
         hasDemo: true,
         demoBadge: 'Full PWA Walkthrough',
         videoKey: 'car-inspection',
-        num: '02/',
+        num: '02',
         badge: 'Full Stack & Mobile PWA',
-        title: 'Car Inspection | Vehicle Inspection PWA',
+        title: 'Car Inspection | Vehicle Fleet PWA',
         subtitle: 'Special Vehicle Inspection Sector (2026)',
-        description: 'Replaced paper-based fleet inspections with a full digital workflow: inspection history, maintenance tracking, and real-time fleet availability. Modular monolith (FastAPI + MVC) chosen deliberately over microservices to ship fast without premature complexity. Security-first: RBAC, one-way password hashing, HTTPS-only, server-side validation on every input.',
+        description: 'Replaced paper-based fleet inspections with a full digital workflow: inspection history, maintenance tracking, and real-time fleet availability. Modular monolith (FastAPI + MVC) built security-first: RBAC, Argon2id hashing, HTTPS cookies, and server-side validation on every input payload.',
         bullet_points: [
           'Modular Layered + MVC architecture with FastAPI, React, TypeScript, PostgreSQL, and SQLAlchemy.',
           'Secure auth with JWT, HttpOnly cookies, RBAC, Argon2id, and Redis token revocation under OWASP.',
@@ -133,11 +131,11 @@ const messages = {
         id: 3,
         slug: 'lawsim-pymes',
         hasDemo: false,
-        num: '03/',
+        num: '03',
         badge: 'Enterprise Architecture & NLP',
         title: 'LawSim Pymes | Regulatory Simulation Platform',
         subtitle: 'Enterprise System Architecture & Rule Reasoning (2025)',
-        description: 'Enterprise hybrid architecture combining Layered, Microservices, and MVC patterns to decouple CRUD operations from computational reasoning pipelines.',
+        description: 'Enterprise hybrid architecture combining Layered, Microservices, and MVC patterns to decouple CRUD operations from computational reasoning pipelines. Integrates OWL 2 domain ontologies, SWRL rules, and LEGAL-BETO NLP.',
         bullet_points: [
           'Modeled domain ontologies in OWL 2 (Protégé) with HermiT reasoner, SWRL rules, and LEGAL-BETO NLP.',
           'Defined SOAP/WSDL microservices, Redis distributed caching, and asymmetric JWT (RS256) security.',
@@ -147,67 +145,86 @@ const messages = {
         technologies: ['Software Architecture', 'FastAPI', 'Vue.js', 'OWL 2 / Protégé', 'NLP (LEGAL-BETO)', 'SOAP / WSDL', 'Redis'],
         preview: '/lawsim.png'
       }
-    ]
+    ],
+
+    // Activity
+    githubActivityHeading: 'Activity',
+    githubContributions: 'contributions in 2025–2026',
+    githubLess: 'Less',
+    githubMore: 'More',
+    githubProfileLink: '@sebastiansaintt',
+
+    // Footer
+    footerColophon: 'Loosely designed in Figma and coded in Cursor. Built with Vue 3, Vite, and Tailwind CSS. Deployed on Vercel.',
+    copyright: '© 2026 Sebastián Cardona. All rights reserved.'
   },
   es: {
     name: 'Sebastián Cardona',
     fullName: 'Sebastián José Cardona Ramírez',
-    role: 'Ingeniero Backend',
-    rolePills: ['Sistemas Backend', 'Pipelines de Datos', 'Cloud & DevOps', 'Automatización con IA'],
+    role: 'Backend & Data Engineer',
+    subtitle: 'APIs Escalables, Pipelines de Datos Resilientes & Seguridad E2E',
+    tagline: 'Construyo APIs de alto rendimiento, flujos de datos resilientes y arquitecturas seguras con una perspectiva integral de extremo a extremo en entornos IoT, Web y Mobile.',
+    statusBadge: 'Disponible para roles de Backend y Datos',
+    statusBadgeDetail: 'Auxiliar de investigación & Docencia en React Native',
     locationText: 'Santa Marta, Colombia · Remoto y Relocalización',
-    bio: 'Ingeniero Backend construyendo APIs asíncronas y pipelines de datos en tiempo real — en transición activa hacia Data Engineering y Automatización con IA.',
     email: 'scarrdona@gmail.com',
     copyEmail: 'Copiar Correo',
     emailCopied: '¡Correo copiado al portapapeles!',
-    navHome: 'Inicio',
+
+    // Enlaces de navegación con indicador
     navAbout: 'Sobre Mí',
-    navStack: 'Tech Stack',
+    navExperience: 'Experiencia',
     navProjects: 'Proyectos',
-    navActivity: 'GitHub',
-    navContact: 'Contacto',
-    cmdTrigger: 'Buscar o ir a...',
-    cmdTitle: 'Menú de Comandos',
-    cmdPlaceholder: 'Escribe un comando o busca...',
-    cmdNavigation: 'Navegación',
-    cmdActions: 'Acciones Rápidas',
-    cmdDownloadCV_EN: 'Download CV (English PDF)',
-    cmdDownloadCV_ES: 'Descargar CV (Español PDF)',
-    cmdCopyEmail: 'Copiar Correo al Portapapeles',
-    cmdOpenGitHub: 'Abrir Perfil de GitHub',
-    cmdOpenLinkedIn: 'Abrir Perfil de LinkedIn',
-    cmdOpenX: 'Abrir X / Twitter',
-    cmdSwitchLang: 'Cambiar a Inglés (EN)',
-    cmdNoResults: 'No se encontraron resultados.',
-    cmdSelect: 'para navegar',
-    cmdClose: 'para cerrar',
-    aboutHeading: 'PRINCIPIOS DE ARQUITECTURA & ESTÁNDARES',
-    aboutP1: 'Diseño sistemas que ingieren, procesan y sirven datos de forma confiable en la capa de API: servicios FastAPI que gestionan flujos de telemetría en vivo, pipelines respaldados por PostgreSQL y arquitecturas orientadas a eventos aseguradas de extremo a extremo (JWT, RBAC, Argon2id). Mi enfoque: transformar datos del mundo real — sensores IoT, flujos de trabajo de negocio — en sistemas estructurados, consultables y de nivel de producción.',
-    aboutP2: 'Selecciono arquitecturas, patrones y tecnologías según los requisitos funcionales y no funcionales del problema, priorizando fundamentos de ingeniería sobre herramientas específicas. Aplico principios como SOLID, ACID y CAP, prácticas de diseño y desarrollo seguro alineadas con estándares OWASP, ISO e IEEE, y metodologías ágiles como Scrum.',
-    aboutP3: 'He implementado mecanismos como JWT (RS256/HS256), access y refresh tokens rotativos, HttpOnly Cookies, RBAC, rate limiting, Argon2id, sanitización y validación de entradas, protección frente a XSS y contenerización con Docker, buscando construir software seguro, mantenible, escalable y preparado para evolucionar.',
-    educationHeading: 'EDUCACIÓN & CERTIFICACIONES',
-    educationTitle: 'Ingeniería de Software',
-    educationSchool: 'Universidad Cooperativa de Colombia (2026)',
-    certificationsTitle: 'Certificaciones',
-    certifications: [
-      'Programa de Fortalecimiento en SoftSkills HCL — HabComLearn (2024)',
-      'Inteligencia Emocional — CUN (2022)'
+    navActivity: 'Actividad',
+
+    // Sección About (Narrativa para Reclutadores)
+    aboutP1: 'Ingeniero de Software especializado en Backend y Data Engineering. Mi enfoque se centra en el diseño e implementación de APIs robustas, pipelines de datos confiables y workflows automatizados, priorizando siempre la seguridad, los principios de arquitectura limpia y la calidad del software.',
+    aboutP2: 'Habiendo trabajado en ecosistemas que abarcan IoT, Web y plataformas móviles, entiendo a profundidad el ciclo de vida End-to-End (E2E) de un producto digital: desde la captura y telemetría de datos en el borde o cliente, pasando por el procesamiento distribuido, hasta la persistencia y entrega eficiente a través de servicios escalables.',
+    aboutP3: 'Actualmente expando y aplico mis capacidades en Data Engineering, diseñando flujos de ingesta, transformación y modelado de datos que permiten a los sistemas operar con alta disponibilidad, trazabilidad y bajo acoplamiento.',
+
+    // Principios de Arquitectura
+    principlesTitle: 'Principios de Arquitectura & Estándares',
+    principlesP1: 'Selecciono arquitecturas, patrones y tecnologías según los requisitos funcionales y no funcionales del problema, priorizando fundamentos de ingeniería sobre herramientas específicas. Aplico principios como SOLID, ACID y CAP, prácticas de diseño y desarrollo seguro alineadas con estándares OWASP, ISO e IEEE, y metodologías ágiles como Scrum.',
+    principlesP2: 'He implementado mecanismos como JWT (RS256/HS256), access y refresh tokens rotativos, HttpOnly Cookies, RBAC, rate limiting, Argon2id, sanitización y validación de entradas, protección frente a XSS y contenerización con Docker, buscando construir software seguro, mantenible, escalable y preparado para evolucionar.',
+
+    // Experiencia
+    experience: [
+      {
+        period: '2024 — Presente',
+        title: 'Auxiliar de Investigación & Liderazgo en Sistemas Móviles',
+        company: 'Universidad Cooperativa de Colombia',
+        companyUrl: 'https://www.ucc.edu.co/',
+        description: 'Lidero talleres técnicos e instrucción práctica en desarrollo con React Native y conectividad backend. Coordino prototipos de investigación que enlazan microcontroladores, sensores en el borde y endpoints cloud.',
+        technologies: ['React Native', 'TypeScript', 'FastAPI', 'Telemetría IoT', 'Metodología Científica']
+      },
+      {
+        period: '2022 — 2026',
+        title: 'Ingeniería de Software (Pregrado)',
+        company: 'Universidad Cooperativa de Colombia',
+        companyUrl: 'https://www.ucc.edu.co/',
+        description: 'Formación rigurosa en ingeniería de software con énfasis en sistemas distribuidos, arquitectura de software (SOLID, Clean Architecture, MVC, Microservicios), modelado de bases de datos (ACID, relacionales y NoSQL) y seguridad informática.',
+        technologies: ['Arquitectura de Software', 'PostgreSQL', 'Python', 'Algoritmos', 'Sistemas Distribuidos']
+      },
+      {
+        period: '2024',
+        title: 'Certificación de Fortalecimiento en SoftSkills HCL',
+        company: 'HabComLearn',
+        companyUrl: '#',
+        description: 'Habilidades avanzadas en comunicación asertiva, liderazgo técnico, resolución de problemas interfuncionales y gestión ágil.',
+        technologies: ['Liderazgo', 'Comunicación', 'Scrum', 'Entrega Ágil']
+      }
     ],
-    workingOnLabel: 'Ahora mismo:',
-    workingOnText: 'Auxiliar de investigación, enseñando React Native (agosto 2026 - presente)',
-    techStackHeading: 'TECH STACK',
-    techStackSubtitle: 'Lenguajes, frameworks, bases de datos y herramientas de infraestructura',
-    catBackend: 'Backend / API',
-    catData: 'Datos y Mensajería',
-    catAuth: 'Autenticación y Seguridad',
-    catInfra: 'Infraestructura y Despliegue',
-    catAI: 'IA y Automatización',
-    projectsHeading: 'PROYECTOS DESTACADOS',
-    projectsSubtitle: 'Sistemas diseñados con rigor de ingeniería, seguridad y rendimiento',
-    viewGithub: 'Repositorio GitHub',
+
+    viewResume: 'Ver Résumé Completo',
+    downloadCV: 'Descargar CV',
+
+    // Proyectos
+    projectsHeading: 'Proyectos',
+    viewGithub: 'GitHub',
     livePreview: 'Vista Previa',
     watchDemo: 'Ver Demo',
     viewDemoVideo: 'Ver Video Demo',
-    demoAvailable: 'Video Demo',
+    demoAvailable: 'Video Demo Disponible',
     backToPortfolio: 'Volver al Portafolio',
     projectOverview: 'Descripción General',
     systemCapabilities: 'Arquitectura y Capacidades del Sistema',
@@ -218,27 +235,17 @@ const messages = {
     exploreOtherProjects: 'Otros Sistemas Desarrollados',
     shareDemo: 'Compartir Demo',
     demoLinkCopied: '¡Enlace del demo copiado al portapapeles!',
-    githubActivityHeading: 'ACTIVIDAD EN GITHUB',
-    githubContributions: 'contribuciones en 2025–2026',
-    githubLess: 'Menos',
-    githubMore: 'Más',
-    githubProfileLink: '{\'@\'}sebastiansaintt',
-    quoteText: 'La simplicidad es un requisito previo para la confiabilidad. La ingeniería de software no se trata solo de programar, sino de construir sistemas resilientes.',
-    quoteAuthor: 'Edsger W. Dijkstra',
-    visitorText: 'Eres el visitante #1.420',
-    footerBuiltWith: 'Diseñado con precisión minimalista estilo macOS. Construido con Vue 3 & Vite.',
-    copyright: '© 2026 Sebastián Cardona. Todos los derechos reservados.',
-    downloadCV: 'Descargar CV',
+
     projects: [
       {
         id: 1,
         slug: 'risk-follower',
         hasDemo: false,
-        num: '01/',
+        num: '01',
         badge: 'Ingeniería de Datos & Pipeline en Tiempo Real',
         title: 'Real-Time Fermentation Monitoring Pipeline',
         subtitle: 'Telemetría para Procesos de Fermentación (2025 - 2026)',
-        description: 'Ingesta de datos de sensores en vivo (temperatura, humedad, CO2) desde dispositivos ESP32 vía MQTT (HiveMQ Cloud) hacia PostgreSQL para análisis histórico. API REST autenticada con filtrado basado en roles, dashboard en vivo con WebSockets y autenticación JWT con 3 niveles de roles. Desplegado como monolito + background worker en Render, con Postgres administrado en Supabase.',
+        description: 'Ingesta de datos de sensores en vivo (temperatura, humedad, CO2) desde microcontroladores ESP32 vía MQTT (HiveMQ Cloud) hacia PostgreSQL para análisis histórico. API REST autenticada con filtrado basado en roles, dashboard en vivo con WebSockets y autenticación JWT con 3 niveles de roles. Desplegado como monolito + background worker en Render con Postgres en Supabase.',
         bullet_points: [
           'Backend de ingesta y validación de telemetría (temperatura, humedad, CO2) desde microcontroladores ESP32.',
           'APIs REST y WebSockets de alto rendimiento con FastAPI y PostgreSQL.',
@@ -254,11 +261,11 @@ const messages = {
         hasDemo: true,
         demoBadge: 'Recorrido Completo PWA',
         videoKey: 'car-inspection',
-        num: '02/',
+        num: '02',
         badge: 'Full Stack & Mobile PWA',
         title: 'Car Inspection | Sistema PWA de Inspección Vehicular',
         subtitle: 'Interventoría y Mantenimiento de Vehículos Especiales (2026)',
-        description: 'Reemplazo de inspecciones de flota en papel por un flujo de trabajo 100% digital: historial de inspecciones, seguimiento de mantenimiento y disponibilidad de flota en tiempo real. Monolito modular (FastAPI + MVC) elegido deliberadamente sobre microservicios para iterar rápido sin complejidad prematura. Seguridad primero: RBAC, hashing unidireccional de contraseñas, solo HTTPS y validación del lado del servidor en cada entrada.',
+        description: 'Reemplazo de inspecciones de flota en papel por un flujo 100% digital: trazabilidad de revisiones, control de averías y disponibilidad de flota en tiempo real. Monolito modular (FastAPI + MVC) con seguridad de primer nivel: RBAC, Argon2id, cookies HTTPS y validación estricta de esquemas en el servidor.',
         bullet_points: [
           'Arquitectura modular por capas + MVC con FastAPI, React, TypeScript, PostgreSQL y SQLAlchemy.',
           'Autenticación segura con JWT, cookies HttpOnly/Secure, RBAC, Argon2id y Redis bajo OWASP.',
@@ -280,11 +287,11 @@ const messages = {
         id: 3,
         slug: 'lawsim-pymes',
         hasDemo: false,
-        num: '03/',
+        num: '03',
         badge: 'Arquitectura Empresarial & NLP',
         title: 'LawSim Pymes | Plataforma de Simulación Regulatoria',
         subtitle: 'Arquitectura de Sistemas & Motor de Inferencia Normativa (2025)',
-        description: 'Blueprint arquitectónico híbrido de nivel empresarial que combina Arquitectura por Capas, Microservicios y MVC para desacoplar operaciones CRUD de pipelines de inferencia lógica.',
+        description: 'Blueprint arquitectónico híbrido de nivel empresarial que combina Arquitectura por Capas, Microservicios y MVC para desacoplar operaciones CRUD de pipelines de inferencia lógica. Integra ontologías OWL 2, reglas SWRL y NLP con LEGAL-BETO.',
         bullet_points: [
           'Modelado ontológico en OWL 2 (Protégé) con razonador HermiT, reglas SWRL y NLP con LEGAL-BETO.',
           'Interfaces SOAP/WSDL, caché distribuida con Redis y seguridad criptográfica con JWT RS256.',
@@ -294,7 +301,18 @@ const messages = {
         technologies: ['Software Architecture', 'FastAPI', 'Vue.js', 'OWL 2 / Protégé', 'NLP (LEGAL-BETO)', 'SOAP / WSDL', 'Redis'],
         preview: '/lawsim.png'
       }
-    ]
+    ],
+
+    // Actividad
+    githubActivityHeading: 'Actividad',
+    githubContributions: 'contribuciones en 2025–2026',
+    githubLess: 'Menos',
+    githubMore: 'Más',
+    githubProfileLink: '{\'@\'}sebastiansaintt',
+
+    // Pie
+    footerColophon: 'Diseñado con inspiración minimalista en Figma y codificado en Cursor. Construido con Vue 3, Vite y Tailwind CSS.',
+    copyright: '© 2026 Sebastián Cardona. Todos los derechos reservados.'
   }
 }
 
@@ -309,4 +327,3 @@ const i18n = createI18n({
 })
 
 export default i18n
-

@@ -7,31 +7,31 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(96.5% 0.008 155);
-  --foreground: oklch(18% 0.01 155);
-  --card: oklch(98.5% 0.005 155);
-  --card-foreground: oklch(18% 0.01 155);
-  --secondary: oklch(42% 0.015 155);
-  --secondary-foreground: oklch(18% 0.01 155);
-  --muted: oklch(94% 0.008 155);
-  --muted-foreground: oklch(42% 0.015 155);
-  --border: oklch(88% 0.012 155);
-  --primary: oklch(18% 0.01 155);
-  --primary-foreground: oklch(98% 0.005 155);
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --card: rgba(30, 41, 59, 0.4);
+  --card-foreground: #f8fafc;
+  --secondary: #94a3b8;
+  --secondary-foreground: #cbd5e1;
+  --muted: #1e293b;
+  --muted-foreground: #64748b;
+  --border: rgba(148, 163, 184, 0.1);
+  --primary: #5eead4;
+  --primary-foreground: #0f172a;
 }
 
-.dark {
-  --background: oklch(14.5% 0 0);
-  --foreground: oklch(98.5% 0 0);
-  --card: oklch(20.5% 0 0);
-  --card-foreground: oklch(98.5% 0 0);
-  --secondary: oklch(70.8% 0 0);
-  --secondary-foreground: oklch(98.5% 0 0);
-  --muted: oklch(26.9% 0 0);
-  --muted-foreground: oklch(70.8% 0 0);
-  --border: oklch(100% 0 0 / 0.1);
-  --primary: oklch(92.2% 0 0);
-  --primary-foreground: oklch(20.5% 0 0);
+html.light {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: rgba(255, 255, 255, 0.85);
+  --card-foreground: #0f172a;
+  --secondary: #64748b;
+  --secondary-foreground: #334155;
+  --muted: #f1f5f9;
+  --muted-foreground: #94a3b8;
+  --border: rgba(15, 23, 42, 0.1);
+  --primary: #0d9488;
+  --primary-foreground: #ffffff;
 }
 
 * {
@@ -49,71 +49,41 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Brittany Chiang Selection */
+::selection {
+  background-color: #5eead4;
+  color: #134e4a;
+}
+
+html.light ::selection {
+  background-color: #99f6e4;
+  color: #134e4a;
+}
+
 /* GitHub Contributions Calendar (Light & Dark matching github.com) */
-.gh-day-0 { background-color: #ebedf0; border: 1px solid rgba(27, 31, 35, 0.06); }
-.gh-day-1 { background-color: #9be9a8; border: 1px solid rgba(27, 31, 35, 0.06); }
-.gh-day-2 { background-color: #40c463; border: 1px solid rgba(27, 31, 35, 0.06); }
-.gh-day-3 { background-color: #30a14e; border: 1px solid rgba(27, 31, 35, 0.06); }
-.gh-day-4 { background-color: #216e39; border: 1px solid rgba(27, 31, 35, 0.06); }
+.gh-day-0 { background-color: #1e293b; border: 1px solid rgba(255, 255, 255, 0.04); }
+.gh-day-1 { background-color: #0e4429; border: 1px solid rgba(255, 255, 255, 0.05); }
+.gh-day-2 { background-color: #006d32; border: 1px solid rgba(255, 255, 255, 0.05); }
+.gh-day-3 { background-color: #26a641; border: 1px solid rgba(255, 255, 255, 0.05); }
+.gh-day-4 { background-color: #39d353; border: 1px solid rgba(255, 255, 255, 0.05); }
 
-.dark .gh-day-0 { background-color: #161b22; border: 1px solid rgba(255, 255, 255, 0.05); }
-.dark .gh-day-1 { background-color: #0e4429; border: 1px solid rgba(255, 255, 255, 0.05); }
-.dark .gh-day-2 { background-color: #006d32; border: 1px solid rgba(255, 255, 255, 0.05); }
-.dark .gh-day-3 { background-color: #26a641; border: 1px solid rgba(255, 255, 255, 0.05); }
-.dark .gh-day-4 { background-color: #39d353; border: 1px solid rgba(255, 255, 255, 0.05); }
+html.light .gh-day-0 { background-color: #ebedf0; border: 1px solid rgba(27, 31, 35, 0.06); }
+html.light .gh-day-1 { background-color: #9be9a8; border: 1px solid rgba(27, 31, 35, 0.06); }
+html.light .gh-day-2 { background-color: #40c463; border: 1px solid rgba(27, 31, 35, 0.06); }
+html.light .gh-day-3 { background-color: #30a14e; border: 1px solid rgba(27, 31, 35, 0.06); }
+html.light .gh-day-4 { background-color: #216e39; border: 1px solid rgba(27, 31, 35, 0.06); }
 
-/* Glass Header */
+/* Glass Header for Project Demo View */
 .glass-header {
-  background: color-mix(in srgb, var(--background) 80%, transparent);
+  background: color-mix(in srgb, var(--background) 82%, transparent);
   backdrop-filter: blur(16px) saturate(1.6);
   -webkit-backdrop-filter: blur(16px) saturate(1.6);
   border-bottom: 1px solid var(--border);
-}
-
-/* Vinyl Player Texture & Spin */
-@keyframes vinyl-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-vinyl-spin {
-  animation: vinyl-spin 4s linear infinite;
-}
-
-.vinyl-disc {
-  background-color: #111111;
-  background-image: 
-    radial-gradient(circle, transparent 24%, rgba(255, 255, 255, 0.04) 25%, transparent 26%),
-    radial-gradient(circle, transparent 44%, rgba(255, 255, 255, 0.03) 45%, transparent 46%),
-    repeating-radial-gradient(circle, #1c1c1c 0 1.5px, #0d0d0d 1.5px 3px);
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.06), 0 4px 10px rgba(0, 0, 0, 0.35);
-}
-
-/* Page Entrance */
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-in-up-on-view {
-  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Selection */
-::selection {
-  background: color-mix(in srgb, var(--primary) 25%, transparent);
-  color: var(--foreground);
 }
 
 /* Custom Scrollbar */
@@ -127,10 +97,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(125, 125, 125, 0.25);
+  background: rgba(148, 163, 184, 0.2);
   border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(125, 125, 125, 0.45);
+  background: rgba(148, 163, 184, 0.4);
 }

@@ -1,65 +1,163 @@
 <script setup>
-import { ref } from 'vue'
-import Navbar from '../components/Navbar.vue'
-import CommandPalette from '../components/CommandPalette.vue'
-import HeroSection from '../components/HeroSection.vue'
-import StatusBadge from '../components/StatusBadge.vue'
-import TechStack from '../components/TechStack.vue'
-import ProjectsSection from '../components/ProjectsSection.vue'
-import AboutSection from '../components/AboutSection.vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import LeftPanel from '../components/layout/LeftPanel.vue'
+import AboutSection from '../components/sections/AboutSection.vue'
+import ExperienceSection from '../components/sections/ExperienceSection.vue'
+import ProjectsSection from '../components/sections/ProjectsSection.vue'
 import GithubActivity from '../components/GithubActivity.vue'
-import FooterSection from '../components/FooterSection.vue'
 
-const isCmdOpen = ref(false)
+const { t, locale } = useI18n()
+
+const mouseX = ref(0)
+const mouseY = ref(0)
+const activeSection = ref('about')
 const toastMessage = ref('')
 let toastTimeout = null
 
 const showToast = (msg) => {
-  toastMessage.value = msg || 'Email copied to clipboard!'
+  toastMessage.value = msg || t('emailCopied')
   if (toastTimeout) clearTimeout(toastTimeout)
   toastTimeout = setTimeout(() => {
     toastMessage.value = ''
   }, 2400)
 }
+
+// Mouse spotlight tracking
+const onMouseMove = (e) => {
+  mouseX.value = e.clientX
+  mouseY.value = e.clientY
+}
+
+// Theme management
+const isDark = ref(true)
+
+const toggleTheme = () => {
+  isDark.value = !isDark.value
+  if (isDark.value) {
+    document.documentElement.classList.remove('light')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    document.documentElement.classList.add('light')
+    localStorage.setItem('theme', 'light')
+  }
+}
+
+// Language toggle
+const toggleLanguage = () => {
+  locale.value = locale.value === 'es' ? 'en' : 'es'
+  localStorage.setItem('user-lang', locale.value)
+  showToast(locale.value === 'es' ? 'Idioma: Español' : 'Language: English')
+}
+
+// Active section observer
+let observer = null
+
+const setupSectionObserver = () => {
+  const sections = document.querySelectorAll('section[id]')
+  if (!sections.length) return
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    {
+      rootMargin: '-25% 0px -55% 0px',
+      threshold: 0
+    }
+  )
+
+  sections.forEach((s) => observer.observe(s))
+}
+
+onMounted(() => {
+  window.addEventListener('mousemove', onMouseMove)
+
+  const savedTheme = localStorage.getItem('theme')
+  if (savedTheme === 'light') {
+    isDark.value = false
+    document.documentElement.classList.add('light')
+  } else {
+    isDark.value = true
+    document.documentElement.classList.remove('light')
+  }
+
+  const savedLang = localStorage.getItem('user-lang')
+  if (savedLang) {
+    locale.value = savedLang
+  }
+
+  // Allow DOM to settle before observing
+  setTimeout(setupSectionObserver, 150)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('mousemove', onMouseMove)
+  if (observer) observer.disconnect()
+  if (toastTimeout) clearTimeout(toastTimeout)
+})
 </script>
 
 <template>
-  <div class="relative min-h-screen flex flex-col bg-background text-foreground transition-colors duration-200">
-    <!-- Sticky Glass Top Navigation Bar -->
-    <Navbar @open-command-palette="isCmdOpen = true" />
+  <div class="relative bg-slate-900 leading-relaxed text-slate-400 selection:bg-teal-300 selection:text-teal-900 min-h-screen">
+    <!-- Cursor Spotlight Background Gradient Layer -->
+    <div 
+      class="pointer-events-none fixed inset-0 z-30 transition duration-300"
+      :style="{
+        background: `radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(29, 78, 216, 0.15), transparent 80%)`
+      }"
+    ></div>
 
-    <!-- Command Palette (⌘ K) Modal -->
-    <CommandPalette 
-      v-model:isOpen="isCmdOpen" 
-      @copied-email="showToast"
-    />
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <!-- Accessible Skip to Content Link -->
+      <a 
+        href="#content" 
+        class="absolute left-0 top-0 block -translate-x-full rounded bg-teal-400 px-4 py-3 text-sm font-bold uppercase tracking-widest text-slate-900 focus-visible:translate-x-0 focus-visible:text-slate-900 z-50 transition-transform"
+      >
+        Skip to Content
+      </a>
 
-    <!-- Main Editorial Single-Column Content Flow (max-w-4xl) -->
-    <main class="flex-1 w-full space-y-5 pb-20 pt-4">
-      <!-- Hero Section (Avatar Swap, Role Blur Carousel, Copy Email) -->
-      <HeroSection @copied-email="showToast" />
+      <!-- 2-Column Split: Fixed Left, Scrollable Right -->
+      <div class="lg:flex lg:justify-between lg:gap-4">
+        <!-- Left Panel: Name, Title, Tagline, In-page Nav, Socials -->
+        <LeftPanel 
+          :active-section="activeSection"
+          :is-dark="isDark"
+          @toggle-theme="toggleTheme"
+          @toggle-language="toggleLanguage"
+          @copied-email="showToast"
+        />
 
-      <!-- Current Status Badge (Separated from TechStack to reduce vertical gap) -->
-      <StatusBadge />
+        <!-- Right Column: Editorial Flow -->
+        <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+          <!-- About Section -->
+          <AboutSection />
 
-      <!-- Tech Stack 2-Column Responsive Grid -->
-      <TechStack />
+          <!-- Experience Section -->
+          <ExperienceSection />
 
-      <!-- Featured Projects (2-Column Aspect-Ratio Cards) -->
-      <ProjectsSection />
+          <!-- Selected Projects Section -->
+          <ProjectsSection />
 
-      <!-- Experience / Education & Architecture Principles Accordions -->
-      <AboutSection />
+          <!-- GitHub Activity Section -->
+          <GithubActivity />
 
-      <!-- GitHub Activity Calendar Heatmap -->
-      <GithubActivity />
-
-      <!-- Footer with Copyright & Links -->
-      <FooterSection />
-    </main>
-
-    <!-- Bottom Fade Screen Mask -->
-    <div class="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-[50px] bg-gradient-to-t from-background/90 to-transparent bottom-screen-mask"></div>
+          <!-- Editorial Colophon / Footer -->
+          <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+            <p class="leading-relaxed">
+              {{ t('footerColophon') }}
+            </p>
+            <p class="mt-2 text-xs text-slate-600">
+              {{ t('copyright') }}
+            </p>
+          </footer>
+        </main>
+      </div>
+    </div>
 
     <!-- Global Toast Feedback -->
     <Transition
@@ -72,10 +170,10 @@ const showToast = (msg) => {
     >
       <div 
         v-if="toastMessage" 
-        class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-xl border border-border/80 bg-card/95 px-4 py-2.5 text-xs sm:text-sm font-medium text-foreground shadow-xl backdrop-blur-md"
+        class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/95 px-4 py-2.5 text-xs sm:text-sm font-medium text-slate-100 shadow-xl backdrop-blur-md"
         role="status"
       >
-        <span class="size-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+        <span class="size-2 rounded-full bg-teal-400 shadow-[0_0_8px_rgba(94,234,212,0.8)]"></span>
         <span>{{ toastMessage }}</span>
       </div>
     </Transition>
