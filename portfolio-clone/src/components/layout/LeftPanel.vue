@@ -22,6 +22,7 @@ const navLinks = computed(() => [
   { id: 'about', label: t('navAbout') },
   { id: 'experience', label: t('navExperience') },
   { id: 'projects', label: t('navProjects') },
+  { id: 'stack', label: t('navStack') },
   { id: 'activity', label: t('navActivity') }
 ])
 

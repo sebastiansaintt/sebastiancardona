@@ -10,8 +10,8 @@ const copied = ref(false)
 // Role switcher carousel
 const roles = computed(() => {
   return locale.value === 'es'
-    ? ['Ingeniero de Software', 'Desarrollador Backend', 'APIs REST y Bases de Datos', 'Despliegues con Docker', 'Soluciones Web y Móvil']
-    : ['Software Engineer', 'Backend Developer', 'REST APIs & Databases', 'Docker Deployments', 'Web & Mobile Solutions']
+    ? ['Ingeniero y Desarrollador Backend', 'FastAPI & Node / Express', 'PostgreSQL (ORM) & Redis', 'Docker & GCP', 'React & React Native']
+    : ['Backend Engineer & Developer', 'FastAPI & Node / Express', 'PostgreSQL (ORM) & Redis', 'Docker & GCP', 'React & React Native']
 })
 
 const activeRoleIndex = ref(0)

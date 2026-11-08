@@ -5,6 +5,7 @@ import LeftPanel from '../components/layout/LeftPanel.vue'
 import AboutSection from '../components/sections/AboutSection.vue'
 import ExperienceSection from '../components/sections/ExperienceSection.vue'
 import ProjectsSection from '../components/sections/ProjectsSection.vue'
+import TechStack from '../components/TechStack.vue'
 import GithubActivity from '../components/GithubActivity.vue'
 
 const { t, locale } = useI18n()
@@ -142,6 +143,9 @@ onUnmounted(() => {
 
           <!-- Selected Projects Section -->
           <ProjectsSection />
+
+          <!-- Tech Stack Section (Ordered by Layers) -->
+          <TechStack />
 
           <!-- GitHub Activity Section -->
           <GithubActivity />

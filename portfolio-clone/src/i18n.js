@@ -4,11 +4,11 @@ import previewCarInspection from './assets/preview.png'
 const messages = {
   en: {
     name: 'Sebastián Cardona',
-    fullName: 'Sebastián José Cardona Ramírez',
-    role: 'Software Engineer | Backend Developer',
-    subtitle: 'Backend Development, Web/Mobile/IoT Systems & AI Solutions',
-    tagline: 'Software Engineer focused on backend development for web, mobile, and IoT environments. I prioritize pre-code planning, process optimization, and building clear, scalable solutions.',
-    bio: 'Software Engineer with a solid focus on backend engineering (Python/FastAPI, Node.js). Proven experience building multi-tenant AI platforms, offline-ready PWAs, and real-time IoT pipelines with Docker.',
+    fullName: 'SEBASTIAN JOSE CARDONA RAMIREZ',
+    role: 'Backend Engineer & Developer',
+    subtitle: 'Software Engineer | Backend Engineer & Developer',
+    tagline: 'Software Engineer with a solid focus on backend engineering and development for web, mobile, and IoT environments. A well-rounded professional focused on process optimization, scalable solutions, and pre-code planning.',
+    bio: 'Software Engineer with a solid focus on backend engineering and development for web, mobile, and IoT environments. Proven experience developing multi-tenant AI platforms, offline PWAs, and real-time IoT pipelines with Docker.',
     statusBadge: 'Research Assistant (Mobile Development) @ UAN',
     statusBadgeDetail: 'Research Assistant in Mobile Development (React Native)',
     locationText: 'Santa Marta, Colombia · Remote & Relocation',
@@ -20,17 +20,26 @@ const messages = {
     navHome: 'Home',
     navAbout: 'About',
     navExperience: 'Experience & Education',
-    navStack: 'Tech Stack',
+    navStack: 'Stack',
     navProjects: 'Projects',
     navActivity: 'Activity',
     navContact: 'Contact',
-    techStackHeading: 'Technical Skills & Stack',
+    techStackHeading: 'Tech Stack (By Layers)',
+    layersCount: 'layers',
     openGithub: 'View Repository on GitHub',
+
+    // Stack Layers
+    layerFrontend: 'Frontend & Mobile',
+    layerBackend: 'Backend & APIs',
+    layerData: 'Databases & Cache',
+    layerCloud: 'Cloud & DevOps',
+    layerQuality: 'Testing & Observability',
+
     catBackend: 'Backend & APIs',
-    catData: 'Databases',
+    catData: 'Databases & Cache',
     catAuth: 'Security & Auth',
-    catInfra: 'DevOps & Quality',
-    catAI: 'Frontend, Mobile & AI',
+    catInfra: 'Cloud & DevOps',
+    catAI: 'Frontend & Mobile',
     cmdTitle: 'Command Palette',
     cmdPlaceholder: 'Type a command or search...',
     cmdNoResults: 'No matching commands found.',
@@ -46,39 +55,39 @@ const messages = {
     cmdClose: 'Close',
 
     // About Section (Aligned directly with CV)
-    aboutP1: 'Software Engineer with a solid focus on backend engineering and development for web, mobile, and IoT environments. I am a well-rounded professional who prioritizes process optimization, pre-code planning, and building reliable, scalable solutions.',
-    aboutP2: 'I have hands-on experience developing complete systems: a multi-tenant AI and CRM platform for tourism agencies (Maestro), an offline-first PWA for field vehicle inspections (VEYRA), and a real-time IoT telemetry pipeline for craft fermentation (Risk Follower).',
-    aboutP3: 'My day-to-day work spans building secure REST APIs, database design with ORMs, automated testing with pytest, and containerized deployments with Docker. Currently, I serve as a Mobile Development Research Assistant (React Native) at Universidad Antonio Nariño.',
+    aboutP1: 'Software Engineer with a solid focus on backend engineering and development for web, mobile, and IoT environments. A well-rounded professional who focuses on process optimization, building scalable solutions, and pre-code planning.',
+    aboutP2: 'Proven experience developing multi-tenant platforms with AI and commercial channel integration, offline-ready PWAs for field operations, and real-time IoT telemetry pipelines, encompassing secure API construction, database design with ORMs, and automated Docker deployments.',
+    aboutP3: 'Currently working as a Mobile Development Research Assistant (React Native) at Universidad Antonio Nariño, teaching live coding sessions and promoting interface usability principles alongside clean, modular code.',
 
     // Technical Approach & Best Practices
     principlesTitle: 'Technical Approach & Best Practices',
-    principlesP1: 'Planning before coding: I thoroughly analyze business requirements to structure clean layered architectures (routers, services, and persistence), writing clear, modular, and maintainable code.',
-    principlesP2: 'Applied standards: JWT authentication with HttpOnly cookies, role-based access control (RBAC), rate limiting with Redis, structured logging, and reproducible environments using Docker Compose.',
+    principlesP1: 'Pre-code planning: in-depth requirements analysis before implementation, applying clear layered architectures (routers, business logic, persistence) to ensure modular, maintainable code.',
+    principlesP2: 'Applied engineering standards: secure REST APIs, relational database modeling with ORMs, rate limiting with Redis, structured logging, and reproducible environments using Docker.',
 
-    // Experience Items
+    // Experience Items (Direct from CV)
     experience: [
       {
         period: 'Aug 2026 — Present',
         title: 'Research Assistant, Mobile Development',
         company: 'Universidad Antonio Nariño (UAN)',
         companyUrl: 'https://www.uan.edu.co/',
-        description: 'Teach React Native and JavaScript in hands-on live coding sessions to groups of 8 to 12 students. Review interfaces following usability principles (Apple HIG, Don Norman, Gestalt) and promote clean, modular code in research projects.',
-        technologies: ['React Native', 'JavaScript', 'TypeScript', 'Apple HIG & Usability', 'Clean & Modular Code']
+        description: 'Teach React Native and JavaScript in practical live-coding sessions to groups of 8 to 12 students. Review user interfaces based on usability principles (Apple HIG, Don Norman, Gestalt) and promote clean, modular code in research projects.',
+        technologies: ['React Native', 'JavaScript', 'Apple HIG', 'Don Norman', 'Gestalt', 'Clean Code']
       },
       {
         period: 'Feb 2022 — Jul 2026',
         title: 'B.S. in Software Engineering',
         company: 'Universidad Cooperativa de Colombia (UCC)',
         companyUrl: 'https://www.ucc.edu.co/',
-        description: 'Software Engineering degree in Santa Marta, Colombia. Core coursework covering backend development, databases, distributed systems, IoT, and web & mobile development.',
-        technologies: ['Backend Development', 'Databases', 'Distributed Systems', 'IoT', 'Web & Mobile Development']
+        description: 'Software Engineering undergraduate degree in Santa Marta, Colombia. Academic focus on backend development, databases, distributed systems, IoT, and web & mobile development.',
+        technologies: ['Backend Development', 'PostgreSQL', 'FastAPI', 'Distributed Systems', 'IoT', 'Docker']
       }
     ],
 
     viewResume: 'View Full Résumé (PDF)',
     downloadCV: 'Download CV',
 
-    // Projects
+    // Projects (Direct from CV)
     projectsHeading: 'Featured Projects',
     viewGithub: 'GitHub',
     livePreview: 'Architecture & Details',
@@ -102,14 +111,14 @@ const messages = {
         slug: 'maestro',
         hasDemo: false,
         num: '01',
-        badge: 'WhatsApp AI Assistant + Web CRM',
+        badge: 'WhatsApp AI Sales Assistant + Web CRM',
         title: 'Maestro — AI Sales Assistant for WhatsApp + Web CRM',
         subtitle: 'Python · FastAPI · SQLite · React · Gemini API · Docker · pytest (2026)',
-        description: 'Automated 24/7 customer service and quoting on WhatsApp for multiple travel agencies with fast response times and a web CRM for human handover and monitoring. Cuts AI costs by debouncing message bursts, transcribes voice notes, and isolates agency data with built-in security and automated tests.',
+        description: 'Automated customer service and quoting for travelers via WhatsApp for multiple tourism agencies, featuring fast response times and a web CRM for human oversight or intervention. Debounces message bursts to significantly reduce AI token usage, transcribes voice notes, and isolates agency data with built-in security and automated tests.',
         bullet_points: [
-          'Automated customer service and quoting on WhatsApp for multiple travel agencies with fast response times and a CRM for human handover and monitoring.',
-          'Significantly reduced AI usage and token consumption by grouping consecutive messages before processing, adding native voice note transcription.',
-          'Isolated data per agency in multi-tenant storage, implemented defensive security layers, and validated the system with automated tests.'
+          'Automated customer service and quoting for travelers via WhatsApp for multiple tourism agencies, with fast response times and a CRM for human takeover or monitoring.',
+          'Significantly reduced AI consumption by grouping consecutive messages before processing, adding voice note transcription.',
+          'Isolated data per agency, protected the bot with defensive security layers, and validated the system with automated testing.'
         ],
         github_link: 'https://github.com/sebastiansaintt/maestro',
         technologies: ['Python', 'FastAPI', 'SQLite', 'React', 'Gemini API', 'Docker', 'pytest'],
@@ -125,11 +134,11 @@ const messages = {
         badge: 'Offline-First PWA for Fleet Inspection',
         title: 'VEYRA — Offline-First PWA for Vehicle Fleet Inspection',
         subtitle: 'Python · FastAPI · PostgreSQL · Redis · React · TypeScript · Gemini AI · Docker (2026)',
-        description: 'Digitalized paper-based vehicle fleet technical inspections with automated Excel exports and Gmail alerts. Operates offline and synchronizes upon reconnection without duplicate data; the audit history is immutable and never overwritten, with AI voice dictation to fill forms by speaking.',
+        description: 'Digitalized paper-based vehicle fleet technical inspections with automated Excel exports and Gmail alerts. Operates offline and synchronizes reliably upon reconnection without duplicate data; the audit history is strictly immutable and never overwritten, with AI voice dictation to fill forms by speaking.',
         bullet_points: [
-          'Digitalized paper-based technical inspections with automated Excel exports and Gmail alerts.',
-          'Works offline and synchronizes reliably upon reconnection without data duplication; inspection history is fully audited and immutable.',
-          'Integrated multimodal AI voice dictation to fill checklist forms by speaking, protected by role-based access control.'
+          'Digitalized paper-based technical vehicle inspections with automated Excel exports and Gmail alerts.',
+          'Works offline and synchronizes reliably upon reconnection without data duplication; audit history is immutable and never overwritten.',
+          'Integrated AI voice dictation to fill inspection forms by speaking, protected by role-based access control.'
         ],
         github_link: 'https://github.com/sebastiansaintt/car_checking',
         technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'React', 'TypeScript', 'Gemini AI', 'Docker'],
@@ -153,8 +162,8 @@ const messages = {
         subtitle: 'Python · FastAPI · MQTT · WebSockets · PostgreSQL (Supabase) · ESP32 · Docker (2025)',
         description: 'Continuous monitoring pipeline for CO2, temperature, and humidity during craft fermentation, transmitting telemetry from ESP32 sensors to a real-time dashboard. Features dynamic alert classification, automated email notifications, and secure role-based access.',
         bullet_points: [
-          'Built an end-to-end telemetry pipeline: ESP32 sensors capture CO2, temperature, and humidity in craft fermentation → database → live dashboard and data export.',
-          'Developed an alert engine (normal / warning / danger) that logs hardware incidents and dispatches automated email alerts with real-time updates and role-based access.'
+          'Built an end-to-end data pipeline: ESP32 sensors measure CO2, temperature, and humidity in craft fermentation → database → live dashboard and export.',
+          'Created an alert engine (normal / warning / danger) that opens incidents and sends automated emails, with real-time data and role-based access.'
         ],
         github_link: 'https://github.com/realprodigium/risk_follower',
         technologies: ['Python', 'FastAPI', 'MQTT', 'WebSockets', 'PostgreSQL', 'ESP32', 'Docker'],
@@ -192,11 +201,11 @@ const messages = {
   },
   es: {
     name: 'Sebastián Cardona',
-    fullName: 'Sebastián José Cardona Ramírez',
-    role: 'Ingeniero de Software | Ingeniero y Desarrollador Backend',
-    subtitle: 'Desarrollo Backend, Sistemas Web/Móvil/IoT y Soluciones con IA',
-    tagline: 'Ingeniero de Software enfocado en desarrollo backend para entornos web, móvil e IoT. Priorizo la planificación pre-código, la optimización de procesos y la construcción de soluciones escalables.',
-    bio: 'Ingeniero de Software con enfoque sólido en backend (Python/FastAPI, Node.js). Experiencia comprobada desarrollando plataformas multi-tenant con IA, PWAs con soporte offline y pipelines IoT en tiempo real con Docker.',
+    fullName: 'SEBASTIAN JOSE CARDONA RAMIREZ',
+    role: 'Ingeniero y Desarrollador Backend',
+    subtitle: 'Ingeniero de Software | Ingeniero y Desarrollador Backend',
+    tagline: 'Ingeniero de Software con enfoque sólido en ingeniería y desarrollo Backend para entornos web/móvil e IoT. Profesional integral centrado en la optimización de procesos, construcción de soluciones escalables y planificación pre-código.',
+    bio: 'Ingeniero de Software con enfoque sólido en ingeniería y desarrollo Backend para entornos web/móvil e IoT. Experiencia comprobada desarrollando plataformas multi-tenant con IA, PWA offline y pipelines IoT en tiempo real.',
     statusBadge: 'Auxiliar de Investigación (Desarrollo Móvil) @ UAN',
     statusBadgeDetail: 'Auxiliar de Investigación en Desarrollo Móvil (React Native)',
     locationText: 'Santa Marta, Colombia · Remoto y Relocalización',
@@ -208,17 +217,26 @@ const messages = {
     navHome: 'Inicio',
     navAbout: 'Perfil',
     navExperience: 'Experiencia y Formación',
-    navStack: 'Habilidades',
+    navStack: 'Stack',
     navProjects: 'Proyectos',
     navActivity: 'Actividad',
     navContact: 'Contacto',
-    techStackHeading: 'Habilidades Técnicas y Stack',
+    techStackHeading: 'Stack de Tecnologías (Por Capas)',
+    layersCount: 'capas',
     openGithub: 'Ver Repositorio en GitHub',
-    catBackend: 'Backend y APIs',
-    catData: 'Bases de Datos',
+
+    // Capas de Stack
+    layerFrontend: 'Frontend & Móvil',
+    layerBackend: 'Backend & APIs',
+    layerData: 'Bases de Datos & Caché',
+    layerCloud: 'Cloud & DevOps',
+    layerQuality: 'Testing & Observabilidad',
+
+    catBackend: 'Backend & APIs',
+    catData: 'Bases de Datos & Caché',
     catAuth: 'Seguridad y Autenticación',
-    catInfra: 'DevOps y Calidad',
-    catAI: 'Frontend, Móvil e IA',
+    catInfra: 'Cloud & DevOps',
+    catAI: 'Frontend & Móvil',
     cmdTitle: 'Paleta de Comandos',
     cmdPlaceholder: 'Escribe un comando o busca...',
     cmdNoResults: 'No se encontraron comandos.',
@@ -234,16 +252,16 @@ const messages = {
     cmdClose: 'Cerrar',
 
     // Sección Sobre Mí (Alineada exactamente con el CV)
-    aboutP1: 'Ingeniero de Software con enfoque sólido en ingeniería y desarrollo Backend para entornos web, móvil e IoT. Me caracterizo por ser un profesional integral centrado en la optimización de procesos, la construcción de soluciones escalables y la planificación pre-código.',
-    aboutP2: 'Cuento con experiencia comprobada desarrollando plataformas multi-tenant con IA e integración de canales comerciales (Maestro), PWAs con funciones offline para operación en campo (VEYRA) y pipelines de telemetría IoT en tiempo real (Risk Follower).',
-    aboutP3: 'Mi trabajo técnico incluye la construcción de APIs seguras, diseño de bases de datos con ORM, pruebas automatizadas con pytest y despliegues con Docker. Actualmente me desempeño como Auxiliar de Investigación en desarrollo móvil (React Native) en la Universidad Antonio Nariño.',
+    aboutP1: 'Ingeniero de Software con enfoque sólido en ingeniería y desarrollo Backend para entornos web/móvil e IoT. Profesional integral que se enfoca en la optimización de procesos, construcción de soluciones escalables y planificación pre-código.',
+    aboutP2: 'Experiencia comprobada desarrollando plataformas multi-tenant con IA e integración de canales comerciales, PWA con funciones offline para operación en campo y pipelines de telemetría IoT en tiempo real, que incluyen construcción de APIs seguras, diseño de bases de datos con ORM y despliegues automatizados mediante Docker.',
+    aboutP3: 'Actualmente me desempeño como Auxiliar de Investigación en desarrollo móvil (React Native) en la Universidad Antonio Nariño, enseñando React Native y JavaScript en sesiones de live coding y revisando interfaces bajo principios de usabilidad.',
 
     // Principios y Buenas Prácticas
     principlesTitle: 'Enfoque Técnico y Buenas Prácticas',
-    principlesP1: 'Planificación antes de codificar: analizo a fondo las necesidades del negocio para estructurar arquitecturas en capas claras (rutas, servicios y persistencia), garantizando código limpio, modular y fácil de mantener.',
-    principlesP2: 'Estándares aplicados: autenticación con JWT y cookies HttpOnly, control de acceso por roles (RBAC), control de peticiones con Redis, registro estructurado de eventos y entornos reproducibles con Docker Compose.',
+    principlesP1: 'Planificación pre-código: análisis riguroso de requerimientos antes de implementar, adoptando una arquitectura por capas clara (rutas, lógica de negocio y persistencia) para garantizar código modular y limpio.',
+    principlesP2: 'Estándares aplicados: construcción de APIs seguras, diseño y modelado de bases de datos relacionales con ORM, control de peticiones con Redis y despliegues automatizados con Docker Compose.',
 
-    // Experiencia y Formación (Alineadas con el CV)
+    // Experiencia y Formación (Alineadas textualmente con el CV)
     experience: [
       {
         period: 'Ago. 2026 — Actualidad',
@@ -251,7 +269,7 @@ const messages = {
         company: 'Universidad Antonio Nariño (UAN)',
         companyUrl: 'https://www.uan.edu.co/',
         description: 'Enseño React Native y JavaScript en sesiones prácticas de live coding a grupos de 8 a 12 estudiantes. Reviso interfaces con principios de usabilidad (Apple HIG, Don Norman, Gestalt) y promuevo código limpio y modular en los proyectos de investigación.',
-        technologies: ['React Native', 'JavaScript', 'TypeScript', 'Apple HIG & Usabilidad', 'Código Limpio & Modular']
+        technologies: ['React Native', 'JavaScript', 'Apple HIG', 'Don Norman', 'Gestalt', 'Código Limpio & Modular']
       },
       {
         period: 'Feb. 2022 — Jul. 2026',
@@ -259,14 +277,14 @@ const messages = {
         company: 'Universidad Cooperativa de Colombia (UCC)',
         companyUrl: 'https://www.ucc.edu.co/',
         description: 'Formación profesional en Ingeniería de Software en Santa Marta, Colombia. Énfasis en desarrollo backend, bases de datos, sistemas distribuidos, IoT y desarrollo web y móvil.',
-        technologies: ['Ingeniería de Software', 'Backend', 'Bases de Datos', 'Sistemas Distribuidos', 'IoT', 'Desarrollo Web & Móvil']
+        technologies: ['Backend', 'PostgreSQL', 'FastAPI', 'Sistemas Distribuidos', 'IoT', 'Docker']
       }
     ],
 
     viewResume: 'Ver CV Completo (PDF)',
     downloadCV: 'Descargar CV',
 
-    // Proyectos
+    // Proyectos (Alineados textualmente con el CV)
     projectsHeading: 'Proyectos Destacados',
     viewGithub: 'GitHub',
     livePreview: 'Arquitectura y Detalles',
@@ -293,9 +311,9 @@ const messages = {
         badge: 'Asistente con IA por WhatsApp + CRM Web',
         title: 'Maestro — Asistente de ventas con IA por WhatsApp + CRM web',
         subtitle: 'Python · FastAPI · SQLite · React · Gemini API · Docker · pytest (2026)',
-        description: 'Automaticé la atención y cotización de viajeros por WhatsApp para varias agencias de turismo, con respuestas en corto tiempo y un CRM web para que una persona tome el control cuando haga falta o monitoree la operación. Reduce de forma importante el consumo de IA agrupando mensajes seguidos, transcribe notas de voz y aísla los datos por agencia con seguridad y pruebas automatizadas.',
+        description: 'Automaticé la atención y cotización de viajeros por WhatsApp para varias agencias de turismo, con respuestas en corto tiempo y un CRM para que una persona tome el control cuando haga falta, o monitoree una acción. Reduce de forma importante el consumo de IA agrupando mensajes seguidos antes de procesarlos, suma transcripción de notas de voz y aísla los datos de cada agencia con pruebas automatizadas.',
         bullet_points: [
-          'Automaticé la atención y cotización de viajeros por WhatsApp para varias agencias de turismo, con respuestas en corto tiempo y un CRM para que una persona tome el control cuando haga falta o monitoree una acción.',
+          'Automaticé la atención y cotización de viajeros por WhatsApp para varias agencias de turismo, con respuestas en corto tiempo y un CRM para que una persona tome el control cuando haga falta, o monitoree una acción.',
           'Reduje de forma importante el consumo de IA agrupando mensajes seguidos antes de procesarlos, y sumé transcripción de notas de voz.',
           'Aislé los datos de cada agencia, protegí al bot con varias capas de seguridad y validé el sistema con pruebas automatizadas.'
         ],
