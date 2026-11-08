@@ -11,11 +11,12 @@ const techCategories = computed(() => [
     items: [
       { name: 'Python', slug: 'python' },
       { name: 'FastAPI', slug: 'fastapi' },
+      { name: 'Node.js', slug: 'nodedotjs' },
       { name: 'Express', slug: 'express' },
-      { name: 'Next.js', slug: 'nextdotjs' },
-      { name: 'async/await', labelOnly: true },
-      { name: 'REST', labelOnly: true },
-      { name: 'WebSockets', slug: 'socketdotio' }
+      { name: 'REST APIs', labelOnly: true },
+      { name: 'WebSockets', slug: 'socketdotio' },
+      { name: 'MQTT', slug: 'eclipsemosquitto' },
+      { name: 'pytest', slug: 'pytest' }
     ]
   },
   {
@@ -23,23 +24,21 @@ const techCategories = computed(() => [
     category: t('catData'),
     items: [
       { name: 'PostgreSQL', slug: 'postgresql' },
+      { name: 'SQLite', slug: 'sqlite' },
       { name: 'SQLAlchemy', slug: 'sqlalchemy' },
-      { name: 'Alembic', labelOnly: true },
       { name: 'Redis', slug: 'redis' },
-      { name: 'MQTT', slug: 'eclipsemosquitto' }
+      { name: 'Supabase', slug: 'supabase' }
     ]
   },
   {
     key: 'auth',
     category: t('catAuth'),
     items: [
-      { name: 'JWT', slug: 'jsonwebtokens' },
-      { name: 'OAuth', slug: 'auth0' },
+      { name: 'OWASP', slug: 'owasp' },
       { name: 'RBAC', labelOnly: true },
-      { name: 'Argon2id', labelOnly: true },
-      { name: 'Token Bucket', labelOnly: true },
-      { name: 'Hardening', labelOnly: true },
-      { name: 'Blacklist', labelOnly: true }
+      { name: 'JWT', slug: 'jsonwebtokens' },
+      { name: 'Cookies HttpOnly', labelOnly: true },
+      { name: 'Argon2id', labelOnly: true }
     ]
   },
   {
@@ -48,22 +47,22 @@ const techCategories = computed(() => [
     items: [
       { name: 'Docker', slug: 'docker' },
       { name: 'Docker Compose', slug: 'docker' },
-      { name: 'GitHub Actions', slug: 'githubactions' },
-      { 
-        name: 'AWS', 
-        customIcon: 'aws'
-      },
-      { name: 'Render', slug: 'render' }
+      { name: 'Git & GitHub', slug: 'github' },
+      { name: 'Linux (Ubuntu)', slug: 'ubuntu' },
+      { name: 'Google Cloud (GCP)', slug: 'googlecloud' },
+      { name: 'Grafana', slug: 'grafana' }
     ]
   },
   {
     key: 'ai',
     category: t('catAI'),
     items: [
-      { name: 'OCR', labelOnly: true },
-      { name: 'Multi-agent orchestration', labelOnly: true },
-      { name: 'SDD', labelOnly: true },
-      { name: 'SRS-first workflows', labelOnly: true }
+      { name: 'Gemini API', slug: 'googlegemini' },
+      { name: 'WhatsApp API', labelOnly: true },
+      { name: 'React', slug: 'react' },
+      { name: 'React Native', slug: 'react' },
+      { name: 'TypeScript', slug: 'typescript' },
+      { name: 'Tailwind CSS', slug: 'tailwindcss' }
     ]
   }
 ])

@@ -12,6 +12,7 @@ const { t, tm, locale } = useI18n()
 const videoRegistry = {
   'car-inspection': veyraVideo,
   'car_checking': veyraVideo,
+  'veyra': veyraVideo,
   '2': veyraVideo
 }
 
@@ -399,10 +400,10 @@ onUnmounted(() => {
         </div>
         <div class="flex items-center justify-center gap-3 pt-2">
           <router-link 
-            to="/projects/2" 
+            to="/projects/car-inspection" 
             class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-sm hover:opacity-90 transition-opacity"
           >
-            <span>Ver Demo de Car Inspection</span>
+            <span>{{ locale === 'es' ? 'Ver Demo en Video de VEYRA' : 'Watch VEYRA Video Demo' }}</span>
             <span>→</span>
           </router-link>
         </div>

@@ -5,67 +5,83 @@ const messages = {
   en: {
     name: 'Sebastián Cardona',
     fullName: 'Sebastián José Cardona Ramírez',
-    role: 'Backend & Data Engineer',
-    subtitle: 'Scalable APIs, Resilient Data Pipelines & E2E System Security',
-    tagline: 'I build high-performance APIs, resilient data pipelines, and security-first architectures with an end-to-end perspective across IoT, Web, and Mobile ecosystems.',
-    statusBadge: 'Currently a Research Assistant teaching React Native',
-    statusBadgeDetail: 'Research Assistant & Teaching React Native',
+    role: 'Software Engineer | Backend Developer',
+    subtitle: 'Backend Development, Web/Mobile/IoT Systems & AI Solutions',
+    tagline: 'Software Engineer focused on backend development for web, mobile, and IoT environments. I prioritize pre-code planning, process optimization, and building clear, scalable solutions.',
+    bio: 'Software Engineer with a solid focus on backend engineering (Python/FastAPI, Node.js). Proven experience building multi-tenant AI platforms, offline-ready PWAs, and real-time IoT pipelines with Docker.',
+    statusBadge: 'Research Assistant (Mobile Development) @ UAN',
+    statusBadgeDetail: 'Research Assistant in Mobile Development (React Native)',
     locationText: 'Santa Marta, Colombia · Remote & Relocation',
     email: 'scarrdona@gmail.com',
     copyEmail: 'Copy Email',
     emailCopied: 'Email copied to clipboard!',
-    
-    // In-page navigation jump links (Brittany Chiang style)
+
+    // Navigation & Command Palette keys
+    navHome: 'Home',
     navAbout: 'About',
     navExperience: 'Experience & Education',
+    navStack: 'Tech Stack',
     navProjects: 'Projects',
     navActivity: 'Activity',
+    navContact: 'Contact',
+    techStackHeading: 'Technical Skills & Stack',
+    openGithub: 'View Repository on GitHub',
+    catBackend: 'Backend & APIs',
+    catData: 'Databases',
+    catAuth: 'Security & Auth',
+    catInfra: 'DevOps & Quality',
+    catAI: 'Frontend, Mobile & AI',
+    cmdTitle: 'Command Palette',
+    cmdPlaceholder: 'Type a command or search...',
+    cmdNoResults: 'No matching commands found.',
+    cmdNavigation: 'Navigation',
+    cmdActions: 'Quick Actions',
+    cmdDownloadCV_EN: 'Download CV (English PDF)',
+    cmdDownloadCV_ES: 'Download CV (Spanish PDF)',
+    cmdCopyEmail: 'Copy Email (scarrdona@gmail.com)',
+    cmdOpenGitHub: 'Open GitHub (@sebastiansaintt)',
+    cmdOpenLinkedIn: 'Open LinkedIn',
+    cmdSwitchLang: 'Switch Language (ES / EN)',
+    cmdSelect: 'Select',
+    cmdClose: 'Close',
 
-    // About Section (Recruiter Narrative)
-    aboutP1: 'Backend & Data Engineer focused on architecting resilient APIs, high-throughput data pipelines, and automated workflows. My engineering philosophy revolves around rigorous system fundamentals, security-first design patterns, and sustainable software quality.',
-    aboutP2: 'With hands-on experience spanning IoT, Web, and Mobile environments, I possess a deep understanding of the full End-to-End (E2E) lifecycle: from telemetry and edge/client data collection to scalable backend processing, distributed workflows, and reliable data storage.',
-    aboutP3: 'I am actively integrating advanced Data Engineering practices into my core backend skillset—building scalable ETL/ELT flows, structured ingestion layers, and maintainable services designed to handle critical data workloads seamlessly.',
-    
-    // Core Architecture Principles toggle/card
-    principlesTitle: 'Architecture Principles & Standards',
-    principlesP1: 'I select architectures, patterns, and technologies based on functional and non-functional requirements, prioritizing strong engineering fundamentals over transient tools. I apply core principles including SOLID, ACID, and CAP, secure development best practices aligned with OWASP, ISO, and IEEE standards, and agile methodologies such as Scrum.',
-    principlesP2: 'Experienced in implementing JWT (RS256/HS256), rotating access & refresh tokens, HttpOnly Cookies, RBAC, Redis token revocation, rate limiting, Argon2id hashing, input sanitization, XSS mitigation, and containerization with Docker to deliver secure, maintainable, high-performance, scalable, and resilient software.',
+    // About Section (Aligned directly with CV)
+    aboutP1: 'Software Engineer with a solid focus on backend engineering and development for web, mobile, and IoT environments. I am a well-rounded professional who prioritizes process optimization, pre-code planning, and building reliable, scalable solutions.',
+    aboutP2: 'I have hands-on experience developing complete systems: a multi-tenant AI and CRM platform for tourism agencies (Maestro), an offline-first PWA for field vehicle inspections (VEYRA), and a real-time IoT telemetry pipeline for craft fermentation (Risk Follower).',
+    aboutP3: 'My day-to-day work spans building secure REST APIs, database design with ORMs, automated testing with pytest, and containerized deployments with Docker. Currently, I serve as a Mobile Development Research Assistant (React Native) at Universidad Antonio Nariño.',
 
-    // Experience Items (Brittany Chiang Card Style)
+    // Technical Approach & Best Practices
+    principlesTitle: 'Technical Approach & Best Practices',
+    principlesP1: 'Planning before coding: I thoroughly analyze business requirements to structure clean layered architectures (routers, services, and persistence), writing clear, modular, and maintainable code.',
+    principlesP2: 'Applied standards: JWT authentication with HttpOnly cookies, role-based access control (RBAC), rate limiting with Redis, structured logging, and reproducible environments using Docker Compose.',
+
+    // Experience Items
     experience: [
       {
-        period: '2026 — Present',
-        title: 'Research Assistant: React Native',
-        company: 'Universidad Antonio Nariño',
+        period: 'Aug 2026 — Present',
+        title: 'Research Assistant, Mobile Development',
+        company: 'Universidad Antonio Nariño (UAN)',
         companyUrl: 'https://www.uan.edu.co/',
-        description: 'Lead technical sessions and instructional workshops for React Native and backend mobile integration. Coordinate research prototypes bridging microcontrollers, edge sensors, and cloud endpoints.',
-        technologies: ['React Native', 'JavaScript', 'Declarative Programming', 'Mobile Development']
+        description: 'Teach React Native and JavaScript in hands-on live coding sessions to groups of 8 to 12 students. Review interfaces following usability principles (Apple HIG, Don Norman, Gestalt) and promote clean, modular code in research projects.',
+        technologies: ['React Native', 'JavaScript', 'TypeScript', 'Apple HIG & Usability', 'Clean & Modular Code']
       },
       {
-        period: '2022 — 2026',
-        title: 'Software Engineering Degree (B.S.)',
-        company: 'Universidad Cooperativa de Colombia',
+        period: 'Feb 2022 — Jul 2026',
+        title: 'B.S. in Software Engineering',
+        company: 'Universidad Cooperativa de Colombia (UCC)',
         companyUrl: 'https://www.ucc.edu.co/',
-        description: 'Comprehensive software engineering education with primary specialization in distributed systems, software architecture (SOLID, Clean Architecture, MVC, Microservices), database modeling (ACID, relational & NoSQL), and cybersecurity foundations.',
-        technologies: ['Software Development', 'Databases', 'Web Development', 'IoT Development', 'Distributed Systems']
-      },
-      {
-        period: '2024',
-        title: 'HCL SoftSkills Strengthening Certification',
-        company: 'HabComLearn',
-        companyUrl: '#',
-        description: 'Advanced communication, technical leadership, cross-functional engineering collaboration, and agile project delivery standards.',
-        technologies: ['Leadership', 'Communication', 'Scrum', 'Team Delivery']
+        description: 'Software Engineering degree in Santa Marta, Colombia. Core coursework covering backend development, databases, distributed systems, IoT, and web & mobile development.',
+        technologies: ['Backend Development', 'Databases', 'Distributed Systems', 'IoT', 'Web & Mobile Development']
       }
     ],
 
-    viewResume: 'View Full Résumé',
+    viewResume: 'View Full Résumé (PDF)',
     downloadCV: 'Download CV',
-    
+
     // Projects
-    projectsHeading: 'Projects',
+    projectsHeading: 'Featured Projects',
     viewGithub: 'GitHub',
-    livePreview: 'Live Preview',
+    livePreview: 'Architecture & Details',
     watchDemo: 'Watch Demo',
     viewDemoVideo: 'Watch Video Demo',
     demoAvailable: 'Video Walkthrough Available',
@@ -74,30 +90,30 @@ const messages = {
     systemCapabilities: 'System Architecture & Capabilities',
     interactiveChapters: 'Interactive Chapters & Highlights',
     jumpToChapter: 'Click to jump to this moment in video',
-    demoComingSoonTitle: 'Video Demo in Production',
-    demoComingSoonDesc: 'A dedicated technical video walkthrough for this system is currently being recorded. In the meantime, you can explore the Car Inspection PWA demo or review the complete architecture on GitHub.',
-    exploreOtherProjects: 'Other Engineered Systems',
-    shareDemo: 'Share Demo',
-    demoLinkCopied: 'Demo link copied to clipboard!',
+    demoComingSoonTitle: 'System Architecture & Repository Available',
+    demoComingSoonDesc: 'Explore the project details below or inspect the source code and test suites on GitHub. You can also watch the full interactive video walkthrough of VEYRA.',
+    exploreOtherProjects: 'Other Projects',
+    shareDemo: 'Share Project',
+    demoLinkCopied: 'Project link copied to clipboard!',
 
     projects: [
       {
         id: 1,
-        slug: 'risk-follower',
+        slug: 'maestro',
         hasDemo: false,
         num: '01',
-        badge: 'Data Engineering & Real-Time Pipeline',
-        title: 'Real-Time Fermentation Monitoring Pipeline',
-        subtitle: 'Craft Breweries Telemetry (2025 - 2026)',
-        description: 'Ingests live sensor data (temperature, humidity, CO2) from ESP32 microcontrollers via MQTT (HiveMQ Cloud) into PostgreSQL for historical analysis. Authenticated REST API with role-based filtering, live WebSocket dashboard, and JWT auth with 3 role tiers. Monolith + background worker architecture deployed on Render with Supabase PostgreSQL.',
+        badge: 'WhatsApp AI Assistant + Web CRM',
+        title: 'Maestro — AI Sales Assistant for WhatsApp + Web CRM',
+        subtitle: 'Python · FastAPI · SQLite · React · Gemini API · Docker · pytest (2026)',
+        description: 'Automated 24/7 customer service and quoting on WhatsApp for multiple travel agencies with fast response times and a web CRM for human handover and monitoring. Cuts AI costs by debouncing message bursts, transcribes voice notes, and isolates agency data with built-in security and automated tests.',
         bullet_points: [
-          'Ingestion and validation backend for telemetry (temperature, humidity, CO2) from ESP32 microcontrollers.',
-          'High-throughput REST APIs and WebSocket feeds with FastAPI and PostgreSQL persistence.',
-          'JWT authentication, Argon2 hashing, and granular RBAC permissions.'
+          'Automated customer service and quoting on WhatsApp for multiple travel agencies with fast response times and a CRM for human handover and monitoring.',
+          'Significantly reduced AI usage and token consumption by grouping consecutive messages before processing, adding native voice note transcription.',
+          'Isolated data per agency in multi-tenant storage, implemented defensive security layers, and validated the system with automated tests.'
         ],
-        github_link: 'https://github.com/realprodigium/risk_follower',
-        technologies: ['FastAPI', 'MQTT', 'WebSockets', 'PostgreSQL', 'Supabase', 'Docker', 'ESP32'],
-        preview: '/co2bien.png'
+        github_link: 'https://github.com/sebastiansaintt/maestro',
+        technologies: ['Python', 'FastAPI', 'SQLite', 'React', 'Gemini API', 'Docker', 'pytest'],
+        preview: '/maestro.png'
       },
       {
         id: 2,
@@ -106,43 +122,59 @@ const messages = {
         demoBadge: 'Full PWA Walkthrough',
         videoKey: 'car-inspection',
         num: '02',
-        badge: 'Full Stack & Mobile PWA',
-        title: 'Car Inspection | Vehicle Fleet PWA',
-        subtitle: 'Special Vehicle Inspection Sector (2026)',
-        description: 'Replaced paper-based fleet inspections with a full digital workflow: inspection history, maintenance tracking, and real-time fleet availability. Modular monolith (FastAPI + MVC) built security-first: RBAC, Argon2id hashing, HTTPS cookies, and server-side validation on every input payload.',
+        badge: 'Offline-First PWA for Fleet Inspection',
+        title: 'VEYRA — Offline-First PWA for Vehicle Fleet Inspection',
+        subtitle: 'Python · FastAPI · PostgreSQL · Redis · React · TypeScript · Gemini AI · Docker (2026)',
+        description: 'Digitalized paper-based vehicle fleet technical inspections with automated Excel exports and Gmail alerts. Operates offline and synchronizes upon reconnection without duplicate data; the audit history is immutable and never overwritten, with AI voice dictation to fill forms by speaking.',
         bullet_points: [
-          'Modular Layered + MVC architecture with FastAPI, React, TypeScript, PostgreSQL, and SQLAlchemy.',
-          'Secure auth with JWT, HttpOnly cookies, RBAC, Argon2id, and Redis token revocation under OWASP.',
-          'Containerized environment with Docker Compose for local orchestration and deployment.'
+          'Digitalized paper-based technical inspections with automated Excel exports and Gmail alerts.',
+          'Works offline and synchronizes reliably upon reconnection without data duplication; inspection history is fully audited and immutable.',
+          'Integrated multimodal AI voice dictation to fill checklist forms by speaking, protected by role-based access control.'
         ],
         github_link: 'https://github.com/sebastiansaintt/car_checking',
-        technologies: ['FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker Compose', 'PWA', 'OWASP'],
+        technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'React', 'TypeScript', 'Gemini AI', 'Docker'],
         preview: previewCarInspection,
-        demoDescription: 'In-depth product demonstration of the Car Inspection PWA: from cryptographic authentication, role handling, responsive checklist workflows, real-time photo evidence capture, to automated cryptographic report generation.',
+        demoDescription: 'In-depth walkthrough of VEYRA (Vehicle Inspection PWA): authentication with HttpOnly cookies and role-based access control, technical checklist, AI voice dictation, immutable history, and Excel report export.',
         chapters: [
-          { time: '00:00', seconds: 0, title: 'Auth & RBAC Access', desc: 'Secure login flow with JWT, Argon2id, and granular permissions.' },
-          { time: '00:45', seconds: 45, title: 'Vehicle Fleet & Inspection Init', desc: 'Selecting vehicle unit and starting real-time inspection log.' },
-          { time: '01:30', seconds: 90, title: 'Interactive Technical Checklist', desc: 'Step-by-step automotive inspection with instant form validation.' },
-          { time: '02:40', seconds: 160, title: 'Photo Evidence & Logging', desc: 'Attaching photo logs and anomaly details with compression.' },
-          { time: '03:45', seconds: 225, title: 'Audit Trail & PDF Report', desc: 'Digital closure, state freezing, and report compilation.' }
+          { time: '00:00', seconds: 0, title: 'Auth & Role-Based Access', desc: 'Secure login flow with JWT HttpOnly cookies and role permissions.' },
+          { time: '00:45', seconds: 45, title: 'Fleet & Vehicle Record Lookup', desc: 'Real-time license plate lookup and record verification.' },
+          { time: '01:30', seconds: 90, title: 'Technical Checklist & AI Voice Dictation', desc: 'Step-by-step automotive evaluation and structured voice extraction.' },
+          { time: '02:40', seconds: 160, title: 'Immutable Sub-records & History', desc: 'Recording findings without overwriting prior inspection data.' },
+          { time: '03:45', seconds: 225, title: 'Audit Trail & Document Export', desc: 'Reviewing change history and automated Excel document generation.' }
         ]
       },
       {
         id: 3,
-        slug: 'lawsim-pymes',
+        slug: 'risk-follower',
         hasDemo: false,
         num: '03',
-        badge: 'Enterprise Architecture & NLP',
-        title: 'LawSim Pymes | Regulatory Simulation Platform',
-        subtitle: 'Enterprise System Architecture & Rule Reasoning (2025)',
-        description: 'Enterprise hybrid architecture combining Layered, Microservices, and MVC patterns to decouple CRUD operations from computational reasoning pipelines. Integrates OWL 2 domain ontologies, SWRL rules, and LEGAL-BETO NLP.',
+        badge: 'Real-Time IoT Telemetry Pipeline',
+        title: 'Risk Follower — Real-Time Environmental IoT Telemetry Pipeline',
+        subtitle: 'Python · FastAPI · MQTT · WebSockets · PostgreSQL (Supabase) · ESP32 · Docker (2025)',
+        description: 'Continuous monitoring pipeline for CO2, temperature, and humidity during craft fermentation, transmitting telemetry from ESP32 sensors to a real-time dashboard. Features dynamic alert classification, automated email notifications, and secure role-based access.',
         bullet_points: [
-          'Modeled domain ontologies in OWL 2 (Protégé) with HermiT reasoner, SWRL rules, and LEGAL-BETO NLP.',
-          'Defined SOAP/WSDL microservices, Redis distributed caching, and asymmetric JWT (RS256) security.',
-          'Applied UWE and OOHDM methodologies for user-centric interaction and navigation flows.'
+          'Built an end-to-end telemetry pipeline: ESP32 sensors capture CO2, temperature, and humidity in craft fermentation → database → live dashboard and data export.',
+          'Developed an alert engine (normal / warning / danger) that logs hardware incidents and dispatches automated email alerts with real-time updates and role-based access.'
+        ],
+        github_link: 'https://github.com/realprodigium/risk_follower',
+        technologies: ['Python', 'FastAPI', 'MQTT', 'WebSockets', 'PostgreSQL', 'ESP32', 'Docker'],
+        preview: '/co2bien.png'
+      },
+      {
+        id: 4,
+        slug: 'lawsim-pymes',
+        hasDemo: false,
+        num: '04',
+        badge: 'Regulatory Simulation Platform',
+        title: 'LawSim Pymes — Regulatory Simulation Platform',
+        subtitle: 'FastAPI · Vue.js · OWL 2 / Protégé · SWRL · NLP · Redis (2025)',
+        description: 'Preliminary legal compliance platform for Colombian SMEs, decoupling web business operations from legal reasoning and rules inference.',
+        bullet_points: [
+          'Structured modular services decoupling UI, query handling, and rule-based logic.',
+          'Caching with Redis and secure JWT authentication for rapid query execution.'
         ],
         github_link: 'https://github.com/sebastiansaintt/WebDesign',
-        technologies: ['Software Architecture', 'FastAPI', 'Vue.js', 'OWL 2 / Protégé', 'NLP (LEGAL-BETO)', 'SOAP / WSDL', 'Redis'],
+        technologies: ['FastAPI', 'Vue.js', 'Redis', 'JWT', 'REST APIs'],
         preview: '/lawsim.png'
       }
     ],
@@ -156,104 +188,120 @@ const messages = {
 
     // Footer
     footerColophon: 'Inspired by Brittany Chiang. Built with Vue 3, Vite, and Tailwind CSS.',
-    copyright: '© 2026 Sebastián Cardona'
+    copyright: '© 2026 Sebastián José Cardona Ramírez'
   },
   es: {
     name: 'Sebastián Cardona',
     fullName: 'Sebastián José Cardona Ramírez',
-    role: 'Backend & Data Engineer',
-    subtitle: 'APIs Escalables, Pipelines de Datos Resilientes & Seguridad E2E',
-    tagline: 'Construyo APIs de alto rendimiento, flujos de datos resilientes y arquitecturas seguras con una perspectiva integral de extremo a extremo en entornos IoT, Web y Mobile.',
-    statusBadge: 'Actualmente auxiliar de investigación enseñando React Native',
-    statusBadgeDetail: 'Auxiliar de investigación & Docencia en React Native',
+    role: 'Ingeniero de Software | Ingeniero y Desarrollador Backend',
+    subtitle: 'Desarrollo Backend, Sistemas Web/Móvil/IoT y Soluciones con IA',
+    tagline: 'Ingeniero de Software enfocado en desarrollo backend para entornos web, móvil e IoT. Priorizo la planificación pre-código, la optimización de procesos y la construcción de soluciones escalables.',
+    bio: 'Ingeniero de Software con enfoque sólido en backend (Python/FastAPI, Node.js). Experiencia comprobada desarrollando plataformas multi-tenant con IA, PWAs con soporte offline y pipelines IoT en tiempo real con Docker.',
+    statusBadge: 'Auxiliar de Investigación (Desarrollo Móvil) @ UAN',
+    statusBadgeDetail: 'Auxiliar de Investigación en Desarrollo Móvil (React Native)',
     locationText: 'Santa Marta, Colombia · Remoto y Relocalización',
     email: 'scarrdona@gmail.com',
     copyEmail: 'Copiar Correo',
     emailCopied: '¡Correo copiado al portapapeles!',
 
-    // Enlaces de navegación con indicador
-    navAbout: 'Sobre Mí',
-    navExperience: 'Experiencia y Educación',
+    // Navegación y Command Palette
+    navHome: 'Inicio',
+    navAbout: 'Perfil',
+    navExperience: 'Experiencia y Formación',
+    navStack: 'Habilidades',
     navProjects: 'Proyectos',
     navActivity: 'Actividad',
+    navContact: 'Contacto',
+    techStackHeading: 'Habilidades Técnicas y Stack',
+    openGithub: 'Ver Repositorio en GitHub',
+    catBackend: 'Backend y APIs',
+    catData: 'Bases de Datos',
+    catAuth: 'Seguridad y Autenticación',
+    catInfra: 'DevOps y Calidad',
+    catAI: 'Frontend, Móvil e IA',
+    cmdTitle: 'Paleta de Comandos',
+    cmdPlaceholder: 'Escribe un comando o busca...',
+    cmdNoResults: 'No se encontraron comandos.',
+    cmdNavigation: 'Navegación',
+    cmdActions: 'Acciones Rápidas',
+    cmdDownloadCV_EN: 'Descargar CV (PDF Inglés)',
+    cmdDownloadCV_ES: 'Descargar CV (PDF Español)',
+    cmdCopyEmail: 'Copiar Correo (scarrdona@gmail.com)',
+    cmdOpenGitHub: 'Abrir GitHub (@sebastiansaintt)',
+    cmdOpenLinkedIn: 'Abrir LinkedIn',
+    cmdSwitchLang: 'Cambiar Idioma (ES / EN)',
+    cmdSelect: 'Seleccionar',
+    cmdClose: 'Cerrar',
 
-    // Sección About (Narrativa para Reclutadores)
-    aboutP1: 'Ingeniero de Software especializado en Backend y Data Engineering. Mi enfoque se centra en el diseño e implementación de APIs robustas, pipelines de datos confiables y workflows automatizados, priorizando siempre la seguridad, los principios de arquitectura limpia y la calidad del software.',
-    aboutP2: 'Habiendo trabajado en ecosistemas que abarcan IoT, Web y plataformas móviles, entiendo a profundidad el ciclo de vida End-to-End (E2E) de un producto digital: desde la captura y telemetría de datos en el borde o cliente, pasando por el procesamiento distribuido, hasta la persistencia y entrega eficiente a través de servicios escalables.',
-    aboutP3: 'Actualmente expando y aplico mis capacidades en Data Engineering, diseñando flujos de ingesta, transformación y modelado de datos que permiten a los sistemas operar con alta disponibilidad, trazabilidad y bajo acoplamiento.',
+    // Sección Sobre Mí (Alineada exactamente con el CV)
+    aboutP1: 'Ingeniero de Software con enfoque sólido en ingeniería y desarrollo Backend para entornos web, móvil e IoT. Me caracterizo por ser un profesional integral centrado en la optimización de procesos, la construcción de soluciones escalables y la planificación pre-código.',
+    aboutP2: 'Cuento con experiencia comprobada desarrollando plataformas multi-tenant con IA e integración de canales comerciales (Maestro), PWAs con funciones offline para operación en campo (VEYRA) y pipelines de telemetría IoT en tiempo real (Risk Follower).',
+    aboutP3: 'Mi trabajo técnico incluye la construcción de APIs seguras, diseño de bases de datos con ORM, pruebas automatizadas con pytest y despliegues con Docker. Actualmente me desempeño como Auxiliar de Investigación en desarrollo móvil (React Native) en la Universidad Antonio Nariño.',
 
-    // Principios de Arquitectura
-    principlesTitle: 'Principios de Arquitectura & Estándares',
-    principlesP1: 'Selecciono arquitecturas, patrones y tecnologías según los requisitos funcionales y no funcionales del problema, priorizando fundamentos de ingeniería sobre herramientas específicas. Aplico principios como SOLID, ACID y CAP, prácticas de diseño y desarrollo seguro alineadas con estándares OWASP, ISO e IEEE, y metodologías ágiles como Scrum.',
-    principlesP2: 'He implementado mecanismos como JWT (RS256/HS256), access y refresh tokens rotativos, HttpOnly Cookies, RBAC, rate limiting, Argon2id, sanitización y validación de entradas, protección frente a XSS y contenerización con Docker, buscando construir software seguro, mantenible, escalable y preparado para evolucionar.',
+    // Principios y Buenas Prácticas
+    principlesTitle: 'Enfoque Técnico y Buenas Prácticas',
+    principlesP1: 'Planificación antes de codificar: analizo a fondo las necesidades del negocio para estructurar arquitecturas en capas claras (rutas, servicios y persistencia), garantizando código limpio, modular y fácil de mantener.',
+    principlesP2: 'Estándares aplicados: autenticación con JWT y cookies HttpOnly, control de acceso por roles (RBAC), control de peticiones con Redis, registro estructurado de eventos y entornos reproducibles con Docker Compose.',
 
-    // Experiencia
+    // Experiencia y Formación (Alineadas con el CV)
     experience: [
       {
-        period: '2026 — Presente',
-        title: 'Auxiliar de Investigación: React Native',
-        company: 'Universidad Antonio Nariño',
+        period: 'Ago. 2026 — Actualidad',
+        title: 'Auxiliar de Investigación, Desarrollo Móvil',
+        company: 'Universidad Antonio Nariño (UAN)',
         companyUrl: 'https://www.uan.edu.co/',
-        description: 'Lidero talleres técnicos e instrucción práctica en desarrollo con React Native y conectividad backend. Coordino prototipos de investigación que enlazan microcontroladores, sensores en el borde y endpoints cloud.',
-        technologies: ['React Native', 'TypeScript', 'Expo', 'Mobile Development']
+        description: 'Enseño React Native y JavaScript en sesiones prácticas de live coding a grupos de 8 a 12 estudiantes. Reviso interfaces con principios de usabilidad (Apple HIG, Don Norman, Gestalt) y promuevo código limpio y modular en los proyectos de investigación.',
+        technologies: ['React Native', 'JavaScript', 'TypeScript', 'Apple HIG & Usabilidad', 'Código Limpio & Modular']
       },
       {
-        period: '2022 — 2026',
+        period: 'Feb. 2022 — Jul. 2026',
         title: 'Ingeniería de Software (Pregrado)',
-        company: 'Universidad Cooperativa de Colombia',
+        company: 'Universidad Cooperativa de Colombia (UCC)',
         companyUrl: 'https://www.ucc.edu.co/',
-        description: 'Formación rigurosa en ingeniería de software con énfasis en sistemas distribuidos, arquitectura de software (SOLID, Clean Architecture, MVC, Microservicios), modelado de bases de datos (ACID, relacionales y NoSQL) y seguridad informática.',
-        technologies: ['Desarrollo de Software', 'SDLC', 'Bases de Datos', 'IoT', 'Seguridad en la Web']
-      },
-      {
-        period: '2024',
-        title: 'Certificación de Fortalecimiento en SoftSkills HCL',
-        company: 'HabComLearn',
-        companyUrl: '#',
-        description: 'Habilidades avanzadas en comunicación asertiva, liderazgo técnico, resolución de problemas interfuncionales y gestión ágil.',
-        technologies: ['Liderazgo', 'Comunicación', 'Scrum', 'Entrega Ágil']
+        description: 'Formación profesional en Ingeniería de Software en Santa Marta, Colombia. Énfasis en desarrollo backend, bases de datos, sistemas distribuidos, IoT y desarrollo web y móvil.',
+        technologies: ['Ingeniería de Software', 'Backend', 'Bases de Datos', 'Sistemas Distribuidos', 'IoT', 'Desarrollo Web & Móvil']
       }
     ],
 
-    viewResume: 'Ver Résumé Completo',
+    viewResume: 'Ver CV Completo (PDF)',
     downloadCV: 'Descargar CV',
 
     // Proyectos
-    projectsHeading: 'Proyectos',
+    projectsHeading: 'Proyectos Destacados',
     viewGithub: 'GitHub',
-    livePreview: 'Vista Previa',
+    livePreview: 'Arquitectura y Detalles',
     watchDemo: 'Ver Demo',
     viewDemoVideo: 'Ver Video Demo',
     demoAvailable: 'Video Demo Disponible',
     backToPortfolio: 'Volver al Portafolio',
     projectOverview: 'Descripción General',
-    systemCapabilities: 'Arquitectura y Capacidades del Sistema',
-    interactiveChapters: 'Capítulos Interactivos & Puntos Clave',
+    systemCapabilities: 'Arquitectura y Capacidades',
+    interactiveChapters: 'Capítulos Interactivos y Puntos Clave',
     jumpToChapter: 'Clic para saltar a este momento del video',
-    demoComingSoonTitle: 'Video Demo en Producción',
-    demoComingSoonDesc: 'El recorrido técnico en video de este sistema se encuentra actualmente en grabación. Mientras tanto, puedes explorar la demostración interactiva de Car Inspection o revisar la arquitectura completa en GitHub.',
-    exploreOtherProjects: 'Otros Sistemas Desarrollados',
-    shareDemo: 'Compartir Demo',
-    demoLinkCopied: '¡Enlace del demo copiado al portapapeles!',
+    demoComingSoonTitle: 'Arquitectura del Sistema y Repositorio Disponibles',
+    demoComingSoonDesc: 'Explora abajo los detalles del proyecto o revisa el código fuente y las pruebas en GitHub. También puedes ver la demostración en video interactiva de VEYRA.',
+    exploreOtherProjects: 'Otros Proyectos',
+    shareDemo: 'Compartir Proyecto',
+    demoLinkCopied: '¡Enlace del proyecto copiado al portapapeles!',
 
     projects: [
       {
         id: 1,
-        slug: 'risk-follower',
+        slug: 'maestro',
         hasDemo: false,
         num: '01',
-        badge: 'Ingeniería de Datos & Pipeline en Tiempo Real',
-        title: 'Real-Time Fermentation Monitoring Pipeline',
-        subtitle: 'Telemetría para Procesos de Fermentación (2025 - 2026)',
-        description: 'Ingesta de datos de sensores en vivo (temperatura, humedad, CO2) desde microcontroladores ESP32 vía MQTT (HiveMQ Cloud) hacia PostgreSQL para análisis histórico. API REST autenticada con filtrado basado en roles, dashboard en vivo con WebSockets y autenticación JWT con 3 niveles de roles. Desplegado como monolito + background worker en Render con Postgres en Supabase.',
+        badge: 'Asistente con IA por WhatsApp + CRM Web',
+        title: 'Maestro — Asistente de ventas con IA por WhatsApp + CRM web',
+        subtitle: 'Python · FastAPI · SQLite · React · Gemini API · Docker · pytest (2026)',
+        description: 'Automaticé la atención y cotización de viajeros por WhatsApp para varias agencias de turismo, con respuestas en corto tiempo y un CRM web para que una persona tome el control cuando haga falta o monitoree la operación. Reduce de forma importante el consumo de IA agrupando mensajes seguidos, transcribe notas de voz y aísla los datos por agencia con seguridad y pruebas automatizadas.',
         bullet_points: [
-          'Backend de ingesta y validación de telemetría (temperatura, humedad, CO2) desde microcontroladores ESP32.',
-          'APIs REST y WebSockets de alto rendimiento con FastAPI y PostgreSQL.',
-          'Autenticación JWT, cifrado con Argon2 y control de accesos RBAC.'
+          'Automaticé la atención y cotización de viajeros por WhatsApp para varias agencias de turismo, con respuestas en corto tiempo y un CRM para que una persona tome el control cuando haga falta o monitoree una acción.',
+          'Reduje de forma importante el consumo de IA agrupando mensajes seguidos antes de procesarlos, y sumé transcripción de notas de voz.',
+          'Aislé los datos de cada agencia, protegí al bot con varias capas de seguridad y validé el sistema con pruebas automatizadas.'
         ],
-        github_link: 'https://github.com/realprodigium/risk_follower',
-        technologies: ['FastAPI', 'MQTT', 'WebSockets', 'PostgreSQL', 'Supabase', 'Docker', 'ESP32'],
-        preview: '/co2bien.png'
+        github_link: 'https://github.com/sebastiansaintt/maestro',
+        technologies: ['Python', 'FastAPI', 'SQLite', 'React', 'Gemini API', 'Docker', 'pytest'],
+        preview: '/maestro.png'
       },
       {
         id: 2,
@@ -262,43 +310,59 @@ const messages = {
         demoBadge: 'Recorrido Completo PWA',
         videoKey: 'car-inspection',
         num: '02',
-        badge: 'Full Stack & Mobile PWA',
-        title: 'Car Inspection | Sistema PWA de Inspección Vehicular',
-        subtitle: 'Interventoría y Mantenimiento de Vehículos Especiales (2026)',
-        description: 'Reemplazo de inspecciones de flota en papel por un flujo 100% digital: trazabilidad de revisiones, control de averías y disponibilidad de flota en tiempo real. Monolito modular (FastAPI + MVC) con seguridad de primer nivel: RBAC, Argon2id, cookies HTTPS y validación estricta de esquemas en el servidor.',
+        badge: 'App Web (PWA) Offline para Inspección Vehicular',
+        title: 'VEYRA — App web (PWA) offline para inspección vehicular',
+        subtitle: 'Python · FastAPI · PostgreSQL · Redis · React · TypeScript · Gemini AI · Docker (2026)',
+        description: 'Digitalicé una inspección técnica que se hacía en papel, con exportación automática a Excel y alertas por Gmail. Funciona sin internet y sincroniza al reconectar sin duplicar datos; el historial queda auditado y nunca se sobrescribe. Agregué dictado por voz con IA que llena el formulario hablando, con acceso seguro por roles.',
         bullet_points: [
-          'Arquitectura modular por capas + MVC con FastAPI, React, TypeScript, PostgreSQL y SQLAlchemy.',
-          'Autenticación segura con JWT, cookies HttpOnly/Secure, RBAC, Argon2id y Redis bajo OWASP.',
-          'Contenerización completa con Docker Compose para desarrollo y despliegue.'
+          'Digitalicé una inspección técnica que se hacía en papel, con exportación automática a Excel y alertas por Gmail.',
+          'Funciona sin internet y sincroniza al reconectar sin duplicar datos; el historial queda auditado y nunca se sobrescribe.',
+          'Agregué dictado por voz con IA que llena el formulario hablando, con acceso seguro por roles.'
         ],
         github_link: 'https://github.com/sebastiansaintt/car_checking',
-        technologies: ['FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker Compose', 'PWA', 'OWASP'],
+        technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'React', 'TypeScript', 'Gemini AI', 'Docker'],
         preview: previewCarInspection,
-        demoDescription: 'Demostración detallada de la PWA Car Inspection: desde el acceso seguro criptográfico, gestión de roles, flujo de checklist dinámico, captura de evidencias en tiempo real, hasta la generación automatizada de reportes con auditoría.',
+        demoDescription: 'Demostración de VEYRA (PWA de Inspección Vehicular): autenticación con cookies HttpOnly y control de acceso por roles, checklist técnico paso a paso, dictado por voz con IA, historial inmutable y exportación a Excel.',
         chapters: [
-          { time: '00:00', seconds: 0, title: 'Autenticación & Roles RBAC', desc: 'Flujo de acceso seguro con JWT, hashing Argon2id y permisos por rol.' },
-          { time: '00:45', seconds: 45, title: 'Flota Vehicular & Inicio de Inspección', desc: 'Selección de la unidad vehicular y apertura del registro en tiempo real.' },
-          { time: '01:30', seconds: 90, title: 'Checklist Técnico Dinámico', desc: 'Inspección técnica paso a paso con validaciones en caliente.' },
-          { time: '02:40', seconds: 160, title: 'Evidencias Fotográficas & Novedades', desc: 'Carga de capturas y registro de fallas mecánicas con compresión.' },
-          { time: '03:45', seconds: 225, title: 'Auditoría & Generación de Reporte PDF', desc: 'Cierre del proceso, congelamiento de datos y exportación de reporte.' }
+          { time: '00:00', seconds: 0, title: 'Autenticación & Acceso por Roles', desc: 'Acceso seguro con cookies JWT HttpOnly y permisos por rol.' },
+          { time: '00:45', seconds: 45, title: 'Búsqueda de Placa y Vehículo', desc: 'Validación de placa colombiana y consulta de registro.' },
+          { time: '01:30', seconds: 90, title: 'Checklist Técnico & Dictado con IA', desc: 'Evaluación técnica y llenado por voz mediante Gemini.' },
+          { time: '02:40', seconds: 160, title: 'Historial Inmutable & Hallazgos', desc: 'Registro de hallazgos sin sobrescribir inspecciones previas.' },
+          { time: '03:45', seconds: 225, title: 'Auditoría & Exportación de Reportes', desc: 'Revisión del registro de cambios y exportación a Excel.' }
         ]
       },
       {
         id: 3,
-        slug: 'lawsim-pymes',
+        slug: 'risk-follower',
         hasDemo: false,
         num: '03',
-        badge: 'Arquitectura Empresarial & NLP',
-        title: 'LawSim Pymes | Plataforma de Simulación Regulatoria',
-        subtitle: 'Arquitectura de Sistemas & Motor de Inferencia Normativa (2025)',
-        description: 'Blueprint arquitectónico híbrido de nivel empresarial que combina Arquitectura por Capas, Microservicios y MVC para desacoplar operaciones CRUD de pipelines de inferencia lógica. Integra ontologías OWL 2, reglas SWRL y NLP con LEGAL-BETO.',
+        badge: 'Pipeline IoT de Monitoreo Ambiental',
+        title: 'Risk Follower — Pipeline IoT de monitoreo ambiental en tiempo real',
+        subtitle: 'Python · FastAPI · MQTT · WebSockets · PostgreSQL (Supabase) · ESP32 · Docker (2025)',
+        description: 'Construí un pipeline de datos completo: sensores ESP32 miden CO₂, temperatura y humedad en fermentación artesanal → base de datos → panel en vivo y exportación. Creé un motor de alertas (normal / advertencia / peligro) que abre incidentes y envía correos automáticos, con datos en vivo y acceso por roles.',
         bullet_points: [
-          'Modelado ontológico en OWL 2 (Protégé) con razonador HermiT, reglas SWRL y NLP con LEGAL-BETO.',
-          'Interfaces SOAP/WSDL, caché distribuida con Redis y seguridad criptográfica con JWT RS256.',
-          'Metodologías UWE y OOHDM para modelado de interacción orientada al usuario.'
+          'Construí un pipeline de datos completo: sensores ESP32 miden CO₂, temperatura y humedad en fermentación artesanal → base de datos → panel en vivo y exportación.',
+          'Creé un motor de alertas (normal / advertencia / peligro) que abre incidentes y envía correos automáticos, con datos en vivo y acceso por roles.'
+        ],
+        github_link: 'https://github.com/realprodigium/risk_follower',
+        technologies: ['Python', 'FastAPI', 'MQTT', 'WebSockets', 'PostgreSQL', 'ESP32', 'Docker'],
+        preview: '/co2bien.png'
+      },
+      {
+        id: 4,
+        slug: 'lawsim-pymes',
+        hasDemo: false,
+        num: '04',
+        badge: 'Simulación Regulatoria',
+        title: 'LawSim Pymes — Plataforma de Simulación Regulatoria',
+        subtitle: 'FastAPI · Vue.js · OWL 2 / Protégé · SWRL · NLP · Redis (2025)',
+        description: 'Plataforma de asesoría jurídica preliminar para PyMEs colombianas. Desacopla la lógica de negocio y las consultas web del motor de reglas e inferencia normativa.',
+        bullet_points: [
+          'Estructuración modular de servicios separando la interfaz de usuario, las consultas y el razonamiento lógico normativo.',
+          'Caché con Redis y autenticación segura con JWT para consultas rápidas.'
         ],
         github_link: 'https://github.com/sebastiansaintt/WebDesign',
-        technologies: ['Software Architecture', 'FastAPI', 'Vue.js', 'OWL 2 / Protégé', 'NLP (LEGAL-BETO)', 'SOAP / WSDL', 'Redis'],
+        technologies: ['FastAPI', 'Vue.js', 'Redis', 'JWT', 'APIs REST'],
         preview: '/lawsim.png'
       }
     ],
@@ -308,11 +372,11 @@ const messages = {
     githubContributions: 'contribuciones en 2025–2026',
     githubLess: 'Menos',
     githubMore: 'Más',
-    githubProfileLink: '{\'@\'}sebastiansaintt',
+    githubProfileLink: '@sebastiansaintt',
 
     // Pie
     footerColophon: 'Inspirado por Brittany Chiang. Construido con Vue 3, Vite y Tailwind CSS.',
-    copyright: '© 2026 Sebastián Cardona'
+    copyright: '© 2026 Sebastián José Cardona Ramírez'
   }
 }
 
